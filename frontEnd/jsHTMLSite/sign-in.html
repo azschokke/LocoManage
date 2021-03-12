@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In :: LocoManage!</title>
+        <script type="text/javascript" src="./js/javascript.js"></script>
+        <link rel="stylesheet" type="text/css" href="./styles/main.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="icon" type="image" href="images/favicon.ico">
+    </head>
+    <body id="index" onload="checkSignedIn()">
+        <header>
+            <h1><a href="./index.html">LocoManage</a></h1>
+            <div class="nav_menu"><i class="material-icons" style="font-size:50px">menu</i>
+                <div class="nav_menu_content">
+                    <ul>
+                        <a href="./index.html"><li>Home</li></a>
+                        <a href="./about-us.html"><li>About Us</li></a>
+                        <a href="./sign-in.html" id="signIn"><li>Sign In</li></a>
+                    </ul>
+                </div>
+        </header>
+        <div class="main" id="sign_in">
+            <div id="existing_user">
+                <h1>Sign In</h1>
+                <form>
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <button id="submit">Sign In </button>
+                </form>
+                <p onclick="alert('tough')">Forgot username?</p>
+                <p onclick="alert('tough')">Forgot password?</p>
+            </div>
+
+            <div id="new_user">
+                <h1>Create Account</h1>
+                <form>
+                    <input type="text" name="name" id="enter_name" placeholder="Name">
+                    <input type="email" name="email" id="enter_email" placeholder="Email">
+                    <input type="text" name="username" id="create_username" placeholder="Create a Username">
+                    <input type="password" name="password" id="password" placeholder="Create a Password">
+                    <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Your Password">
+                    <button id="submit">Sign Up</button>
+                </form>
+            </div>
+            
+        </div>
+        <footer>
+            <p>Thanks for visiting!</p>
+            <p>Check us out on <a href="https://azschokke.github.io/" target="_blank">Github</a>!</p>
+            <p><a href="mailto:alicen.zschokke@gmail.com?subject=LocoManage%20SBA">Email Us!</a></p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+LocoManage - Alicen Zschokke
+
+For my case study, I will be building an application that tracks and manages model trains. 
+The database will be the main focus of the application, since it is a management system. Each user will have tracks (on their model layout), trains (comprised of cars), and the cars themselves. Cars will be contained and displayed in a train, and one or more trains are located on a track. There will also be yards, comprised of cars not currently in a train but still on the layout. The user will have to enter their name and email address in addition to creating a user name and password unique to the site. 
+
+The user interface will be relatively simple, but allow the user to view their cars individually or by train, and the trains individually or by track. There will also be a layout view that shows all the tracks and associated trains at a given time, as well as the yard with inactive trains on the layout. The user will enter the details for the cars, as well as the tracks, and can create trains based on the cars in their inventory.

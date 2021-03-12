@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us :: LocoManage</title>
+        <script type="text/javascript" src="./js/trainTable.js"></script>
+        <script type="text/javascript" src="./js/javascript.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./styles/main.css">
+        <link rel="icon" type="image" href="images/favicon.ico">
+    </head>
+    <body id="about" onload="setup()">
+        <header>
+            <h1><a href="./index.html">LocoManage</a></h1>
+            <div class="nav_menu"><i class="material-icons" style="font-size:50px">menu</i>
+            <div class="nav_menu_content">
+                <ul>
+                    <a href="./index.html"><li>Home</li></a>
+                    <a href="./about-us.html"><li>About Us</li></a>
+                    <a href="./sign-in.html" id="signIn"><li>Sign In</li></a>
+                </ul>
+            </div>
+        </header>
+
+        <div class="main">
+            <h1>About Us</h1>
+            <p>We provide a system for tracking all of your model trains online!</p>
+            <h3>Sample Table</h3>
+
+            <table id="trainTable">
+                <thead>
+                    <tr>
+                        <th>Railroad</th>
+                        <th>Model Name</th>
+                        <th>Type</th>
+                        <th>Year</th>
+                        <th>Scale</th>
+                        <th>Car Number</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContent">
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>Thanks for visiting!</p>
+            <p>Check us out on <a href="https://azschokke.github.io/" target="_blank">Github</a>!</p>
+            <p><a href="mailto:alicen.zschokke@gmail.com?subject=LocoManage%20SBA">Email Us!</a></p>
+        </footer>
+    </body>
+</html>
