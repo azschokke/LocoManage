@@ -1,0 +1,387 @@
+Box	Ft	Owner	ID Number	Type	Notes	Producer	SKU	Stat	Cat
+67	59	AC	204	GP38-2	Algoma twin to Greg's unit 202	Athearn		f	l
+531	69	AMTK	1	P42	"Phase III, DC"	Athearn	3640	f	l
+1501	69	AMTK	113	P42	"Phase V, low stripe, DC"	Athearn	99230	f	l
+1113	69	AMTK	115	P42	"Phase IV, DC"	Athearn	3641	f	l
+1112	69	AMTK	117	P42	"Phase IV, DC"	Athearn	3641	f	l
+666	69	AMTK	120	P42	"Phase IV, DC"	Athearn	3641	f	l
+1038	69	AMTK	121	P42	"Phase IV, DC"	Athearn	3641	f	l
+1202	69	AMTK	129	P42	"Phase V, high stripe, DC"	Athearn	9669	f	l
+2199	69	AMTK	132	P42	"Phase V, low stripe, DC"	Athearn	99448	f	l
+1302	69	AMTK	140	P42	"Phase V, high stripe, DC"	Athearn	9669	f	l
+1040	69	AMTK	141	P42	"Phase V, high stripe, DC"	Athearn	9617	f	l
+1378	69	AMTK	147	P42	"Phase V, low stripe, DC"	Athearn	99177	f	l
+2755	69	AMTK	150	P42	"Phase V, low stripe, DC"	Kato	37-6109	f	l
+2195	69	AMTK	156	P42	"Phase I, Anniversary scheme, DC"	Athearn	99450	f	l
+1500	69	AMTK	167	P42	"Phase V, low stripe, DC"	Athearn	99229	f	l
+1921	69	AMTK	178	P42	"Phase V, low stripe, DC"	Athearn	99338	f	l
+1377	69	AMTK	180	P42	"Phase V, low stripe, DC"	Athearn	99176	f	l
+2449	69	AMTK	184	P42	"Phase IV, 2011 Anniversary unit, DCC/S"	Kato	37-6107-LS	f	l
+737	60	AMTK	2006	Acela Loco	"Phase V, Powered, DC"	Bachmann	81949	f	l
+738	60	AMTK	2007	Acela Loco	"Phase V, dummy"	Bachmann	81949	f	l
+1203	69	AMTK	201	P42	"Phase V, low stripe, DC"	Athearn	9670	f	l
+2754	56	AMTK	203	F40PH	"Phase III, DCC/S"	Rapido	83501	f	l
+2528	56	AMTK	216	F40PH	"Phase II, DCC/S"	Rapido	80538	f	l
+2536	56	AMTK	227	F40PH	"Phase III, DCC/S"	Rapido	80546	f	l
+780	56	AMTK	228	F40PH	"Phase II, Under const"	Walthers	931-300	k	l
+2526	56	AMTK	228	F40PH	"Phase III, DCC/S"	Rapido	80547	f	l
+779	56	AMTK	243	F40PH	"Phase II, Under const"	Walthers	931-300	k	l
+2210	70	AMTK	251	E8A	"Phase I, DCC/S"	Walthers	920-41366	f	l
+2211	70	AMTK	254	E8A	"Phase I, DCC/S"	Walthers	920-41367	f	l
+781	56	AMTK	265	F40PH	"Phase II, Under const"	Walthers	931-300	k	l
+765	56	AMTK	280	F40PH	"Phase II, Under const"	Walthers	931.3	k	l
+2153	56	AMTK	358	F40PH	"Phase III, DC"	Kato	37-6553	f	l
+71	56	AMTK	372	F40PH	"Phase III, DC"	Front Range	TVK	f	l
+2151	56	AMTK	372	F40PH	"Phase III, DC"	Kato	37-6553	f	l
+2152	56	AMTK	373	F40PH	"Phase III, DC"	Kato	37-6553	f	l
+70	56	AMTK	373	F40PH	"Phase III, DC, Walthers repower"	Front Range	TVK	f	l
+2781	56	AMTK	375	F40PH	"Phase III, DC, to be 375"	Kato	37-6551	d	l
+2154	56	AMTK	378	F40PH	"Phase III, DC"	Kato	37-6553	f	l
+2488	64	AMTK	38	LRC	"Phase III, white, needs details, DCC installed"	Rapido	200011	k	l
+2489	64	AMTK	39	LRC	"Phase III, white, needs details, DCC/S installed"	Rapido	200012	k	l
+2782	56	AMTK	391	F40PH	"Phase III, DC, to be 361"	Kato	37-6552	d	l
+1374	56	AMTK	391	F40PH	"Phase III, DC"	Kato	37-6552	f	l
+2783	56	AMTK	400	F40PH	"Phase III, DC, to be 360"	Kato	37-6553	d	l
+1375	56	AMTK	400	F40PH	"Phase III, DC"	Kato	37-6553	f	l
+795	56	AMTK	455	F59PHI	"Phase IV, Amtrak West factory paint"	Athearn	2602	f	l
+2198	56	AMTK	467	F59PHI	"Phase IV, Amtrak Northwest, num boards"	Athearn	2605	d	l
+2507	59	AMTK	488	FL9	"Phase III, DCC/S"	Rapido	14555	f	l
+2508	59	AMTK	489	FL9	"Phase II, DCC/S"	Rapido	14557	f	l
+1198	67	AMTK	513	Dash 8-32BWH	"Phase IV, DC"	Atlas	9070	f	l
+884	67	AMTK	516	Dash 8-32BWH	"Phase IV, DC"	Atlas	9070	f	l
+1919	67	AMTK	519	Dash 8-32BWH	"Phase V, DCC"	Atlas	7277	e	l
+2752	72	AMTK	522	SDP40F	"Phase II, DCC/S"	Athearn	G63985	f	l
+2753	72	AMTK	523	SDP40F	"Phase II, DCC/S"	Athearn	G63986	f	l
+1868	72	AMTK	533	SDP40F	"Phase II, w/Ath SD50 KCS z"	Kaslo	HL-14	a	l
+1869	72	AMTK	535	SDP40F	"Phase II, w/Ath SD50 KCS z"	Kaslo	HL-14	a	l
+2707	72	AMTK	540	SDP40F	"Phase I, DCC/S"	Athearn	G63971	f	l
+2708	72	AMTK	575	SDP40F	"Phase I, DCC/S"	Athearn	G63972	f	l
+701	71	AMTK	600	E60CP	"Phase III, DC"	Walthers	932-1200	d	l
+76	72	AMTK	603	SDP40F	"Phase III, Kitbashed FP45 on a SD40-2 frame"	Athearn	TVK	f	l
+2756	65	AMTK	619	ACS-64	"Phase V, DCC/S"	Bachmann	67402	f	l
+2757	65	AMTK	642	ACS-64	"Phase V, Veterans scheme, DCC/S"	Bachmann	67403	f	l
+1499	60	AMTK	651	HHP-8	"Phase V, DC"	Bachmann	83004	f	l
+2273	69	AMTK	66	P42	"Phase II, Anniversary scheme"	Athearn	99451	f	l
+121	72	AMTK	706	P30CH	"Phase III, Dummy, scratchbuilt"	Scratchbuilt	TVK	f	l
+1920	69	AMTK	72	P42	"Phase V, low stripe, DC"	Athearn	99337	f	l
+2670	40	AMTK	737	SW1	"Phase V, DC"	Walthers	910-9215	f	l
+2649	69	AMTK	74	P42	"Phase V, low stripe, DC"	Athearn	88746	f	l
+1109	69	AMTK	800	P40	"Phase IV, DC"	Athearn	3640	f	l
+722	69	AMTK	802	P40	"Phase IV, DC"	Athearn	3640	f	l
+532	69	AMTK	805	P40	"Phase III, DC"	Athearn	3640	f	l
+2272	69	AMTK	822	P40	"Phase III, Anniversary scheme, DC"	Athearn	99452	f	l
+1111	69	AMTK	823	P40	"Phase IV, DC"	Athearn	3640	f	l
+2230	69	AMTK	832	P40	"Phase IV, Daniel's dummy unit"	Athearn		a	l
+1110	69	AMTK	835	P40	"Phase IV, DC"	Athearn	3640	f	l
+1114	69	AMTK	9	P42	"Phase III, DC"	Athearn	3641	f	l
+2762	56	AMTK	90200	NPCU	"Phase V, DCC/S"	Rapido	81508	f	l
+2763	56	AMTK	90218	NPCU	Phase V CDTX retro scheme DCC/S	Rapido	81512	f	l
+2764	56	AMTK	90219	NPCU	"Phase III, DCC/S"	Rapido	81503	f	l
+1199	51	AMTK	904	AEM7	"Phase IV, DC"	Atlas	8583	f	l
+702	51	AMTK	908	AEM7	"Phase III, DC"	Atlas	8571	f	l
+703	51	AMTK	910	AEM7	"Phase IV, DC"	Atlas	8576	f	l
+1200	51	AMTK	920	AEM7	"Phase IV, DC"	Atlas	8583	f	l
+2729	51	AMTK	935	AEM7	"Phase V, DCC/S"	Atlas	10001673	f	l
+1039	69	AMTK	94	P42	"Phase III, DC"	Athearn	3641	f	l
+2727	51	AMTK	942	AEM7	"Phase V, DCC/S"	Atlas	10001672	k	l
+2728	51	AMTK	946	AEM7	"Phase V, DCC/S"	Atlas	10001673	k	l
+1092	71	AMTK	960	E60CP	"Phase II, Sofie gift, DC"	Walthers	932-	f	l
+2712	71	BCR	4601	Dash 8-40CM	"Red, white and blue, DCC/S"	Rapido	400511	f	l
+2679	69	BCR	752	SD40-2	"Red white blue scheme, DCC/S"	Bowser	24447	f	l
+1169	85	BCR	BC-10	RDC1	25.00   Two tone green scheme	Proto1000	239812	f	l
+2771	78	BNSF	5765	ES44AC	"to be 5720, older green/orange scheme, Daniel"	Athearn	G69789	p	l
+2363	73	BNSF	5833	ES44AC	"DCC Swoosh, Daniels unit"	Athearn	G69756	d	l
+778	56	CDTX	2006	F59PHI	"California unit, Daniel's"	Athearn	2607	f	l
+1308	56	CDTX	2007	F59PHI	"California unit, RTR"	Athearn	2629	f	l
+885	67	CDTX	2051	Dash 8-32BWH	Amtrak California scheme	Atlas	9077	f	l
+1392	73	CEFX	1024	AC4400CW	Blue with white stripes	Athearn	79825	f	l
+2583	71	CN		Dash 8-40C	"Undec, DCC/S"	Atlas	9696	p	l
+2584	71	CN		Dash 8-40C	"Undec, DCC/S"	Atlas	9696	p	l
+2468	71	CN		Dash 8-40CM	"Shell, NP maybe"	Kaslo	HL-01	a	l
+2467	71	CN		Dash 8-40CM	"Shell, NP maybe"	Kaslo	HL-01	a	l
+1520	73	CN		Dash 9-44CW	CN Kaslo Cab HC-5	Athearn	4981	k	l
+1519	73	CN		Dash 9-44CW	CN Kaslo Cab HC-5	Athearn	4950	k	l
+539	73	CN		Dash 9-44CW	CN Kaslo Cab HC-5	Athearn	4930	k	l
+2067	56	CN		GP9rm	No power right now	Kaslo	HL-21	a	l
+1439	56	CN		GP9rm	"Proto2000 ON 1600, 97059"	Kaslo	HL-21	a	l
+1430	66	CN		SD40	Undec	Athearn	93540	a	l
+1431	66	CN		SD40	Undec	Athearn	93540	a	l
+1436	71	CN		SD50F	Ath KCS 2000 z	Kalso	HL-6	a	l
+1438	71	CN		SD60F	Ath CSX 8701 z	Kalso	HL-7	a	l
+1440	45	CN		SW1200RS	"Proto2000 FEC 226, 21132"	Point1	P1HK-16	a	l
+2454	55	CN	1070	GMD-1	"CN red cab, DCC/S"	Rapido	10521	f	l
+2509	55	CN	1156	GMD-1	"CN red cab, DCC/S"	Rapido	10540	f	l
+2510	55	CN	1171	GMD-1	"CN red cab, DCC/S"	Rapido	10540	f	l
+534	45	CN	1366	SW1200	CN single stripe scheme	Proto2000	8854	f	l
+2746	45	CN	1377	SW1200RS	"CN Noodle, red cab, DDC/S"	Rapido	26554	f	l
+2745	45	CN	1378	SW1200RS	"CN Noodle, red cab, DDC/S"	Rapido	26554	f	l
+2686	55	CN	1400	GMD-1	"CN rebuild, stripes, DCC/S"	Rapido	10607	f	l
+204	55	CN	1400	GMD-1	"DCC powered from SW1500, DCC"	Athearn	TVK	f	l
+205	55	CN	1409	GMD-1	"DCC powered from SW1500, DCC"	Athearn	TVK	f	l
+2688	55	CN	1409	GMD-1	"CN rebuild, stripes, DCC/S"	Rapido	10609	f	l
+2687	55	CN	1437	GMD-1	"CN rebuild, stripes, DCC/S"	Rapido	10615	f	l
+2684	55	CN	1600	GMD-1	"CN rebuild, stripes, DCC/S"	Rapido	10601	f	l
+2685	55	CN	1607	GMD-1	"CN rebuild, stripes, to be 1609, DCC/S"	Rapido	10604	d	l
+2448	55	CN	1903	GMD-1	"CN Black cab, DCC/S"	Rapido	10516	f	l
+2451	55	CN	1904	GMD-1	"CN red cab, DCC/S"	Rapido	10524	f	l
+2452	55	CN	1909	GMD-1	"CN red cab, DCC/S"	Rapido	10524	f	l
+2450	55	CN	1912	GMD-1	"CN red cab, DCC/S"	Rapido	10524	f	l
+2453	55	CN	1915	GMD-1	"CN red cab, DCC/S"	Rapido	10524	f	l
+2194	73	CN	2240	ES44DC	www . Cn .com scheme	Intermountain	49723-03	f	l
+2710	71	CN	2412	Dash 8-40CM	"stripes scheme, DCC/S"	Rapido	400505	d	l
+2711	71	CN	2416	Dash 8-40CM	"stripes scheme, DCC/S"	Rapido	400505	f	l
+2709	71	CN	2439	Dash 8-40CM	"CNNA scheme, DCC/S"	Rapido	400510	f	l
+1420	73	CN	2653	Dash 9-44C	"RTR, www.cn.ca, Christmas gift from Mike Sofie"	Athearn	80873	f	l
+2066	61	CN	3550	M420W	"Use Atlas MILW 5001 for power, 3550 per Kevin"	Kaslo	HL-11	a	l
+58	45	CN	425	SW1200RS	CN worm	Athearn	3705	f	l
+2617	56	CN	4401	GP9	"zebra stripes, DCC/S"	Athearn	ATHG62787	f	l
+2618	56	CN	4411	GP9	"zebra stripes, DCC/S"	Athearn	ATHG62788	f	l
+2465	56	CN	4417	GP9	"red cab, stripes, may be renum to 4414, DCC/S"	Athearn	ATHG62789	f	l
+51	59	CN	4773	GP38-2W	"CN Cab, old number - 5573"	Athearn		f	l
+2319	59	CN	4789	GP38-2W	"CN Cab, Stripes, DCC/S"	Athearn	G40602	f	l
+2320	59	CN	4809	GP38-2W	"CN Cab, Stripes, Comfort Cab, DCC/S"	Athearn	G40603	f	l
+1428	66	CN	5004	SD40	Painted	Athearn	93547	f	l
+1429	66	CN	5125	SD40	Painted	Athearn	93548	f	l
+2361	69	CN	5241	SD40-2W	DCC Zebra stripe	Intermountain	49301S-05	f	l
+2360	69	CN	5258	SD40-2W	DCC Zebra stripe	Intermountain	49301S-04	f	l
+2175	69	CN	5262	SD40-2W	"Stripes, Non dynamic"	Intermountain	49304-01	f	l
+97	69	CN	5263	SD40-2W	New grey stripe	Athearn		f	l
+1990	69	CN	5263	SD40-2W	frame to be assembled	Railflyer	Kit Parts	a	l
+1874	69	CN	5292	SD40-2W	frame to be assembled	Railflyer	Kit Parts	a	l
+2362	69	CN	5332	SD40-2W	DCC CNNA scheme	Intermountain	49307S-02	f	l
+1873	69	CN	5350	SD40-2W	frame to be assembled	Railflyer	Kit Parts	a	l
+66	71	CN	5401	SD50F	Scratch built shell with CN Cab	Athearn	TVK	f	l
+1435	71	CN	5428	SD50F	Ath KCS 705 z	Kalso	HL-6	a	l
+1437	71	CN	5515	SD60F	Ath CSX 8701 z	Kalso	HL-7	a	l
+670	72	CN	5600	SD70I	single stripe	Athearn	G6020	a	l
+672	72	CN	5607	SD70I	single stripe	Athearn	G6020	a	l
+1412	72	CN	5610	SD70I	"To assemble, painted"	Athearn	G6132	a	l
+717	72	CN	5612	SD70I	"60.00   single stripe, xmas mike"	Athearn	G6020	a	l
+1413	72	CN	5710	SD75I	RTR	Athearn	G6193	f	l
+2229	100	CN	6200	4/8/2004	U-2-g Steamer with round logo	TrueLine	742-303000	f	l
+2365	55	CN	6508	FP9A	Zebra stripe DCC/S	Rapido	220508	f	l
+2369	55	CN	6516	FP9A	Zebra stripe DCC/S	Rapido	220510	f	l
+2370	55	CN	6528	FP9A	Zebra stripe DCC/S	Rapido	220511	f	l
+2366	55	CN	6539	FP9A	Zebra stripe DCC/S	Rapido	220513	f	l
+2433	50	CN	6604	F9B	"Zebra stripe GPB17a, DCC/S"	Rapido	221610	f	l
+2434	50	CN	6606	F9B	"Zebra stripe GPB17a, DCC/S"	Rapido	221611	f	l
+2435	50	CN	6623	F9B	"Zebra stripe GPB17c, DCC/S"	Rapido	221613	f	l
+2436	50	CN	6633	F9B	"Zebra stripe GPB17e, DCC/S"	Rapido	221615	f	l
+2481	54	CN	6782	FPA4	"Red cab, stripes, DCC/S"	Rapido	20514	f	l
+2482	53	CN	6867	FPB4	"Red cab, stripes, DCC/S"	Rapido	20508	f	l
+1841	56	CN	7278	GP9rm	"Shell, needs power, CN 7278 single stripe"	Kaslo	HL-23	a	l
+2543	74	CN	8021	SD70M-2	"Red nose, single stripe, Mike gift, DCC/S"	Walthers	910-19808	f	l
+2192	74	CN	8023	SD70M-2	DCC CN website scheme	Athearn	G68627-S	f	l
+2657	50	CN	9154	F7u	"CN rebuild, stripes, DCC/S"	Bowser	24039	f	l
+2672	50	CN	9168	F7Au	"F rebuild, stripes, DCC/S"	Bowser	24042A	f	l
+2673	50	CN	9195	F7Bu	"F rebuild, stripes, DCC/S"	Bowser	24042B	f	l
+34	59	CN	9558	GP40-2W	"CN Cab, Stripes"	Athearn		f	l
+2402	59	CN	9566	GP40-2WL	"DCC/S CN Cab, stripes"	Athearn	G40647	f	l
+2403	59	CN	9601	GP40-2WL	"DCC/S CN Cab, stripes"	Athearn	G40648	f	l
+33	59	CN	9611	GP40-2W	"CN Cab, stripes"	Athearn		f	l
+2404	59	CN	9615	GP40-2WL	"DCC/S CN Cab, stripes"	Athearn	G40649	f	l
+92	59	CN	9624	GP40-2W	"CN Cab, New grey stripe"	Athearn		f	l
+2147	59	CN	9647	GP40-2W	"CN Cab, stripes"	Atlas	10000730	f	l
+2148	59	CN	9659	GP40-2W	"CN Cab, stripes"	Atlas	10000731	f	l
+1497	56	CP		GP9u	ATSF 2678 Proto2000	Kaslo	HL-24	a	l
+1464	56	CP		GP9u	ATSF 703 Proto2000	Kaslo	HL-24	a	l
+1498	56	CP		GP9u	ATSF 2681 Proto2000	Kaslo	HL-24	a	l
+1466	56	CP		GP9u	ATSF 722 Proto2000	Kaslo	HL-24	a	l
+1465	56	CP		GP9u	ATSF 709 Proto2000	Kaslo	HL-24	a	l
+1496	56	CP		GP9u	ATSF 722 Proto2000	Kaslo	HL-24	a	l
+1826	69	CP		SD40-2F	"Shell, needs power"	Kaslo	HL-2	a	l
+2271	69	CP		SD40-2F	to be 90xx	Kaslo	HL-2	a	l
+2270	69	CP		SD40-2F	to be 90xx	Kaslo	HL-2	a	l
+2059	45	CP		SW1200RS	Complete kit for CPR 8100-8171	Point1	P1HK-221	a	l
+1459	45	CP	1158	SW1200RS	"Dummy to kitbash, needs parts/shell"	Athearn		k	l
+2340	55	CP	1406	FP9A	"CP-VIA Canadian set, 8 inch stripes"	Rapido	210005-01	f	l
+2327	55	CP	1407	FP9A	"CP Rail Canadian set, 8 inch stripes"	Rapido	210007-01	f	l
+2329	55	CP	1409	FP9A	"CP Rail Canadian set, 8 inch stripes"	Rapido	210007-03	f	l
+2581	55	CP	1410	FP9A	"CPRail 5 inch stripes, DCC/S"	Rapido	220549	f	l
+2342	55	CP	1413	FP9A	"CP-VIA Canadian set, 8 inch stripes"	Rapido	210005-03	f	l
+2582	55	CP	1414	FP9A	"CPRail 5 inch stripes, DCC/S"	Rapido	220550	f	l
+1938	57	CP	18	RS18u	"Resin shell, to be 18xx"	Kaslo	HL-30	a	l
+1937	57	CP	18	RS18u	"Resin shell, to be 1819"	Kaslo	HL-30	a	l
+2416	60	CP	2101	Genset	"NRE Genset II, DC"	Atlas	10001388	f	l
+85	59	CP	3083	GP38-2	No multimark	Athearn		f	l
+86	59	CP	3128	GP38-2	No multimark	Athearn		f	l
+16	58	CP	4228	C424	needs rear light	Atlas		a	l
+1300	58	CP	4233	C424	no multimark	Atlas		f	l
+1301	58	CP	4236	C424	no multimark	Atlas		f	l
+13	58	CP	4237	C424	needs rear light	Atlas		a	l
+87	59	CP	4447	GP38-2	CPRail System scheme	Athearn		f	l
+2328	50	CP	4474	F9B	"CP Rail Canadian set, 8 inch stripes"	Rapido	210007-02	f	l
+2174	70	CP	4503	C630M	CPRail 8 inch stripes	Bowser	23431	f	l
+2703	70	CP	4707	M636	"MM, frame stripe, air strt, wtr tank, DCC/S"	Bowser	24302	f	l
+2706	70	CP	4732	M636	"Multimark, water tank, DCC/S"	Bowser	24293	f	l
+2702	70	CP	4738	M636	"Multimark, water tank, DCC/S"	Bowser	24292	f	l
+360	70	CP	4738	M636	Dummy	Scratchbuilt		f	l
+2165	69	CP	5478	SD40-2B	Dual flag	Athearn	95169	f	l
+1238	66	CP	5492	SD40M-2	Dual Flags scheme	Kato	37-6332	f	l
+1330	66	CP	5493	SD40M-2	"Rebuilt SD45, dual flags scheme"	Proto2000		f	l
+1504	66	CP	5499	SD40M-2	"Dual Flags scheme, Daniel's unit"	Kato	37-6333	f	l
+2682	69	CP	5565	SD40-2	"Small MM scheme, DCC/S"	Bowser	24465	f	l
+2680	69	CP	5567	SD40-2	"Twin Flag scheme, DCC/S"	Bowser	24457	f	l
+4	69	CP	5647	SD40-2	"CP Rail scheme, 5 inch stripes"	Athearn		f	l
+99	69	CP	5665	SD40-2	"Dummy, doors opened, engine exposed"	Athearn		f	l
+2681	69	CP	5668	SD40-2	"Small MM scheme, DCC/S"	Bowser	24462	f	l
+2532	69	CP	5718	SD40-2	"Large Multimark, sill stripe, 8in stripes DCC/S"	Bowser	24152	f	l
+2533	69	CP	5721	SD40-2	"No Multimark, sill dots, 8in stripes DCC/S"	Bowser	24156	f	l
+2535	69	CP	5723	SD40-2	"Dual Flags, DCC/S"	Bowser	24160	f	l
+2534	69	CP	5751	SD40-2	"No Multimark, sill dots, 8in stripes DCC/S"	Bowser	24157	f	l
+2714	69	CP	5818	SD40-2	"Large MM, 5in stripes, DCC/S, Mikey gift"	Bowser	24481	f	l
+2713	69	CP	5994	SD40-2	"Beaver scheme, DCC/S"	Bowser	24488	f	l
+8	69	CP	6029	SD40-2	Kitbash with extended nose and radiator piping	Athearn		f	l
+2529	69	CP	6038	SD40-2	"Multimark, sill dots, 8in stripes DCC/S"	Bowser	24144	f	l
+2530	69	CP	6041	SD40-2	"Multimark, sill dots, 8in stripes DCC/S"	Bowser	24145	f	l
+2531	69	CP	6046	SD40-2	"No Multimark, sill dots, 8in stripes DCC/S"	Bowser	24148	f	l
+2683	69	CP	6051	SD40-2	"Small MM scheme, DCC/S"	Bowser	24495	f	l
+696	71	CP	6231	SD60	Beaver scheme	Proto2000	23492	a	l
+697	71	CP	6255	SD60	Beaver scheme	Proto2000	23492	a	l
+1772	44	CP	6528	S3	"Cab Multimark, Mike gift"	Proto2000	213808	f	l
+2671	45	CP	6710	SW900	Multimark	Proto2000	920-41492	f	l
+2750	45	CP	8114	SW1200RS	CPRail multimark cab 8in stripe	Rapido	26525	d	l
+2751	45	CP	8129	SW1200RS	CPRail multimark hood 8in stripe	Rapido	26529	d	l
+1527	73	CP	8530	AC4400CW	Beaver scheme	Athearn	79868	f	l
+1246	73	CP	8533	AC4400CW	Beaver scheme	Athearn	7974	f	l
+1247	73	CP	8533	AC4400CW	"Beaver scheme, Repair handrail, dup number"	Athearn	7974	f	l
+1905	73	CP	8546	AC4400CW	Beaver scheme	Athearn	78959	f	l
+1528	73	CP	8573	AC4400CW	Beaver scheme	Athearn	79869	f	l
+2136	73	CP	8576	AC4400CW	Beaver scheme	Athearn	77644	f	l
+1376	73	CP	8642	AC4400CW	Christmas unit	Athearn	79824	f	l
+2466	56	CP	8656	GP9	"8 in stripes, multimark, DCC/S"	Athearn	ATHG62797	f	l
+12	57	CP	8734	RS18	needs headlights	Atlas		a	l
+2367	78	CP	8738	ES44AC	No beaver red	Athearn	69758	f	l
+2368	78	CP	8759	ES44AC	No beaver red	Athearn	69760	f	l
+11	57	CP	8792	RS18	needs headlights	Atlas		a	l
+84	69	CP	9000	SD40-2F	"Scratchbuilt shell, dual flags scheme"	Athearn	TVK	f	l
+2689	69	CP	9003	SD40-2F	"Door window. Sill dots, DCC/S"	Bowser	24344	f	l
+2690	69	CP	9008	SD40-2F	"Door window. Sill dots, DCC/S"	Bowser	24345	f	l
+2692	69	CP	9015	SD40-2F	"Door window, sill dashes, DCC/S"	Bowser	24349	f	l
+91	69	CP	9015	SD40-2F	Scratchbuilt shell	Athearn	TVK	f	l
+2691	69	CP	9016	SD40-2F	"Door window. Sill dots, DCC/S"	Bowser	24346	f	l
+1037	80	CP	9120	SD9043MAC	Beaver scheme	Kato	37-6351	f	l
+1036	80	CP	9122	SD9043MAC	Beaver scheme	Kato	37-6352	f	l
+1525	80	CP	9125	SD9043MAC	Beaver scheme	Kato	37-6353	a	l
+1468	80	CP	9134	SD9043MAC	"Beaver scheme, white frame stripe"	Kato	37-6350	a	l
+2228	80	CP	9138	SD9043MAC	Beaver scheme	Kato	37-6364	f	l
+2231	80	CP	9152	SD9043MAC	Beaver scheme	Kato	37-6367	f	l
+2398	73	CP	9502	AC4400CW	Dual Flag Scheme	Athearn	77655	f	l
+2399	73	CP	9504	AC4400CW	Dual Flag Scheme	Athearn	77656	f	l
+1393	73	CP	9519	AC4400CW	Dual Flag scheme	Athearn	79833	f	l
+1394	73	CP	9551	AC4400CW	Dual Flag scheme	Athearn	79834	f	l
+1248	73	CP	9631	AC4400CW	Beaver scheme	Athearn	7975	f	l
+1906	73	CP	9676	AC4400CW	Beaver scheme	Athearn	78960	f	l
+2137	73	CP	9751	AC4400CW	Beaver scheme	Athearn	77645	f	l
+56	59	DI	201	GP38-2	"From Russ, DC"	Athearn		f	l
+28	59	DWP	5853	GP38-2	"Red/Blue, DC"	Athearn		f	l
+2496	66	DWP	5905	SD40	"Red, blue, DC"	Athearn	98813	f	l
+2069	56	GOTX		F59PH	Need power	Kaslo	HL-28	a	l
+713	56	GOTX		F59PH	To be painted GO Transit Ath F59PHI power	Kaslo	HL-28	a	l
+25	59	GT	5819	GP38-2	Red/Blue	Athearn		f	l
+95	68	LMX	8509	B39-8	Rail Power Products shell	Athearn		a	l
+96	68	LMX	8524	B39-8	Rail Power Products shell	Athearn		a	l
+2094	85	MILW	1	4/4/2002	Maroon orange Hiawatha 1 of 7	Fox Valley	FVM 10001	f	l
+1842	50	MILW	100A	FP7	Orange Maroon #03 DCC	Intermountain	49950S-03	f	l
+1843	50	MILW	103C	FP7	Orange Maroon #04 DCC	Intermountain	49950S-04	f	l
+2248	70	MILW	19A	E7A	Orange maroon DCC	Walthers	920-40951(1)	f	l
+2249	70	MILW	19B	E7A	Orange maroon DCC	Walthers	920-40951(2)	f	l
+1086	56	MILW	2010	GP40	"Orange black, DCC, was to be 2057"	Atlas	9188	f	l
+1085	56	MILW	2012	GP40	"Orange black, DCC"	Atlas	9188	f	l
+1746	49	MILW	437	MP15AC	Genesis DCC/S	Athearn	G66159	f	l
+598	55	MILW	5001	U23B	"to be motor for M420W, no DCC"	Atlas	8673	f	l
+1618	55	MILW	582	SDL39	"to be assembled, DCC/S"	Kaslo	HL-19b	a	l
+1619	55	MILW	584	SDL39	"to be assembled, DCC/S"	Kaslo	HL-19b	a	l
+1617	55	MILW	588	SDL39	"to be assembled, DCC/S"	Kaslo	HL-19b	a	l
+1620	55	MILW	589	SDL39	"to be assembled, DCC/S"	Kaslo	HL-19b	a	l
+1616	55	MILW	590	SDL39	"to be assembled, DCC/S"	Kaslo	HL-19b	a	l
+1834	50	MILW	98C	FP7	Orange Maroon #02 DCC	Intermountain	49950S-02	f	l
+157	60	MN	10	Trainmaster	"Dummy, needs decals"	Athearn		a	l
+2	53	MN	1003	GP30	Kitbash with Bachman shell	Athearn		f	l
+19	59	MN	1050	GP39-2	Kitbashed GP38-2	Athearn		f	l
+158	60	MN	11	Trainmaster	"Dummy, needs decals"	Athearn		a	l
+694	55	MN	1400	GP15-1	Old MN	Walthers	931-399	f	l
+9	59	MN	1514	GP38-2	white word logo	Athearn		f	l
+540	73	MN	2502	Dash 9-44CW	Maroon stripe	Athearn	4930	f	l
+667	73	MN	2506	Dash 9-44CW	Maroon stripe	Athearn	4930	f	l
+668	73	MN	2523	Dash 9-44CW	Maroon stripe	Athearn	4930	f	l
+669	73	MN	2527	Dash 9-44CW	Maroon stripe	Athearn	4930	f	l
+47	69	MN	3012	SD40-2	"Old MN, Needs power"	Athearn		a	l
+59	69	MN	3064	SD40-2	Old MN	Athearn		f	l
+20	56	MN	310	GP9	Old MN	Athearn		f	l
+22	60	MN	3408	SDL40-2	"Kitbashed SD40-2, needs more foam, old number -708"	Athearn		f	l
+52	71	MN	3523	SD40T-2	Short nose	Athearn		f	l
+23	56	MN	4002	GP40-2	Kitbashed GP38-2	Athearn		f	l
+32	59	MN	4501	GP50	white word logo	Athearn		f	l
+6	59	MN	4528	GP50	white word logo	Athearn		f	l
+3	59	MN	4536	GP50	white word logo	Athearn		f	l
+711	56	MN	5901	F59PHI	Maroon stripe	Athearn	2600	f	l
+712	56	MN	5902	F59PHI	Maroon stripe	Athearn	2600	f	l
+695	59	MN	6004	GP60	"Yellow stripe, lettering"	Athearn	4751	f	l
+83	45	MN	716	SW7	Old MN	Athearn		f	l
+693	56	MN	901	F40PH	Maroon stripe	Walthers	931-300	f	l
+68	68	MN	9991	F50B	"Old MN, Dummy, needs number"	Athearn		a	l
+69	68	MN	9992	F45	"Old MN, Needs number"	Athearn		a	l
+2527	68	MNRX	501	MP36PH-3C	MetroTransit Northstar DCC/S	TrueLine	500223	f	l
+2401	68	MNRX	503	MP36PH-3C	"MetroTransit Northstar, DC"	TrueLine	500254	f	l
+72	56	MYP	132	RSD5	"New RS11 shell, to be MN Ore"	Atlas	7080	k	l
+2495	64	NCC	17018	LRC	"Canadian Lung Assn auction prize, DCC/S"	Rapido	200020	f	l
+538	80	RC		SD9043	"ProtoPower shell, frame, Athearn power"	Kitbash	547	k	l
+90	59	RC	1570	GP38-2	New Grey/Red	Athearn		f	l
+24	69	RC	3209	SD40-2	"Blue/Grey, MN sublettered"	Athearn		f	l
+82	45	RC	518	SW1500	"blue/grey, Cary metal shell"	Athearn		f	l
+65	71	RC	5508	SD60M	"blue/grey, Smokey Valley shell"	Athearn		f	l
+64	71	RC	5509	SD60M	"blue/grey, Smokey Valley shell"	Athearn		f	l
+57	59	RC	6001	GP60	"blue/grey, GP60 Demo nose"	Athearn		f	l
+30	59	RC	6027	GP60M	"blue/grey, Three window cab, blue/grey"	Athearn		f	l
+98	71	RC	6509	SD60M	New grey/red scheme	Athearn		f	l
+60	72	RC	8019	C40-8	"blue/grey, Needs nose stripes"	Bachman		f	l
+63	56	RTA	125	F40PH	Old Chicago RTA Blue/Brown	Front Range		f	l
+1434	56	SCCX		F59PH	to be Metrolink F59 Ath F59PHI to be 864	Kaslo	HL-27	a	l
+135	61	SCR	501	SD9	St. Croix Road dummy	Athearn		f	l
+1384	71	SOO	6014	SD60	"Red/White, Daniel's unit"	Athearn	79861	f	l
+1385	71	SOO	6034	SD60	Red/White	Athearn	79863	f	l
+1411	71	SOO	6048	SD60	"Red, Daniel's gift from Santa"	Athearn	91674	f	l
+600	69	STLH	5615	SD40-2	"St. L & H factory paint, Mike gift"	Athearn		f	l
+601	69	STLH	5654	SD40-2	"St. L & H factory paint, dummy, Mike gift"	Athearn		f	l
+1815	20	TM	4150	Trackmobile	"Trackmobile, no markings"	FacDirTrains		f	l
+1614	60	UP	9002	GP40X	"Old UP scheme with number, DC"	Athearn	94724	f	l
+2678	56	VIA		F40PH-2D	"Ren scheme, unnumbered, DCC/S"	Rapido	82513	d	l
+2677	56	VIA		F40PH-2D	"Ren scheme, unnumbered, DCC/S"	Rapido	82513	d	l
+2298	50	VIA	1405	FP9	"VIA Rail The Canadian set, DCC/S"	Rapido	210006-01	f	l
+2300	50	VIA	1414	FP9	"VIA Rail The Canadian set, DCC/s"	Rapido	210006-03	f	l
+2341	50	VIA	1961	F9B	"CP-VIA Canadian set, dummy"	Rapido	210005-02	f	l
+2299	50	VIA	1965	F9B	"VIA Rail The Canadian set, dummy"	Rapido	210006-02	f	l
+782	56	VIA	6400	F40PH-2	Under const	Walthers	931-300	a	l
+2470	56	VIA	6400	F40PH-2D	"As delivered scheme, DCC/S"	Rapido	80511	f	l
+2704	56	VIA	6402	F40PH-2D	"Canada 150 scheme, DCC/S"	Rapido	82514	f	l
+2676	56	VIA	6403	F40PH-2D	"Ren scheme, 10 dollar unit, DCC/S"	Rapido	82511	f	l
+783	56	VIA	6410	F40PH-2	Under const	Walthers	931-300	a	l
+2469	56	VIA	6410	F40PH-2D	"As delivered scheme, DCC/S"	Rapido	80502	f	l
+2472	56	VIA	6412	F40PH-2D	"wide blue stripe scheme, DCC/S"	Rapido	80522	f	l
+2779	56	VIA	6436	F40PH-2D	"VIA 40th scheme, DCC/S Rapido collectable"	Rapido	82522	f	l
+2674	56	VIA	6437	F40PH-2D	"Ren scheme, DCC/S"	Rapido	82505	f	l
+2780	56	VIA	6437	F40PH-2D	"VIA 40th scheme, DCC/S Rapido collectable"	Rapido	82523	f	l
+2473	56	VIA	6437	F40PH-2D	"wide blue stripe scheme, DCC/S"	Rapido	80522	f	l
+2675	56	VIA	6454	F40PH-2D	"Ren scheme, DCC/S"	Rapido	82510	f	l
+2471	56	VIA	6454	F40PH-2D	"As delivered scheme, DCC/S"	Rapido	80511	f	l
+2705	56	VIA	6454	F40PH-2D	"Canada 150 scheme, DCC/S"	Rapido	82515	f	l
+2252	55	VIA	6505	FP9A	GPA-17a Big winterization hatch DCC/S	Rapido	220519	f	l
+2253	55	VIA	6506	FP9A	GPA-17abcd 36 fan DCC/S	Rapido	220525A	f	l
+2255	55	VIA	6510	FP9A	GPA-17abcd 36 fan DCC/S	Rapido	220525A	f	l
+2256	55	VIA	6531	FP9A	GPA-17abcd 36 fan DCC/S	Rapido	220525A	f	l
+2254	55	VIA	6536	FP9A	GPA-17e 48 fan DCC/S	Rapido	220525B	f	l
+2437	50	VIA	6613	F9B	"blue/yellow GPB17a, DCC/S"	Rapido	221625	f	l
+2438	50	VIA	6617	F9B	"blue/yellow GPB17c/d, DCC/S"	Rapido	221626	f	l
+2439	50	VIA	6632	F9B	"blue/yellow GPB17e, DCC/S"	Rapido	221627	f	l
+2497	54	VIA	6774	FPA4	"Blue, yellow, DCC/S"	Rapido	20519	f	l
+2498	53	VIA	6863	FPB4	"Blue, yellow, DCC/S"	Rapido	30512	f	l
+2476	64	VIA	6903	LRC	"Grey, blue with yellow, DCC/S"	Rapido	200050	f	l
+2477	64	VIA	6905	LRC	"Grey, blue with yellow, DCC/S"	Rapido	200051	f	l
+2694	64	VIA	6921	LRC	"Grey yellow, DCC/S installed"	Rapido	200009	e	l
+2695	64	VIA	6923	LRC	"Grey yellow, DCC/S installed"	Rapido	200010	e	l
+1212	69	VIA	910	P42	"Hobbycraft paint, DC, Mike gift"	Athearn	36390	f	l
+1299	69	VIA	920	P42	"Hobbycraft paint, DC"	Athearn	36392	f	l
+2322	56	WP	802C	FP7A	"Orange, silver DCC/S - two part set"	Athearn	G22317B	f	l
+2323	50	WP	804B	F7B	"Orange, silver DCC/s"	Athearn	G22319	f	l
+2321	56	WP	805A	FP7A	"Orange, silver DCC/S - two part set"	Athearn	G22317A	f	l
