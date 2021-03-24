@@ -13,8 +13,8 @@ public class Train
 	private int id; 
 	@OneToOne
 	private Chain cars;
-	private Date departure; 
-	private Date arrival; 
+//	private Date departure; 
+//	private Date arrival; 
 	private String origin; 
 	private String destination; 
 	

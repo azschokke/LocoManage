@@ -5,7 +5,7 @@ import java.util.List;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Location;
 
-public class LocationDAO extends DBAccess implements DAOI<Location>
+public class LocationService extends DBAccess implements DAOI<Location>
 {
 	//TODO javadocs
 	@Override

@@ -7,7 +7,7 @@ public abstract class DBAccess
 {
 	protected EntityManagerFactory emf = null; 
 	protected EntityManager em = null; 
-	private String unitName = "jpaPurchaseTracker";
+	private String unitName = "LocoManage";
 	
 	/**
 	 * Connects to the database.<br>
@@ -34,4 +34,5 @@ public abstract class DBAccess
 			emf.close(); 
 		}
 	}//end disconnect()
+	
 }//end class DBAccess

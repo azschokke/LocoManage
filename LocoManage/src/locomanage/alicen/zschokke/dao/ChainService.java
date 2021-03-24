@@ -5,7 +5,7 @@ import java.util.List;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Chain;
 
-public class ChainDAO extends DBAccess implements DAOI<Chain>
+public class ChainService extends DBAccess implements DAOI<Chain>
 {
 	//TODO javadoc
 	@Override

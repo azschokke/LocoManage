@@ -5,7 +5,7 @@ import java.util.List;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.TrainCar;
 
-public class TrainCarDAO extends DBAccess implements DAOI<TrainCar>
+public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 {
 	//TODO javadoc
 	@Override
