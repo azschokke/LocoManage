@@ -1,7 +1,8 @@
-package locomanage.alicen.zschokke.dao;
+package locomanage.alicen.zschokke.service;
 
 import java.util.List;
 
+import locomanage.alicen.zschokke.dao.DAOI;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Chain;
 
