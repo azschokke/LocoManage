@@ -14,7 +14,10 @@ import locomanage.alicen.zschokke.entities.Chain;
  */
 public class ChainService extends DBAccess implements DAOI<Chain>
 {
-	//TODO javadoc
+	/**
+	 * Adds the chain to the database. 
+	 * @param c the chain to be added
+	 */
 	@Override
 	public void add(Chain c) 
 	{
@@ -39,7 +42,10 @@ public class ChainService extends DBAccess implements DAOI<Chain>
 		return c;
 	}//end get(id)
 
-	//TODO javadoc
+	/**
+	 * Updates the chain in the database with the matching id to match the parameter chain. 
+	 * @param c the chain with the updated information to update in the database
+	 */
 	@Override
 	public void update(Chain c) 
 	{
@@ -50,7 +56,10 @@ public class ChainService extends DBAccess implements DAOI<Chain>
 		this.disconnect(); 
 	}//end update(c)
 
-	//TODO javadoc
+	/**
+	 * Removes the chain with the matching id from the database. 
+	 * @param id the id of the chain to be removed
+	 */
 	@Override
 	public void remove(int id) 
 	{
@@ -59,7 +68,10 @@ public class ChainService extends DBAccess implements DAOI<Chain>
 		this.disconnect(); 
 	}//end remove(id)
 
-	//TODO javadoc
+	/**
+	 * Accessor for all the chains in the database. 
+	 * @return a List of all the Chains in the databse
+	 */
 	@Override
 	public List<Chain> getAll()
 	{

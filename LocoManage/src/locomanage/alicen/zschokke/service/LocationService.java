@@ -8,7 +8,10 @@ import locomanage.alicen.zschokke.entities.Location;
 
 public class LocationService extends DBAccess implements DAOI<Location>
 {
-	//TODO javadocs
+	/**
+	 * Adds a Location to the databse. 
+	 * @param l the location to be added
+	 */
 	@Override
 	public void add(Location l)
 	{
@@ -19,7 +22,11 @@ public class LocationService extends DBAccess implements DAOI<Location>
 		this.disconnect(); 
 	}//end add
 
-	//TODO javadocs
+	/**
+	 * Accessor for a Location in the database. 
+	 * @param id the id of the Location
+	 * @return Location the location with the matching id, or null if no match is found
+	 */
 	@Override
 	public Location get(int id) 
 	{
@@ -29,7 +36,10 @@ public class LocationService extends DBAccess implements DAOI<Location>
 		return l;
 	}//end get(id)
 	
-	//TODO javadocs
+	/**
+	 * Updates a Location in the database.
+	 * @param l the Location with the updated information
+	 */
 	@Override
 	public void update(Location l)
 	{
@@ -42,7 +52,10 @@ public class LocationService extends DBAccess implements DAOI<Location>
 		this.disconnect();
 	}//end update(l)
 
-	//TODO javadocs
+	/**
+	 * Removes a Location from the database. 
+	 * @param id the id of the Location to be removed
+	 */
 	@Override
 	public void remove(int id) 
 	{
@@ -51,11 +64,13 @@ public class LocationService extends DBAccess implements DAOI<Location>
 		this.disconnect(); 
 	}//end remove
 
-	//TODO javadocs
+	/**
+	 * Returns a List of all the Locations in the database. 
+	 */
 	@Override
 	public List<Location> getAll() 
 	{
-		// TODO Auto-generated method stub
+		// TODO get all locations from database
 		return null;
 	}
 

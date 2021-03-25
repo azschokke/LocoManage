@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 /**
- * TODO comment this
+ * This class models a location in the model railroading system. Anything from a layout down to a track is a location. 
  * @author Alicen Zschokke
  *
  */
@@ -117,7 +117,10 @@ public class Location
 		this.isTrack = isTrack;
 	}//end setTrack
 	
-	//TODO javadoc
+	/**
+	 * Accessor for the unique id of this location.
+	 * @return the id of this location
+	 */
 	public int getId()
 	{
 		return this.id; 

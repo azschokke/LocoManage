@@ -8,7 +8,10 @@ import locomanage.alicen.zschokke.entities.TrainCar;
 
 public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 {
-	//TODO javadoc
+	/**
+	 * Adds a train car to the database.
+	 * @param t the train car to be added
+	 */
 	@Override
 	public void add(TrainCar t) 
 	{
@@ -19,7 +22,11 @@ public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 		this.disconnect();
 	}//end add
 
-	//TODO javadoc
+	/**
+	 * Accessor for the TrainCar in the database with the matching id, if one exists. 
+	 * @param id the unique id of the TrainCar 
+	 * @return the TrainCar with the matching id, or null if no match is found
+	 */
 	@Override
 	public TrainCar get(int id)
 	{
@@ -29,7 +36,10 @@ public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 		return t;
 	}//end get
 
-	//TODO javadoc
+	/**
+	 * Updates the train car's information in the database
+	 * @param t the TrainCar with the updated information
+	 */
 	@Override
 	public void update(TrainCar t)
 	{
@@ -47,7 +57,10 @@ public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 		this.disconnect(); 
 	}
 
-	//TODO javadoc
+	/**
+	 * Removes the train car with the given id from the database.
+	 * @param id the id of the TrainCar to be removed
+	 */
 	@Override
 	public void remove(int id) 
 	{
@@ -56,7 +69,10 @@ public class TrainCarService extends DBAccess implements DAOI<TrainCar>
 		this.disconnect(); 
 	}
 
-	//TODO javadoc
+	/**
+	 * Accessor for all the TrainCars in the database
+	 * @return a List of all the TrainCars in the database
+	 */
 	@Override
 	public List<TrainCar> getAll() 
 	{
