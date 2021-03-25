@@ -6,6 +6,12 @@ import locomanage.alicen.zschokke.dao.DAOI;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Chain;
 
+/**
+ * This class provides CRUD services for a Chain entity. 
+ * 
+ * @author cena-
+ *
+ */
 public class ChainService extends DBAccess implements DAOI<Chain>
 {
 	//TODO javadoc
@@ -19,7 +25,11 @@ public class ChainService extends DBAccess implements DAOI<Chain>
 		this.disconnect(); 
 	}//end add(c)
 
-	//TODO javadoc
+	/**
+	 * Returns the chain with the given id
+	 * @param id the id of a car
+	 * @return the chain with the matching id, or null if the chain does not exist
+	 */
 	@Override
 	public Chain get(int id)
 	{
@@ -51,12 +61,13 @@ public class ChainService extends DBAccess implements DAOI<Chain>
 
 	//TODO javadoc
 	@Override
-	public List<Chain> getAll() {
+	public List<Chain> getAll()
+	{
 		this.connect();
 		@SuppressWarnings("unchecked")
 		List<Chain> chains = em.createNamedQuery("getAllChains").getResultList();
 		this.disconnect(); 
 		return chains;
-	}
+	}//end getAll()
 
 }
