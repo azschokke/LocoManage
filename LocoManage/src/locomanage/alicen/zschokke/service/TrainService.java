@@ -2,11 +2,11 @@ package locomanage.alicen.zschokke.service;
 
 import java.util.List;
 
-import locomanage.alicen.zschokke.dao.DAOI;
+import locomanage.alicen.zschokke.dao.DAO;
 import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Train;
 
-public class TrainService extends DBAccess implements DAOI<Train>
+public class TrainService extends DBAccess implements DAO<Train>
 {
 	
 	/**

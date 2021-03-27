@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @param <T> The class type extending this interface
  */
-public interface DAOI<T> 
+public interface DAO<T> 
 {
 	/**
 	 * This method should add an object to the database.  
