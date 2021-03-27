@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
-import locomanage.alicen.zschokke.entities.TrainCar;
+import locomanage.alicen.zschokke.entities.RollingStock;
 import locomanage.alicen.zschokke.service.TrainCarService;
 
 import org.junit.Test;
@@ -16,14 +16,14 @@ import org.junit.Test;
 public class TrainCarServiceTest 
 {
 	private static TrainCarService tcs; 
-	private static TrainCar tc; 
+	private static RollingStock tc; 
 	
 	@BeforeClass
 	public static void setUp()
 	{
 		System.out.println("Beginning Tests.....");
 		tcs = new TrainCarService(); 
-		tc = new TrainCar();
+		tc = new RollingStock();
 	}
 	
 	@Test

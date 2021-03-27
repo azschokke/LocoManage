@@ -4,16 +4,16 @@ import java.util.List;
 
 import locomanage.alicen.zschokke.dao.DAO;
 import locomanage.alicen.zschokke.db_access.DBAccess;
-import locomanage.alicen.zschokke.entities.TrainCar;
+import locomanage.alicen.zschokke.entities.RollingStock;
 
-public class TrainCarService extends DBAccess implements DAO<TrainCar>
+public class RollingStockService extends DBAccess implements DAO<RollingStock>
 {
 	/**
 	 * Adds a train car to the database.
 	 * @param t the train car to be added
 	 */
 	@Override
-	public void add(TrainCar t) 
+	public void add(RollingStock t) 
 	{
 		this.connect(); 
 		em.getTransaction().begin();
@@ -28,10 +28,10 @@ public class TrainCarService extends DBAccess implements DAO<TrainCar>
 	 * @return the TrainCar with the matching id, or null if no match is found
 	 */
 	@Override
-	public TrainCar get(int id)
+	public RollingStock get(int id)
 	{
 		this.connect(); 
-		TrainCar t = em.find(TrainCar.class, id);
+		RollingStock t = em.find(RollingStock.class, id);
 		this.disconnect(); 
 		return t;
 	}//end get
@@ -41,18 +41,13 @@ public class TrainCarService extends DBAccess implements DAO<TrainCar>
 	 * @param t the TrainCar with the updated information
 	 */
 	@Override
-	public void update(TrainCar t)
+	public void update(RollingStock t)
 	{
 		this.connect();
-		TrainCar f = em.find(TrainCar.class, t.getId());
-		f.setModel(t.getModel());
+		RollingStock f = em.find(RollingStock.class, t.getId());
 		f.setCarNumber(t.getCarNumber());
-		f.setCategory(t.getCategory());
 		f.setLength(t.getLength());
-		f.setManufacturer(t.getManufacturer());
 		f.setNotes(t.getNotes());
-		f.setOwner(t.getOwner());
-		f.setSku(t.getSku());
 		this.disconnect(); 
 	}
 
@@ -64,7 +59,7 @@ public class TrainCarService extends DBAccess implements DAO<TrainCar>
 	public void remove(int id) 
 	{
 		this.connect();
-		em.remove(em.find(TrainCar.class, id));
+		em.remove(em.find(RollingStock.class, id));
 		this.disconnect(); 
 	}
 
@@ -73,11 +68,11 @@ public class TrainCarService extends DBAccess implements DAO<TrainCar>
 	 * @return a List of all the TrainCars in the database
 	 */
 	@Override
-	public List<TrainCar> getAll() 
+	public List<RollingStock> getAll() 
 	{
 		this.connect();
 		@SuppressWarnings("unchecked")
-		List<TrainCar> cars = em.createNamedQuery("getAllCars").getResultList();
+		List<RollingStock> cars = em.createNamedQuery("getAllCars").getResultList();
 		this.disconnect(); 
 		return cars;
 	}

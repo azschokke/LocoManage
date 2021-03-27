@@ -22,10 +22,10 @@ public class Train
 	{
 		//TODO fill in this stuff
 	}
-	public Train(TrainCar ...trainCars)
+	public Train(RollingStock ...trainCars)
 	{
 		cars = new Chain(); 
-		for(TrainCar car : trainCars)
+		for(RollingStock car : trainCars)
 		{
 			this.addCar(car);
 		}
@@ -37,15 +37,15 @@ public class Train
 		cars = new Chain();
 	}
 	
-	public void addCar(TrainCar car)
+	public void addCar(RollingStock car)
 	{
 		//verify car
 
 	}//end addCar()
 	
-	public void addCars(TrainCar ...trainCars)
+	public void addCars(RollingStock ...trainCars)
 	{
-		for(TrainCar car : trainCars)
+		for(RollingStock car : trainCars)
 		{
 			this.addCar(car);
 		}

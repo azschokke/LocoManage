@@ -23,7 +23,7 @@ public class Chain
 	@Id
 	private int id; 
 	@OneToMany
-	private ArrayList<TrainCar> chain; 
+	private ArrayList<RollingStock> chain; 
 	@ManyToOne
 	private Location location; 
 	
@@ -39,7 +39,7 @@ public class Chain
 	 * Returns a list of the <b>Train Cars</b> in this Chain. 
 	 * @return a list of the train cars in this chain. 
 	 */
-	public List<TrainCar> getChain() 
+	public List<RollingStock> getChain() 
 	{
 		return chain;
 	}//end getChain
@@ -48,9 +48,9 @@ public class Chain
 	 * TODO do i really want this? 
 	 * @param chain
 	 */
-	public void setChain(List<TrainCar> chain) 
+	public void setChain(List<RollingStock> chain) 
 	{
-		for(TrainCar c : chain)
+		for(RollingStock c : chain)
 		{
 			this.chain.add(c);
 		}

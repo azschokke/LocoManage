@@ -3,8 +3,14 @@
 	<persistence-unit name="LocoManage">
 	<!-- Classes -->
 	<class>locomanage.alicen.zschokke.entities.Train</class>
-	<class>locomanage.alicen.zschokke.entities.TrainCar</class>
+	<class>locomanage.alicen.zschokke.entities.RollingStock</class>
 	<class>locomanage.alicen.zschokke.entities.Chain</class>
 	<class>locomanage.alicen.zschokke.entities.Location</class>
+	<class>locomanage.alicen.zschokke.entities.Manufacturer</class>
+	<class>locomanage.alicen.zschokke.entities.Scale</class>
+	<class>locomanage.alicen.zschokke.entities.Railroad</class>
+	<class>locomanage.alicen.zschokke.entities.Product</class>
+	<class>locomanage.alicen.zschokke.entities.Model</class>
+	<class>locomanage.alicen.zschokke.entities.Classification</class>
 	</persistence-unit>
 </persistence>
