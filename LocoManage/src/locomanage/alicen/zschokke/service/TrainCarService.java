@@ -45,15 +45,14 @@ public class TrainCarService extends DBAccess implements DAO<TrainCar>
 	{
 		this.connect();
 		TrainCar f = em.find(TrainCar.class, t.getId());
-		f.setCarClass(t.getCarClass());
+		f.setModel(t.getModel());
 		f.setCarNumber(t.getCarNumber());
 		f.setCategory(t.getCategory());
 		f.setLength(t.getLength());
 		f.setManufacturer(t.getManufacturer());
 		f.setNotes(t.getNotes());
-		f.setRailroad(t.getRailroad());
+		f.setOwner(t.getOwner());
 		f.setSku(t.getSku());
-		f.setStatus(t.getStatus());
 		this.disconnect(); 
 	}
 

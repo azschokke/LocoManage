@@ -1,6 +1,10 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.StringJoiner;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -16,29 +20,34 @@ import javax.persistence.Table;
 @NamedQuery(query="SELECT t FROM TrainCar t", name="getAllCars")
 public class TrainCar implements Cloneable
 {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id; //the id number of the car
 	private int length; //car length in appropriate scale feet
-	private String railroad; //the railroad the car belongs to
-	private String carClass; //varies widely
+	private String owner; //the railroad the car belongs to
+	private String model; //varies widely
 	private String notes; //optional notes
 	private String manufacturer; //who makes the car 
 	private String sku; //manufacturer's sku number
-	private String status; 
 	private String category; //classification of piece
-	private int carNumber; 
-
+	private int carNumber; //number on the car
+	private String scale; //scale of the car 
+	
+	//TODO javadocs
 	public TrainCar()
 	{
-		setLength(0); 
-		this.id = 0;  
-		setCarClass(""); 
-		setNotes("");
-		setManufacturer("");
-		setSku("");
-		setStatus("");
+		super(); 
 	}//end TrainCar()
 
+	public TrainCar(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale)
+	{
+		this.setOwner(owner);
+		this.setCarNumber(carNumber);
+		this.setModel(model);
+		this.setManufacturer(manufacturer);
+		this.setSku(sku);
+		this.setLength(length);
+	}
 	/**
 	 * Returns the length of this train car. 
 	 * @return the integer length of this train car
@@ -102,7 +111,6 @@ public class TrainCar implements Cloneable
 		this.sku = sku;
 	}
 
-	//TODO find a better way to differentiate unique id and car number
 	/**
 	 * Returns the car number of this train car
 	 * @return the integer representation of the car number of this train car
@@ -126,18 +134,18 @@ public class TrainCar implements Cloneable
 	 * Returns the name of the railroad this train car belongs to.
 	 * @return the string representation of the railroad this train car belongs to
 	 */
-	public String getRailroad()
+	public String getOwner()
 	{
-		return railroad;
+		return owner;
 	}
 
 	/**
 	 * Sets the name of the railroad this train car belongs to.
 	 * @param railroad the string representation of the railroad this train car belongs to
 	 */
-	public void setRailroad(String railroad)
+	public void setOwner(String owner)
 	{
-		this.railroad = railroad;
+		this.owner = owner;
 	}
 
 	/**
@@ -159,34 +167,24 @@ public class TrainCar implements Cloneable
 	}
 
 	/**
-	 * Return the string representation of the class of the car. 
-	 * @return a string representing the class of this car
+	 * Accessor for the model of this car. 
+	 * @return a string representing the model this car
 	 */
-	public String getCarClass()
+	public String getModel()
 	{
-		return carClass;
+		return model;
 	}
 
 	/**
-	 * TODO find an even remotely elegant way to phrase this crap
-	 * Mutator for the car class field
+	 * Sets the model of this car. 
 	 * @param carClass the string representation of the class of the car
 	 */
-	public void setCarClass(String carClass) 
+	public void setModel(String model) 
 	{
-		this.carClass = carClass;
+		this.model = model;
 	}
 
-	//TODO do i even need this? 
-	public String getStatus()
-	{
-		return status;
-	}
 	
-	//TODO or this?
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	
 	//TODO or this? 
 	public String getCategory() {
@@ -198,7 +196,6 @@ public class TrainCar implements Cloneable
 		this.category = category;
 	}
 	
-	//TODO cry in "this isn't how entity managers work"
 	/**
 	 * Creates and returns a clone of this train car. 
 	 * @return a TrainCar identical to this train car
@@ -207,17 +204,35 @@ public class TrainCar implements Cloneable
 	public TrainCar clone()
 	{
 		TrainCar clone = new TrainCar();
-		clone.carClass = this.carClass; 
+		clone.model = this.model; 
 		clone.carNumber = this.carNumber; 
 		clone.category = this.category; 
 		clone.id = this.id; 
 		clone.length = this.length; 
 		clone.manufacturer = this.manufacturer; 
 		clone.notes = this.notes; 
-		clone.railroad = this.railroad; 
+		clone.owner = this.owner; 
 		clone.sku = this.sku; 
-		clone.status = this.status; 
 		return clone;
 	}//end clone
+	
+	/**
+	 * Creates and returns a JSON representation of this train car. 
+	 * @return a String representing this train car as a JSON object. 
+	 */
+	public String toJSON()
+	{
+		return new StringJoiner(", ", "{", "}")
+			.add("\"id: \"" + this.getId())
+			.add("\"class:\"" + "\"" + this.getModel() + "\"")
+			.add("\"carNumber:\"" + this.getCarNumber())
+			.add("\"category: \"" + "\"" + this.getCategory() + "\"")
+			.add("\"length: \"" + this.getLength())
+			.add("\"notes: \"" + "\"" + this.getNotes() + "\"")
+			.add("\"manufacturer: \"" + "\"" + this.getManufacturer() + "\"")
+			.add("\"owner: \"" + "\"" + this.getOwner() + "\"")
+			.add("\"sku: \"" + "\"" + this.getSku() + "\"")
+			.toString();
+	}//end toJSON
 	
 }//end class TrainCar
