@@ -8,29 +8,47 @@ import org.junit.FixMethodOrder;
 import org.junit.runners.MethodSorters;
 
 import locomanage.alicen.zschokke.entities.RollingStock;
-import locomanage.alicen.zschokke.service.TrainCarService;
+import locomanage.alicen.zschokke.service.RollingStockService;
 
 import org.junit.Test;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TrainCarServiceTest 
+public class RollingStockServiceTest 
 {
-	private static TrainCarService tcs; 
-	private static RollingStock tc; 
+	private static RollingStockService rss; 
+	private static RollingStock expected; 
 	
 	@BeforeClass
 	public static void setUp()
 	{
 		System.out.println("Beginning Tests.....");
-		tcs = new TrainCarService(); 
-		tc = new RollingStock();
+		rss = new RollingStockService(); 
+		expected = new RollingStock();
 	}
 	
 	@Test
-	public void testAdd()
+	public void testAAdd()
+	{
+		rss.add(expected);
+	}//end test()
+	
+	@Test
+	public void testBGet()
 	{
 		fail("Not yet implemented");
-	}//end test()
+	}
+	
+	@Test
+	public void testCUpdate()
+	{
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testDRemove()
+	{
+		fail("Not yet implemented");
+	}
 
 	@AfterClass
 	public static void takeDown()

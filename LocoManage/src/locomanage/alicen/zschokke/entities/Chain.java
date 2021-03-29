@@ -22,8 +22,8 @@ public class Chain
 	//TODO comment these 
 	@Id
 	private int id; 
-	@OneToMany
-	private ArrayList<RollingStock> chain; 
+//	@OneToMany
+//	private ArrayList<RollingStock> chain; 
 	@ManyToOne
 	private Location location; 
 	
@@ -41,7 +41,8 @@ public class Chain
 	 */
 	public List<RollingStock> getChain() 
 	{
-		return chain;
+//		return chain;
+		return null; 
 	}//end getChain
 
 	/**
@@ -52,7 +53,7 @@ public class Chain
 	{
 		for(RollingStock c : chain)
 		{
-			this.chain.add(c);
+//			this.chain.add(c);
 		}
 	}
 	

@@ -15,6 +15,7 @@ public class Product
 	private int id; 
 	@ManyToOne
 	private Manufacturer manufacturer; 
+	@ManyToOne
 	private Scale scale; 
 	private String sku; 
 	

@@ -19,8 +19,8 @@ public class Location
 	@Id
 	private int id; 
 	private String name; 
-	@OneToMany
-	private ArrayList<Location> children; 
+//	@OneToMany
+//	private ArrayList<Location> children; 
 	@ManyToOne
 	private Location parent; 
 	private boolean isTrack; 
@@ -39,7 +39,7 @@ public class Location
 	 */
 	public void addChild(Location childLocation)
 	{
-		children.add(childLocation);
+//		children.add(childLocation);
 		childLocation.setParent(this);
 	}//end addChild()
 	
@@ -67,23 +67,23 @@ public class Location
 	 * Accessor for the children of this location. 
 	 * @return a list containing the child locations of this location
 	 */
-	public List<Location> getChildren() 
-	{
-		return children;
-	}//end getChildren
+//	public List<Location> getChildren() 
+//	{
+//		return children;
+//	}//end getChildren
 
 	/**
 	 * TODO I hate this
 	 * Replaces the child locations of this location with the paramater list of locations
 	 * @param children the list of locations to be set as children of this location
 	 */
-	public void setChildren(List<Location> children) 
-	{
-		for(Location l : children)
-		{
-			this.children.add(l);
-		}
-	}//end setChildren
+//	public void setChildren(List<Location> children) 
+//	{
+//		for(Location l : children)
+//		{
+//			this.children.add(l);
+//		}
+//	}//end setChildren
 
 	/**
 	 * Accessor for the parent location of this location.

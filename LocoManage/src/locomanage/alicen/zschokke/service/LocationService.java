@@ -45,7 +45,7 @@ public class LocationService extends DBAccess implements DAO<Location>
 	{
 		this.connect(); 
 		Location f = em.find(Location.class, l.getId());
-		f.setChildren(l.getChildren());
+//		f.setChildren(l.getChildren());
 		f.setName(l.getName());
 		f.setParent(l.getParent());
 		f.setTrack(l.isTrack());

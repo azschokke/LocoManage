@@ -9,7 +9,7 @@ import locomanage.alicen.zschokke.entities.Chain;
 /**
  * This class provides CRUD services for a Chain entity. 
  * 
- * @author cena-
+ * @author Alicen Zschokke
  *
  */
 public class ChainService extends DBAccess implements DAO<Chain>

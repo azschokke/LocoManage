@@ -13,11 +13,11 @@ public class RollingStockService extends DBAccess implements DAO<RollingStock>
 	 * @param t the train car to be added
 	 */
 	@Override
-	public void add(RollingStock t) 
+	public void add(RollingStock r) 
 	{
 		this.connect(); 
 		em.getTransaction().begin();
-		em.persist(t);
+		em.persist(r);
 		em.getTransaction().commit();
 		this.disconnect();
 	}//end add
@@ -41,15 +41,15 @@ public class RollingStockService extends DBAccess implements DAO<RollingStock>
 	 * @param t the TrainCar with the updated information
 	 */
 	@Override
-	public void update(RollingStock t)
+	public void update(RollingStock r)
 	{
 		this.connect();
-		RollingStock f = em.find(RollingStock.class, t.getId());
-		f.setCarNumber(t.getCarNumber());
-		f.setLength(t.getLength());
-		f.setNotes(t.getNotes());
+		RollingStock f = em.find(RollingStock.class, r.getId());
+		f.setCarNumber(r.getCarNumber());
+		f.setLength(r.getLength());
+		f.setNotes(r.getNotes());
 		this.disconnect(); 
-	}
+	}//end update
 
 	/**
 	 * Removes the train car with the given id from the database.
@@ -61,7 +61,7 @@ public class RollingStockService extends DBAccess implements DAO<RollingStock>
 		this.connect();
 		em.remove(em.find(RollingStock.class, id));
 		this.disconnect(); 
-	}
+	}//end remove
 
 	/**
 	 * Accessor for all the TrainCars in the database
@@ -75,7 +75,7 @@ public class RollingStockService extends DBAccess implements DAO<RollingStock>
 		List<RollingStock> cars = em.createNamedQuery("getAllCars").getResultList();
 		this.disconnect(); 
 		return cars;
-	}
+	}//end getAll()
 
 	
 }//end TrainCarDAO

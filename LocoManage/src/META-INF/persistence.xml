@@ -12,5 +12,18 @@
 	<class>locomanage.alicen.zschokke.entities.Product</class>
 	<class>locomanage.alicen.zschokke.entities.Model</class>
 	<class>locomanage.alicen.zschokke.entities.Classification</class>
+	
+	
+	<properties>
+		<!--  DB -->
+		<property name="javax.persistence.jdbc.url" value = "jdbc:mysql://localhost:3306/locomanage" />
+		<property name="javax.persistence.jdbc.user" value = "root" />
+		<property name="javax.persistence.jdbc.password" value = "bubbles" />
+		<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+		<!-- EclipseLink configuration -->
+		<property name="eclipselink.logging.level" value="OFF" />
+		<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+	</properties>
 	</persistence-unit>
 </persistence>

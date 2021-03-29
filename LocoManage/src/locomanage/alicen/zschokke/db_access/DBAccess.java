@@ -5,9 +5,9 @@ import javax.persistence.EntityManagerFactory;
 
 public abstract class DBAccess
 {
-	/** Entity manager factory for the project. <br> <b>DO NOT CALL BEFORE CALLING connect() OR AFTER CALLING disconnect() WITHOUT RECONNECTING. </b> */
+	/** Entity manager factory for the project. <br> <b>DO NOT USE BEFORE CALLING connect() OR AFTER CALLING disconnect() WITHOUT RECONNECTING. </b> */
 	protected EntityManagerFactory emf = null; 
-	/** Entity manager for the project. <br> <b>DO NOT CALL BEFORE CALLING connect() OR AFTER CALLING disconnect() WITHOUT RECONNECTING. </b> */
+	/** Entity manager for the project. <br> <b>DO NOT USE BEFORE CALLING connect() OR AFTER CALLING disconnect() WITHOUT RECONNECTING. </b> */
 	protected EntityManager em = null; 
 	private String unitName = "LocoManage";
 	
