@@ -1,13 +1,13 @@
 package locomanage.alicen.zschokke.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import locomanage.alicen.zschokke.entities.Classification;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class HomeController 
+@RestController
+public class RestfulController 
 {
 	@GetMapping("/")
 	public String showIndex()
@@ -19,7 +19,7 @@ public class HomeController
 	public String greeting(@RequestParam(value="name", defaultValue="World") String name, Model model)
 	{
 		model.addAttribute("object", new Classification(name));
-		return "index";
+		return new Classification(name).toJSON();
 	}
 	
 	
