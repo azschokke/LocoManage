@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,7 +25,7 @@ public class Chain
 	private int id; 
 //	@OneToMany
 //	private ArrayList<RollingStock> chain; 
-	@ManyToOne
+	@ManyToOne @JoinColumn(nullable = false, name="l_id")
 	private Location location; 
 	
 	/**
