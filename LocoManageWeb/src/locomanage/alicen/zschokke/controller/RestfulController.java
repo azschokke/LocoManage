@@ -1,5 +1,7 @@
 package locomanage.alicen.zschokke.controller;
 
+import java.util.StringJoiner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import locomanage.alicen.zschokke.entities.Product;
 import locomanage.alicen.zschokke.entities.Railroad;
 import locomanage.alicen.zschokke.entities.Scale;
 import locomanage.alicen.zschokke.service.ClassificationService;
+import locomanage.alicen.zschokke.service.ManufacturerService;
+import locomanage.alicen.zschokke.service.ScaleService;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,12 +22,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestfulController 
 {
-	private ClassificationService classificationService; 
+	private ClassificationService classificationService;
+	private ScaleService scaleService; 
+	private ManufacturerService manufacturerService; 
 	
 	@Autowired
-	public RestfulController(ClassificationService classificationService)
+	public RestfulController(ClassificationService classificationService, ScaleService scaleService, ManufacturerService manufacturerService)
 	{
 		this.classificationService = classificationService; 
+		this.scaleService = scaleService; 
+		this.manufacturerService = manufacturerService;
 	}
 	@GetMapping("/JSON")
 	public String showIndex()
@@ -34,7 +42,7 @@ public class RestfulController
 	@GetMapping("/classificationJSON")
 	public String classification(@RequestParam(value="name", defaultValue="World") String name, org.springframework.ui.Model model)
 	{
-		classificationService.saveUser(new Classification("locomotive"));
+		//classificationService.saveUser(new Classification("locomotive"));
 		return new Classification("locomotive").toJSON();
 	}
 	
@@ -74,4 +82,43 @@ public class RestfulController
 		return new Scale("HO").toJSON(); 
 	}
 	
+	@GetMapping("/classificationsJSON")
+	public String getClassifications()
+	{
+		StringJoiner arr = new StringJoiner(", ", "[", "]");
+		for(Classification c : classificationService.getAll())
+		{
+			arr.add(c.toJSON());
+		}
+		return arr.toString();
+	}//end classifications
+	
+	@GetMapping("/scalesJSON")
+	public String getScales()
+	{
+		StringJoiner arr = new StringJoiner(", ", "[", "]");
+		for(Scale s : scaleService.getAll())
+		{
+			arr.add(s.toJSON());
+		}
+		return arr.toString();
+	}
+	
+	@GetMapping("/manufacturersJSON")
+	public String getManufacturers()
+	{
+		StringJoiner arr = new StringJoiner(", ", "[", "]");
+		for(Manufacturer m : manufacturerService.getAll())
+		{
+			arr.add(m.toJSON());
+		}
+		return arr.toString();
+	}
+	
+	@GetMapping("/railroadsJSON")
+	public String getRailroads()
+	{
+		StringJoiner arr = new StringJoiner(", ", "[", "]");
+		return arr.toString();
+	}
 }//end homeController

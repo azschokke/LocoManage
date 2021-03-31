@@ -19,9 +19,14 @@ public class ClassificationService
 		this.classificationRepository = classificationRepository; 
 	}
 	
-	public void saveUser(Classification classification)
+	public void add(Classification classification)
 	{
 		classificationRepository.save(classification);
+	}
+	
+	public Iterable<Classification> getAll()
+	{
+		return classificationRepository.findAll();
 	}
 	
 }//end ClassificationService

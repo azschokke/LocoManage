@@ -10,8 +10,8 @@ import javax.persistence.Id;
 public class Manufacturer 
 {
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
 	private String name; 
 	
