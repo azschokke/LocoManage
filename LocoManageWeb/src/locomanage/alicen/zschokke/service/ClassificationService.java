@@ -29,4 +29,9 @@ public class ClassificationService
 		return classificationRepository.findAll();
 	}
 	
+	public Classification get(Integer id)
+	{
+		return classificationRepository.findById(id).get();
+	}
+	
 }//end ClassificationService

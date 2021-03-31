@@ -26,4 +26,9 @@ public class ScaleService
 	{
 		scaleRepository.save(s);
 	}
+	
+	public Scale get(Integer id)
+	{
+		return scaleRepository.findById(id).get(); 
+	}
 }//end ScaleService

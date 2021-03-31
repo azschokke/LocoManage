@@ -26,4 +26,9 @@ public class ManufacturerService
 	{
 		mr.save(m);
 	}
+	
+	public Manufacturer get(Integer id)
+	{
+		return mr.findById(id).get(); 
+	}
 }	

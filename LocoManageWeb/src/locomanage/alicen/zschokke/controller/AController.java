@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import locomanage.alicen.zschokke.entities.Classification;
 import locomanage.alicen.zschokke.entities.Manufacturer;
 import locomanage.alicen.zschokke.entities.Scale;
@@ -14,15 +13,20 @@ import locomanage.alicen.zschokke.service.ClassificationService;
 import locomanage.alicen.zschokke.service.ManufacturerService;
 import locomanage.alicen.zschokke.service.ScaleService;
 
+/**
+ * Controller to interact with jsp pages - minimal function. 
+ * @author Alicen Zschokke
+ *
+ */
 @Controller
-public class HomeController 
+public class AController 
 {
 	private ClassificationService classificationService;
 	private ScaleService scaleService; 
 	private ManufacturerService manufacturerService; 
 	
 	@Autowired
-	public HomeController(ClassificationService classificationService, ScaleService scaleService, ManufacturerService manufacturerService)
+	public AController(ClassificationService classificationService, ScaleService scaleService, ManufacturerService manufacturerService)
 	{
 		this.classificationService = classificationService; 
 		this.scaleService = scaleService; 
