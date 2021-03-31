@@ -33,7 +33,8 @@ public class RollingStock
 	private String notes; //optional notes
 	@ManyToOne
 	private Product productInfo;
-
+	@ManyToOne
+	private Chain chain; 
 	
 	//TODO javadocs
 	public RollingStock()

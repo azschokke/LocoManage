@@ -33,6 +33,8 @@ public class RollingStock
 	private String notes; //optional notes
 	@ManyToOne
 	private Product productInfo;
+	@ManyToOne
+	private Chain chain; 
 
 	
 	//TODO javadocs
@@ -41,7 +43,7 @@ public class RollingStock
 		super(); 
 	}//end RollingStock()
 
-	public RollingStock(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale)
+	public RollingStock(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale, Chain chain)
 	{
 		this.setCarNumber(carNumber);
 		this.setLength(length);

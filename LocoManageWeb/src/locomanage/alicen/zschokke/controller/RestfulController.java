@@ -33,6 +33,7 @@ public class RestfulController
 		this.scaleService = scaleService; 
 		this.manufacturerService = manufacturerService;
 	}
+	
 	@GetMapping("/JSON")
 	public String showIndex()
 	{
