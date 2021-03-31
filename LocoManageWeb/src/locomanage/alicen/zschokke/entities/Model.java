@@ -13,7 +13,7 @@ public class Model
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; //unique id
+	private Integer id; //unique id
 	
 	@Column(nullable = false)
 	private String name; //model name
@@ -33,7 +33,7 @@ public class Model
 	}
 	
 	//TODO javadoc
-	public int getInt()
+	public Integer getId()
 	{
 		return this.id; 
 	}
@@ -73,4 +73,8 @@ public class Model
 		return false; 
 	}//end equals
 	
+	public String toJSON()
+	{
+		return "{\"id\": " + this.getId() + ",\"name\": \"" + this.getName() + "\", \"classification\":" + this.getClassification().toJSON() + "}"; 
+	}
 }//end 

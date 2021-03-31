@@ -10,7 +10,7 @@ public class Scale
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; 
+	private Integer id; 
 	private String scale; 
 	
 	public Scale() {}
@@ -20,7 +20,7 @@ public class Scale
 		this.setScale(scale);
 	}//end Scale(scale)
 	
-	public int getId()
+	public Integer getId()
 	{
 		return this.id; 
 	}//end getId()
@@ -35,4 +35,8 @@ public class Scale
 		this.scale = scale; 
 	}//end setScale(scale)
 	
+	public String toJSON()
+	{
+		return "{\"id\": " + this.getId() + ", \"name\":\"" + this.getScale() + "\"}";
+	}
 }//end Scale

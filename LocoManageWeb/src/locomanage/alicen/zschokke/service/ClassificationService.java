@@ -1,64 +1,27 @@
 package locomanage.alicen.zschokke.service;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import locomanage.alicen.zschokke.dao.DAO;
-import locomanage.alicen.zschokke.db_access.DBAccess;
 import locomanage.alicen.zschokke.entities.Classification;
+import locomanage.alicen.zschokke.repositories.ClassificationRepository;
 
-public class ClassificationService extends DBAccess implements DAO<Classification>
+
+@Service
+public class ClassificationService 
 {
-	//TODO javadoc
-	@Override
-	public void add(Classification c) 
-	{
-		this.connect(); 
-		em.getTransaction().begin(); 
-		em.persist(c);
-		em.getTransaction().commit();
-		this.disconnect(); 
-	}//end add
-
-	//TODO javadoc
-	@Override
-	public Classification get(int id) 
-	{
-		this.connect(); 
-		Classification c  = em.find(Classification.class, id);
-		this.disconnect(); 
-		return c; 
-	}//end get
-
-	//TODO javadoc
-	@Override
-	public void update(Classification c)
-	{
-		this.connect(); 
-		Classification original = em.find(Classification.class, c.getId());
-		original.setName(c.getName());
-		this.disconnect(); 
-	}//end update
-
-	//TODO javadoc
-	@Override
-	public void remove(int id)
-	{
-		this.connect(); 
-		em.remove(em.find(Classification.class, id));
-		this.disconnect(); 
-	}//end remove
-
-	//TODO javadoc
-	@Override
-	public List<Classification> getAll()
-	{
-		this.connect(); 
-		@SuppressWarnings("unchecked")
-		List<Classification> classifications = em.createNativeQuery("SELECT c FROM Classification c", Classification.class).getResultList();
-		this.disconnect(); 
-		return classifications;
-	}//end getAll()
+	//inject repository
+	private ClassificationRepository classificationRepository;
 	
+	@Autowired //tells this class where the managed bean should be injected
+	public ClassificationService(ClassificationRepository classificationRepository)
+	{
+		this.classificationRepository = classificationRepository; 
+	}
 	
+	public void saveUser(Classification classification)
+	{
+		classificationRepository.save(classification);
+	}
 	
-}//end class ClassificationService
+}//end ClassificationService

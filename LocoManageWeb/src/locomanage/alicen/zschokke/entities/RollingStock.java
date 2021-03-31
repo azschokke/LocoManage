@@ -23,7 +23,7 @@ public class RollingStock
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; //the id number of the car
+	private Integer id; //the id number of the car
 	private int length; //car length in appropriate scale feet
 	private int carNumber; //number on the car
 	@ManyToOne
@@ -69,7 +69,7 @@ public class RollingStock
 	 * Returns the id number of this train car. 
 	 * @return the integer id number of the train car
 	 */
-	public int getId() 
+	public Integer getId() 
 	{
 		return id;
 	}

@@ -18,7 +18,7 @@ public class HomeController
 	@GetMapping("/classification")
 	public String greeting(@RequestParam(value="name", defaultValue="World") String name, Model model)
 	{
-		model.addAttribute("object", new Classification(name));
+		model.addAttribute("object", new Classification(name).toJSON());
 		return "index";
 	}
 	
