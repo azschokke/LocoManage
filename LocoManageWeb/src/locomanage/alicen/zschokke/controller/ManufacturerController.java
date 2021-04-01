@@ -25,6 +25,7 @@ public class ManufacturerController
 	@PostMapping("/add/{name}")
 	public void addManufacturer(@PathVariable String name)
 	{
+		System.out.println(name);
 		manufacturerService.add(new Manufacturer(name));
 	}//end addManufacturer
 	

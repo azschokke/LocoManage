@@ -32,6 +32,7 @@ public class AController
 		this.scaleService = scaleService; 
 		this.manufacturerService = manufacturerService; 
 	}
+	
 	@GetMapping("/")
 	public String showIndex(Model model)
 	{

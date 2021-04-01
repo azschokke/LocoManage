@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
- * This class models a chain of Train Cars linked together
+ * This class models a chain of rolling stock linked together.
  * @author Alicen Zschokke
  */
 @Entity
