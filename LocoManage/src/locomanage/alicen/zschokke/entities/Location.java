@@ -21,8 +21,8 @@ public class Location
 	@Id
 	private int id; 
 	private String name; 
-//	@OneToMany(targetEntity = Location.class)
-//	private ArrayList<Location> children; 
+	@OneToMany(targetEntity = Location.class)
+	private List children; 
 	@JoinColumn(nullable = false, name="p_id")
 	@ManyToOne
 	private Location parent; 

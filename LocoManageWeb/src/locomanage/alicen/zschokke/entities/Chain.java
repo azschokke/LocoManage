@@ -1,10 +1,13 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,8 +22,10 @@ public class Chain
 	//TODO comment these 
 	@Id
 	private int id; 
-//	@OneToMany
-//	private ArrayList<RollingStock> chain; 
+	
+	@OneToMany(targetEntity = RollingStock.class)
+	private List chain; 
+	
 	@ManyToOne @JoinColumn(nullable = false, name="l_id")
 	private Location location; 
 	

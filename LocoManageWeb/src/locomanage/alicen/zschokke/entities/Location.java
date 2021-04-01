@@ -1,9 +1,12 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * This class models a location in the model railroading system. Anything from a layout down to a track is a location. 
@@ -17,8 +20,8 @@ public class Location
 	@Id
 	private int id; 
 	private String name; 
-//	@OneToMany
-//	private ArrayList<Location> children; 
+	@OneToMany(targetEntity = Location.class)
+	private List children; 
 	@JoinColumn(nullable = false, name="p_id")
 	@ManyToOne
 	private Location parent; 

@@ -23,8 +23,8 @@ public class Chain
 	//TODO comment these 
 	@Id
 	private int id; 
-//	@OneToMany(targetEntity = RollingStock.class)
-//	private ArrayList<RollingStock> chain; 
+	@OneToMany(targetEntity = RollingStock.class)
+	private List chain; 
 	
 	@ManyToOne 
 	@JoinColumn(nullable = false, name="l_id")
