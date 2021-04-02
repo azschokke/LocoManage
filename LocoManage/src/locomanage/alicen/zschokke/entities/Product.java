@@ -78,7 +78,7 @@ public class Product
 	
 	public String toJSON()
 	{
-		return "{\"id\": " + this.getId() + ", \"scale\":\"" + this.getScale().toJSON() + "\"sku\": \"" + this.getSku() + "\"}" ;
+		return "{\"id\": " + this.getId() + ", \"scale\":" + this.getScale().toJSON() + ", \"manufacturer\": " + this.getManufacturer().toJSON() + ", \"sku\": \"" + this.getSku() + "\"}" ;
 	}
 	
 }//end class Product

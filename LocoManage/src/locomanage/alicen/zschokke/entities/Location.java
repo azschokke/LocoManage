@@ -5,7 +5,9 @@ import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,11 +28,9 @@ public class Location
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
 	private String name; 
-	@OneToMany(targetEntity = Location.class)
+	@OneToMany(targetEntity = Location.class, fetch = FetchType.EAGER)
 	private Set children; 
-	@JoinColumn
-	@ManyToOne
-	private Location parent; 
+	private Integer parentId; 
 	private boolean isTrack; 
 	
 	/**
@@ -41,16 +41,16 @@ public class Location
 		
 	}//end Location
 	
-	public Location(String name, Location parent, boolean isTrack)
+	public Location(String name, Integer parentId, boolean isTrack)
 	{
 		this.setName(name);
-		if(parent == null)
+		if(parentId == null)
 		{
 			this.setParent(null);
 		}
 		else
 		{
-			this.setParent(parent);
+			this.setParent(parentId);
 		}
 		this.isTrack = isTrack; 
 		if(isTrack)
@@ -72,7 +72,6 @@ public class Location
 	public void addChild(Location childLocation)
 	{
 		children.add(childLocation);
-		childLocation.setParent(this);
 	}//end addChild()
 	
 	//TODO I need a remove child
@@ -107,11 +106,11 @@ public class Location
 	/**
 	 * TODO I hate this
 	 * Replaces the child locations of this location with the paramater list of locations
-	 * @param children the list of locations to be set as children of this location
+	 * @param s the list of locations to be set as children of this location
 	 */
-	public void setChildren(List<Location> children) 
+	public void setChildren(Set s) 
 	{
-		for(Location l : children)
+		for(Object l : s)
 		{
 			this.children.add(l);
 		}
@@ -121,26 +120,18 @@ public class Location
 	 * Accessor for the parent location of this location.
 	 * @return the parent location of this location
 	 */
-	public Location getParent()
+	public Integer getParent()
 	{
-		return parent;
+		return parentId;
 	}
 
 	/**
 	 * Mutator for the parent location of this location. 
 	 * @param parent the new parent location of this location
 	 */
-	public void setParent(Location parent)
+	public void setParent(Integer parentId)
 	{
-		if(!this.parent.equals(parent))
-		{
-			this.parent = parent; 
-			if(parent != null)
-			{
-				parent.addChild(this);
-			}
-		}
-		
+		this.parentId = parentId; 
 	}//end setParent
 
 	/**
@@ -174,10 +165,12 @@ public class Location
 			.add("\"isTrack\":" + this.isTrack() );
 		if(!this.isTrack())
 		{
+			StringJoiner childrenJson = new StringJoiner(",", "[", "]");
 			for(Object c : children)
 			{
-				json.add(((Location) c).toJSON()); 
+				childrenJson.add(((Location) c).toJSON()); 
 			}
+			json.add("\"children\":" + childrenJson.toString());
 		}//end if		
 		
 		return json.toString(); 

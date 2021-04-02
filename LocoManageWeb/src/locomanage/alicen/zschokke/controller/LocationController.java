@@ -35,9 +35,7 @@ public class LocationController
 		Boolean isTrack = new Boolean(input[2].trim());
 		System.out.println("isTrack: " + isTrack);
 		Integer parentId = Integer.parseInt(input[1].trim()); 
-		Location parentLoc = ((parentId == -1) ? null : locationService.get(parentId));
-		System.out.println(parentLoc);
-		locationService.add(new Location(name, parentLoc, isTrack));
+		locationService.add(new Location(name, parentId, isTrack));
 		
 	}//end addLocation
 	

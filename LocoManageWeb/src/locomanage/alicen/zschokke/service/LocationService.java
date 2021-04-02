@@ -1,6 +1,5 @@
 package locomanage.alicen.zschokke.service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
@@ -36,6 +35,7 @@ public class LocationService
 		return null; 
 	}//end get(id)
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void add(Location location)
 	{
 		 if(location != null)
@@ -45,16 +45,13 @@ public class LocationService
 				 Location loc = locationRepository.save(location);
 				 try
 				 {
-					 Location pLoc = locationRepository.findById(loc.getParent().getId()).get(); 
+					 Location pLoc = locationRepository.findById(loc.getParent()).get(); 
 					 Set s = pLoc.getChildren();
 					 s.add(loc);
 					 pLoc.setChildren(s);
+					 locationRepository.save(pLoc);
 				 }
-				 catch(NoSuchElementException e)
-				 {
-					 
-				 }
-				 
+				 catch(NoSuchElementException e) { }
 				 
 			 }//end if
 		 }//end if

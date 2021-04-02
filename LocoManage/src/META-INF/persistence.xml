@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="LocoManage">
+		<class>org.springframework.web.servlet.mvc.condition.ProducesRequestCondition$ProduceMediaTypeExpression</class>
 		<class>locomanage.alicen.zschokke.entities.Chain</class>
 		<class>locomanage.alicen.zschokke.entities.Classification</class>
 		<class>locomanage.alicen.zschokke.entities.Location</class>
 		<class>locomanage.alicen.zschokke.entities.Manufacturer</class>
 		<class>locomanage.alicen.zschokke.entities.Model</class>
-		<class>org.springframework.web.servlet.mvc.condition.ProducesRequestCondition$ProduceMediaTypeExpression</class>
+		<class>locomanage.alicen.zschokke.entities.Product</class>
 		<class>locomanage.alicen.zschokke.entities.Railroad</class>
 		<class>locomanage.alicen.zschokke.entities.RollingStock</class>
 		<class>locomanage.alicen.zschokke.entities.Scale</class>
 		<class>locomanage.alicen.zschokke.entities.Train</class>
-		<class>locomanage.alicen.zschokke.entities.Product</class>
 	<!-- Classes -->
 	
 	

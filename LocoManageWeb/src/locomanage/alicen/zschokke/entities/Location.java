@@ -30,10 +30,7 @@ public class Location
 	private String name; 
 	@OneToMany(targetEntity = Location.class, fetch = FetchType.EAGER)
 	private Set children; 
-	
-	@JoinColumn
-	@ManyToOne
-	private Location parent; 
+	private Integer parentId; 
 	private boolean isTrack; 
 	
 	/**
@@ -44,16 +41,16 @@ public class Location
 		
 	}//end Location
 	
-	public Location(String name, Location parent, boolean isTrack)
+	public Location(String name, Integer parentId, boolean isTrack)
 	{
 		this.setName(name);
-		if(parent == null)
+		if(parentId == null)
 		{
 			this.setParent(null);
 		}
 		else
 		{
-			this.setParent(parent);
+			this.setParent(parentId);
 		}
 		this.isTrack = isTrack; 
 		if(isTrack)
@@ -123,18 +120,18 @@ public class Location
 	 * Accessor for the parent location of this location.
 	 * @return the parent location of this location
 	 */
-	public Location getParent()
+	public Integer getParent()
 	{
-		return parent;
+		return parentId;
 	}
 
 	/**
 	 * Mutator for the parent location of this location. 
 	 * @param parent the new parent location of this location
 	 */
-	public void setParent(Location parent)
+	public void setParent(Integer parentId)
 	{
-		this.parent = parent; 
+		this.parentId = parentId; 
 	}//end setParent
 
 	/**

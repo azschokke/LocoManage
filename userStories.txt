@@ -1,0 +1,8 @@
+LOCOMANAGE USER STORIES
+
+As a user, I want to look at my inventory digitally. 
+
+As a user, I want to be able to sort and filter my inventory. 
+As a user, I want to model individual items in my inventory linked together. 
+As a user, I want to model a train (items linked together with power and a destination). 
+As a user, I want an account with a password so only I can view my inventory. 

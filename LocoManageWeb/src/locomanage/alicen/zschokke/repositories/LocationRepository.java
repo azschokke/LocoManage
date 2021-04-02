@@ -14,6 +14,6 @@ public interface LocationRepository extends CrudRepository<Location, Integer>{
 	
 	public Iterable<Location> findAll();
 	
-	@Query("SELECT l FROM Location l WHERE parent IS NULL")
+	@Query("SELECT l FROM Location l WHERE parentId = 0")
 	public Iterable<Location> findRoots();
 }
