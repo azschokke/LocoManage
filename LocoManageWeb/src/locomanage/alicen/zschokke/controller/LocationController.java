@@ -69,7 +69,7 @@ public class LocationController
 	}//end listToJSON
 	
 	/*
-	 * Converts an Iterable<Location> to a JSON array of the names
+	 * Converts an Iterable<Location> to a JSON array the locations
 	 */
 	private static String listToJSON(Iterable<Location> list)
 	{

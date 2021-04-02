@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,6 +30,7 @@ public class Location
 	private String name; 
 	@OneToMany(targetEntity = Location.class, fetch = FetchType.EAGER)
 	private Set children; 
+	
 	@JoinColumn
 	@ManyToOne
 	private Location parent; 

@@ -2,6 +2,7 @@ package locomanage.alicen.zschokke.entities;
 
 import java.util.StringJoiner;
 
+import javax.persistence.CascadeType; 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,13 +29,11 @@ public class RollingStock
 	private int carNumber; //number on the car
 	@ManyToOne
 	private Railroad owner; //the railroad the car belongs to
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Model model; //varies widely
 	private String notes; //optional notes
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Product productInfo;
-	@ManyToOne
-	private Chain chain; 
 
 	
 	//TODO javadocs
@@ -43,10 +42,14 @@ public class RollingStock
 		super(); 
 	}//end RollingStock()
 
-	public RollingStock(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale, Chain chain)
+	public RollingStock(Railroad owner, int carNumber, int length, Model model, Product productInfo, String notes)
 	{
+		this.setOwner(owner); 
 		this.setCarNumber(carNumber);
 		this.setLength(length);
+		this.setModel(model);
+		this.setProductInfo(productInfo); 
+		this.setNotes(notes);
 	}
 	
 	/**
@@ -111,7 +114,49 @@ public class RollingStock
 	{
 		this.carNumber = carNumber;
 	}
-	
+
+	/**
+	 * @return the owner
+	 */
+	public Railroad getOwner() {
+		return owner;
+	}
+
+	/**
+	 * @param owner the owner to set
+	 */
+	public void setOwner(Railroad owner) {
+		this.owner = owner;
+	}
+
+	/**
+	 * @return the model
+	 */
+	public Model getModel() {
+		return model;
+	}
+
+	/**
+	 * @param model the model to set
+	 */
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	/**
+	 * @return the productInfo
+	 */
+	public Product getProductInfo() {
+		return productInfo;
+	}
+
+	/**
+	 * @param productInfo the productInfo to set
+	 */
+	public void setProductInfo(Product productInfo) {
+		this.productInfo = productInfo;
+	}
+
 	/**
 	 * Creates and returns a JSON representation of this train car. 
 	 * @return a String representing this train car as a JSON object. 
@@ -119,10 +164,13 @@ public class RollingStock
 	public String toJSON()
 	{
 		return new StringJoiner(", ", "{", "}")
-			.add("\"id: \"" + this.getId())
-			.add("\"carNumber:\"" + this.getCarNumber())
-			.add("\"length: \"" + this.getLength())
-			.add("\"notes: \"" + "\"" + this.getNotes() + "\"")
+			.add("\"id\":" + this.getId())
+			.add("\"owner\":" + this.getOwner().toJSON())
+			.add("\"carNumber\":" + this.getCarNumber())
+			.add("\"length\": " + this.getLength())
+			.add("\"model\":" + this.getModel().toJSON())
+			.add("\"productInfo\":" + this.getProductInfo().toJSON())
+			.add("\"notes\": " + "\"" + this.getNotes() + "\"")
 			.toString();
 	}//end toJSON
 	

@@ -1,7 +1,5 @@
 package locomanage.alicen.zschokke.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +17,13 @@ public class RollingStockService
 		this.rsr = rsr; 
 	}
 	
-	public List<RollingStock> getAll()
+	public Iterable<RollingStock> getAll()
 	{
 		return rsr.findAll(); 
 	}//end getAll()
+	
+	public void add(RollingStock r)
+	{
+		rsr.save(r);
+	}
 }//end RollingStockService
