@@ -6,13 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Product 
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; 
+	private Integer id; 
 	@ManyToOne
 	private Manufacturer manufacturer; 
 	@ManyToOne
@@ -73,9 +72,13 @@ public class Product
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
+	public String toJSON()
+	{
+		return "{\"id\": " + this.getId() + ", \"scale\":\"" + this.getScale().toJSON() + "\"sku\": \"" + this.getSku() + "\"}" ;
+	}
 	
 }//end class Product

@@ -51,7 +51,7 @@ public class ChainService extends DBAccess implements DAO<Chain>
 	{
 		this.connect(); 
 		Chain f = em.find(Chain.class, c.getId());
-		f.setChain(c.getChain());
+//		f.setChain(c.getChain());
 		f.setLocation(c.getLocation());
 		this.disconnect(); 
 	}//end update(c)

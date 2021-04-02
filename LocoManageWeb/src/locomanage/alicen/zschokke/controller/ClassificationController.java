@@ -2,6 +2,7 @@ package locomanage.alicen.zschokke.controller;
 
 import java.util.StringJoiner;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,38 +20,67 @@ public class ClassificationController
 {
 	private ClassificationService classificationService;
 	
+	/**
+	 * Constructor
+	 * @param classificationService
+	 */
+	@Autowired
 	public ClassificationController(ClassificationService classificationService)
 	{
 		this.classificationService = classificationService; 
 	}
 	
+	/**
+	 * Retrieves a classification from the database by id. 
+	 * @param id the Integer id number of the classifiction to retrieve
+	 * @return a JSON representation of the classification matching parameter id
+	 */
 	@GetMapping("/{id}")
 	public String getClassification(@PathVariable Integer id)
 	{
-		return classificationService.get(id).toJSON(); 
-	}
+		try
+		{
+			return classificationService.get(id).toJSON(); 
+		}
+		catch(NullPointerException e)
+		{
+			return "{}"; 
+		}
+	}//end getClassification
 	
+	/**
+	 * Retrieves all classifications from the database
+	 * @return a JSON array of all the classifications in the database
+	 */
 	@GetMapping("/all")
 	public String getClassifications()
 	{
 		return listToJSON(classificationService.getAll());
 	}
 	
+	/**
+	 * Adds a classification to the database
+	 * @param name the name of the classification to add to the database
+	 */
 	@PostMapping("/add/{name}")
 	public void addClassification(@PathVariable String name)
 	{
-		System.out.println(name);
-		Classification c = new Classification(name);
-		System.out.println(c.toJSON());
-		classificationService.add(c);
+		classificationService.add(new Classification(name));
 	}
 	
+	/**
+	 * Removes the classification with the given id from the database. 
+	 * @param id the id number of the classification to be removed
+	 */
 	@GetMapping("/{id}/delete")
 	public void removeClassification(@PathVariable Integer id)
 	{
 		classificationService.remove(classificationService.get(id));
 	}
 	
+	/*
+	 * Converts an Iterable to a JSON array
+	 */
 	private static String listToJSON(Iterable<Classification> list)
 	{
 		StringJoiner result = new StringJoiner(", ", "[", "]");

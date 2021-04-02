@@ -23,7 +23,7 @@ public class RollingStock
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; //the id number of the car
+	private Integer id; //the id number of the car
 	private int length; //car length in appropriate scale feet
 	private int carNumber; //number on the car
 	@ManyToOne
@@ -33,6 +33,9 @@ public class RollingStock
 	private String notes; //optional notes
 	@ManyToOne
 	private Product productInfo;
+	@ManyToOne
+	private Chain chain; 
+
 	
 	//TODO javadocs
 	public RollingStock()
@@ -40,7 +43,7 @@ public class RollingStock
 		super(); 
 	}//end RollingStock()
 
-	public RollingStock(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale)
+	public RollingStock(String owner, int carNumber, String model, String manufacturer, String sku, int length, String scale, Chain chain)
 	{
 		this.setCarNumber(carNumber);
 		this.setLength(length);
@@ -68,7 +71,7 @@ public class RollingStock
 	 * Returns the id number of this train car. 
 	 * @return the integer id number of the train car
 	 */
-	public int getId() 
+	public Integer getId() 
 	{
 		return id;
 	}

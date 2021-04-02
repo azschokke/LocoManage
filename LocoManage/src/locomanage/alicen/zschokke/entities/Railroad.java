@@ -10,7 +10,7 @@ public class Railroad
 {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; 
+	private Integer id; 
 	private String name; 
 	
 	public Railroad() {}
@@ -20,7 +20,7 @@ public class Railroad
 		this.setName(name);
 	}
 	
-	public int getId()
+	public Integer getId()
 	{
 		return this.id; 
 	}
@@ -33,6 +33,11 @@ public class Railroad
 	public void setName(String name)
 	{
 		this.name = name; 
+	}
+	
+	public String toJSON()
+	{
+		return "{ \"id\": " + this.getId() + ", \"name\" : \"" + this.getName() + "\"}"; 
 	}
 	
 }//end Railroad

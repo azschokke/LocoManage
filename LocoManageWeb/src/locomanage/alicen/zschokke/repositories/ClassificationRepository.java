@@ -15,5 +15,5 @@ public interface ClassificationRepository extends CrudRepository<Classification,
 {
 	public Iterable<Classification> findAll(); 
 	
-	public Optional<Classification> findByName(String name); 
+	public Optional<Classification> findByNameIgnoreCase(String name); 
 }//end ClassificationRepository

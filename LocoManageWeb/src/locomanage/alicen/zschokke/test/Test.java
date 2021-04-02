@@ -1,19 +1,16 @@
 package locomanage.alicen.zschokke.test;
 
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import locomanage.alicen.zschokke.entities.Classification;
-import locomanage.alicen.zschokke.service.ClassificationService;
-
+import java.util.Optional;
+import java.util.Set;
 
 public class Test 
 {
-	@Autowired
-	private static ClassificationService cs; 
-	
 	public static void main(String[] args)
 	{
-		cs.add(new Classification("locomotive"));
+		Set s = null; 
+		for(Object o : s)
+		{
+			System.out.println("hello");
+		}
 	}//end main
 }

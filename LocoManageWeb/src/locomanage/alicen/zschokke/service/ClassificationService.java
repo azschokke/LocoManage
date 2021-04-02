@@ -20,6 +20,10 @@ public class ClassificationService
 	//inject repository
 	private ClassificationRepository classificationRepository;
 	
+	/**
+	 * Constructor
+	 * @param classificationRepository
+	 */
 	@Autowired //tells this class where the managed bean should be injected
 	public ClassificationService(ClassificationRepository classificationRepository)
 	{
@@ -38,11 +42,20 @@ public class ClassificationService
 		}//end if	
 	}//end add
 	
+	/**
+	 * Retrieves all the classifications in the database. 
+	 * @return an Iterable containing all of the Classifications in the database
+	 */
 	public Iterable<Classification> getAll()
 	{
 		return classificationRepository.findAll();
 	}//end getAll()
 	
+	/**
+	 * Retrieves a classifiction by id number
+	 * @param id the Integer id to find the classification matching
+	 * @return the matching Classification, or null if one does not exist
+	 */
 	public Classification get(Integer id)
 	{
 		try
@@ -53,20 +66,45 @@ public class ClassificationService
 		return null;
 	}//end get(Integer id)
 	
+	/**
+	 * Retrieves a classification by name
+	 * @param name the String name of the classification
+	 * @return the matching classification, or null if one does not exist
+	 */
 	public Classification get(String name)
 	{
 //		System.out.println("getString");
 		try
 		{
-			return classificationRepository.findByName(name).get();
+			return classificationRepository.findByNameIgnoreCase(name).get();
 		}
 		catch(NoSuchElementException e){}
 		return null;
 	}
 	
+	/**
+	 * Removes the parameter classification from the database. 
+	 * @param classification the classification to be removed
+	 */
 	public void remove(Classification classification)
 	{
 		classificationRepository.delete(classification);
 	}
+	
+	/**
+	 * Updates the classification with the matching id number to the information in the parameter classification
+	 * @param classification the classification with the updated information
+	 */
+	public void update(Classification classification)
+	{
+		try
+		{
+			classificationRepository.findById(classification.getId()).get().setName(classification.getName());
+		}
+		catch(NoSuchElementException e)
+		{
+			
+		}
+	}//end update()
 	
 }//end ClassificationService

@@ -1,6 +1,5 @@
 package locomanage.alicen.zschokke.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,10 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class Classification 
 {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Id
-	private int id; //unique id
-	@Column(nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id; //unique id
 	private String name; //name of this classification
 	
 	//TODO javadoc
@@ -25,7 +24,7 @@ public class Classification
 	}
 	
 	//TODO javadoc
-	public int getId()
+	public Integer getId()
 	{
 		return this.id;
 	}
@@ -59,4 +58,8 @@ public class Classification
 		return false; 
 	}//end equals
 	
+	public String toJSON()
+	{
+		return "{\"id\": " + this.getId() + ", \"name\":\"" + this.getName() + "\"}" ;
+	}
 }//end Classification

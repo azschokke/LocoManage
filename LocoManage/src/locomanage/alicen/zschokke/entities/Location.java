@@ -1,9 +1,13 @@
 package locomanage.alicen.zschokke.entities;
 
-import java.util.List; 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.StringJoiner;
+import java.util.TreeSet;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,11 +23,12 @@ public class Location
 {
 	//TODO comment these
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
 	private String name; 
 	@OneToMany(targetEntity = Location.class)
-	private List children; 
-	@JoinColumn(nullable = false, name="p_id")
+	private Set children; 
+	@JoinColumn
 	@ManyToOne
 	private Location parent; 
 	private boolean isTrack; 
@@ -36,13 +41,37 @@ public class Location
 		
 	}//end Location
 	
+	public Location(String name, Location parent, boolean isTrack)
+	{
+		this.setName(name);
+		if(parent == null)
+		{
+			this.setParent(null);
+		}
+		else
+		{
+			this.setParent(parent);
+		}
+		this.isTrack = isTrack; 
+		if(isTrack)
+		{
+			children = null; 
+		}
+		else
+		{
+			children = new TreeSet<Location>(); 
+		}
+		
+		
+	}//end Location()
+	
 	/**
 	 * Adds the parameter location as a child of this location. 
 	 * @param childLocation the location to add as a child
 	 */
 	public void addChild(Location childLocation)
 	{
-//		children.add(childLocation);
+		children.add(childLocation);
 		childLocation.setParent(this);
 	}//end addChild()
 	
@@ -70,23 +99,23 @@ public class Location
 	 * Accessor for the children of this location. 
 	 * @return a list containing the child locations of this location
 	 */
-//	public List<Location> getChildren() 
-//	{
-//		return children;
-//	}//end getChildren
+	public Set<Location> getChildren() 
+	{
+		return children;
+	}//end getChildren
 
 	/**
 	 * TODO I hate this
 	 * Replaces the child locations of this location with the paramater list of locations
 	 * @param children the list of locations to be set as children of this location
 	 */
-//	public void setChildren(List<Location> children) 
-//	{
-//		for(Location l : children)
-//		{
-//			this.children.add(l);
-//		}
-//	}//end setChildren
+	public void setChildren(List<Location> children) 
+	{
+		for(Location l : children)
+		{
+			this.children.add(l);
+		}
+	}//end setChildren
 
 	/**
 	 * Accessor for the parent location of this location.
@@ -103,8 +132,16 @@ public class Location
 	 */
 	public void setParent(Location parent)
 	{
-		this.parent = parent;
-	}
+		if(!this.parent.equals(parent))
+		{
+			this.parent = parent; 
+			if(parent != null)
+			{
+				parent.addChild(this);
+			}
+		}
+		
+	}//end setParent
 
 	/**
 	 * @return true if this location is a track, false otherwise
@@ -128,5 +165,22 @@ public class Location
 	{
 		return this.id; 
 	}
+	
+	public String toJSON()
+	{
+		StringJoiner json = new StringJoiner(",", "{", "}");
+		json.add("\"id\":" + this.getId())
+			.add("\"name\": \"" + this.getName() + "\"")
+			.add("\"isTrack\":" + this.isTrack() );
+		if(!this.isTrack())
+		{
+			for(Object c : children)
+			{
+				json.add(((Location) c).toJSON()); 
+			}
+		}//end if		
+		
+		return json.toString(); 
+	}//end toJSON
 	
 }//end class Location

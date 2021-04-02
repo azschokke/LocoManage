@@ -12,11 +12,13 @@ import locomanage.alicen.zschokke.service.RollingStockService;
 @RequestMapping("/rollingStock")
 public class RollingStockController
 {
-	private RollingStockService rss; 
+	private RollingStockService rollingStockService; 
 	
 	@Autowired
-	public RollingStockController()
+	public RollingStockController(RollingStockService rollingStockService)
 	{
-		
+		this.rollingStockService = rollingStockService; 
 	}
+	
+	
 }//end RollingStockController

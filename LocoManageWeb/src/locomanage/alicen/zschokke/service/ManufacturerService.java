@@ -9,26 +9,26 @@ import locomanage.alicen.zschokke.repositories.ManufacturerRepository;
 @Service
 public class ManufacturerService 
 {
-	private ManufacturerRepository mr; 
+	private ManufacturerRepository manufacturerRepository; 
 	
 	@Autowired
-	public ManufacturerService(ManufacturerRepository mr)
+	public ManufacturerService(ManufacturerRepository manufacturerRepository)
 	{
-		this.mr = mr; 
+		this.manufacturerRepository = manufacturerRepository; 
 	}
 	
 	public Iterable<Manufacturer> getAll()
 	{
-		return mr.findAll(); 
+		return manufacturerRepository.findAll(); 
 	}
 	
 	public void add(Manufacturer m)
 	{
-		mr.save(m);
+		manufacturerRepository.save(m);
 	}
 	
 	public Manufacturer get(Integer id)
 	{
-		return mr.findById(id).get(); 
+		return manufacturerRepository.findById(id).get(); 
 	}
 }	

@@ -10,9 +10,9 @@ import javax.persistence.Id;
 public class Manufacturer 
 {
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id; 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id; 
 	private String name; 
 	
 	public Manufacturer() {}
@@ -22,7 +22,7 @@ public class Manufacturer
 		this.setName(name);
 	}
 	
-	public int getId()
+	public Integer getId()
 	{
 		return this.id; 
 	}
@@ -35,5 +35,10 @@ public class Manufacturer
 	public void setName(String name)
 	{
 		this.name = name; 
+	}
+	
+	public String toJSON()
+	{
+		return "{\"id\": " + this.getId() + ",\"name\": \"" + this.getName() + "\"}"; 
 	}
 }//end class Manufacturer

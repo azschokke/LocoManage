@@ -1,12 +1,17 @@
 package locomanage.alicen.zschokke.controller;
 
+import java.util.StringJoiner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import locomanage.alicen.zschokke.entities.Classification;
+import locomanage.alicen.zschokke.entities.Scale;
 import locomanage.alicen.zschokke.service.ScaleService;
 
 @CrossOrigin
@@ -27,4 +32,29 @@ public class ScaleController
 	{
 		return scaleService.get(id).toJSON(); 
 	}
-}
+	
+	@GetMapping("/all")
+	public String getScales()
+	{
+		return listToJSON(scaleService.getAll());
+	}
+	
+	@PostMapping("/add/{scale}")
+	public void addScale(@PathVariable String scale)
+	{
+		scaleService.add(new Scale(scale));
+	}
+	
+	
+	private static String listToJSON(Iterable<Scale> list)
+	{
+		StringJoiner result = new StringJoiner(", ", "[", "]");
+		
+		for(Scale s : list)
+		{
+			result = result.add(s.toJSON());
+		}
+		return result.toString(); 
+	}//end listToJSON
+	
+}//end ScaleController
