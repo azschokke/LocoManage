@@ -1,7 +1,8 @@
 package locomanage.alicen.zschokke.entities;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,10 +22,12 @@ public class Chain
 {
 	//TODO comment these 
 	@Id
-	private int id; 
+	@Column
+	private Integer id; 
 	
+	@SuppressWarnings("rawtypes")
 	@OneToMany(targetEntity = RollingStock.class)
-	private List chain; 
+	private Set chain; 
 	
 	@ManyToOne @JoinColumn(nullable = false, name="l_id")
 	private Location location; 
@@ -41,23 +44,23 @@ public class Chain
 	 * Returns a list of the <b>Train Cars</b> in this Chain. 
 	 * @return a list of the train cars in this chain. 
 	 */
-//	public List<RollingStock> getChain() 
-//	{
-////		return chain;
-//		return null; 
-//	}//end getChain
+	public Set<RollingStock> getChain() 
+	{
+		return chain;
+	}//end getChain
 
 	/**
 	 * TODO do i really want this? 
 	 * @param chain
 	 */
-//	public void setChain(List<RollingStock> chain) 
-//	{
-//		for(RollingStock c : chain)
-//		{
-////			this.chain.add(c);
-//		}
-//	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void setChain(Set chain) 
+	{
+		for(Object c : chain)
+		{
+			this.chain.add(c);
+		}
+	}
 	
 	/**
 	 * Returns the location of this Chain of cars
@@ -81,7 +84,7 @@ public class Chain
 	 * Returns the id number of this chain. 
 	 * @return the integer id of this chain
 	 */
-	public int getId()
+	public Integer getId()
 	{
 		return this.id; 
 	}

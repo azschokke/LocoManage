@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class Product
 	private Manufacturer manufacturer; 
 	@ManyToOne
 	private Scale scale; 
+	@Column
 	private String sku; 
 	
 	public Product() {}

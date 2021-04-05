@@ -37,7 +37,7 @@ public class RailroadController
 	}//end RailroadController()
 	
 	@GetMapping("/{id}")
-	public String get(Integer id)
+	public String get(@PathVariable Integer id)
 	{
 		try
 		{

@@ -2,7 +2,8 @@ package locomanage.alicen.zschokke.entities;
 
 import java.util.StringJoiner;
 
-import javax.persistence.CascadeType; 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,12 +26,15 @@ public class RollingStock
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Integer id; //the id number of the car
+	@Column
 	private int length; //car length in appropriate scale feet
+	@Column
 	private int carNumber; //number on the car
 	@ManyToOne
 	private Railroad owner; //the railroad the car belongs to
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Model model; //varies widely
+	@Column
 	private String notes; //optional notes
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Product productInfo;

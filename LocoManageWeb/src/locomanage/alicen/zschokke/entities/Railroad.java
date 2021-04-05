@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ public class Railroad
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Integer id; 
+	@Column
 	private String name; 
 	
 	public Railroad() {}

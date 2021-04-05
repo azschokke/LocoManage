@@ -1,18 +1,15 @@
 package locomanage.alicen.zschokke.entities;
 
-import java.util.List;
 import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeSet;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -26,11 +23,15 @@ public class Location
 	//TODO comment these
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; 
+	private Integer id; 
+	@Column
 	private String name; 
+	@SuppressWarnings("rawtypes")
 	@OneToMany(targetEntity = Location.class, fetch = FetchType.EAGER)
 	private Set children; 
+	@Column(name = "parentId")
 	private Integer parentId; 
+	@Column
 	private boolean isTrack; 
 	
 	/**
@@ -38,7 +39,7 @@ public class Location
 	 */
 	public Location()
 	{
-		
+		super(); 
 	}//end Location
 	
 	public Location(String name, Integer parentId, boolean isTrack)
@@ -69,6 +70,7 @@ public class Location
 	 * Adds the parameter location as a child of this location. 
 	 * @param childLocation the location to add as a child
 	 */
+	@SuppressWarnings("unchecked")
 	public void addChild(Location childLocation)
 	{
 		children.add(childLocation);
@@ -98,6 +100,7 @@ public class Location
 	 * Accessor for the children of this location. 
 	 * @return a list containing the child locations of this location
 	 */
+	@SuppressWarnings("unchecked")
 	public Set<Location> getChildren() 
 	{
 		return children;
@@ -108,6 +111,7 @@ public class Location
 	 * Replaces the child locations of this location with the paramater list of locations
 	 * @param s the list of locations to be set as children of this location
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void setChildren(Set s) 
 	{
 		for(Object l : s)
@@ -152,7 +156,7 @@ public class Location
 	 * Accessor for the unique id of this location.
 	 * @return the id of this location
 	 */
-	public int getId()
+	public Integer getId()
 	{
 		return this.id; 
 	}

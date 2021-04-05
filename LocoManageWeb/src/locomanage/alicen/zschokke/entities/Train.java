@@ -3,7 +3,6 @@ package locomanage.alicen.zschokke.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 //import java.util.ArrayList;
@@ -12,7 +11,7 @@ import javax.persistence.OneToOne;
 public class Train 
 {
 	@Id
-	private int id; 
+	private Integer id; 
 	@OneToOne
 	private Chain cars;
 //	private Date departure; 
@@ -76,4 +75,8 @@ public class Train
 		return this.cars.getLocation(); 
 	}
 	
+	public Integer getId()
+	{
+		return this.id; 
+	}
 }//end class Train

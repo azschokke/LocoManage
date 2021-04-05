@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,7 @@ public class Classification
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; //unique id
-	@NotEmpty
+	@Column
 	private String name; //name of this classification
 	
 	//TODO javadoc
