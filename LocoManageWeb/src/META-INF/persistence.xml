@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="LocoManage">
+	
+		<!-- Classes -->
+		<class>locomanage.alicen.zschokke.entities.Chain</class>
+		<class>locomanage.alicen.zschokke.entities.Classification</class>
+		<class>locomanage.alicen.zschokke.entities.Location</class>
+		<class>locomanage.alicen.zschokke.entities.Manufacturer</class>
+		<class>locomanage.alicen.zschokke.entities.Model</class>
+		<class>locomanage.alicen.zschokke.entities.Product</class>
+		<class>locomanage.alicen.zschokke.entities.Railroad</class>
+		<class>locomanage.alicen.zschokke.entities.RollingStock</class>
+		<class>locomanage.alicen.zschokke.entities.Scale</class>
+		<class>locomanage.alicen.zschokke.entities.Train</class>
+		<class>locomanage.alicen.zschokke.entities.User</class>
+		
+		<properties>
+			<!--  DB -->
+			<property name="javax.persistence.jdbc.url" value = "jdbc:mysql://localhost:3306/locomanage" />
+			<property name="javax.persistence.jdbc.user" value = "root" />
+			<property name="javax.persistence.jdbc.password" value = "bubbles" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+	
+			<!-- EclipseLink configuration -->
+			<property name="eclipselink.logging.level" value="OFF" />
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+		</properties>
+		
+	</persistence-unit>
+	
+</persistence>
