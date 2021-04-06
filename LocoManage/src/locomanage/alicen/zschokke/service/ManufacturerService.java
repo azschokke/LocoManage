@@ -1,5 +1,7 @@
 package locomanage.alicen.zschokke.service;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +33,30 @@ public class ManufacturerService
 	{
 		return manufacturerRepository.findById(id).get(); 
 	}
-}	
+	
+	public void update(Manufacturer m)
+	{
+		try
+		{
+			Manufacturer found = this.manufacturerRepository.findById(m.getId()).get();
+			found.setName(m.getName());
+			this.manufacturerRepository.save(found);
+		}
+		catch(NoSuchElementException e)
+		{
+			System.out.println("No match found for id " + m.getId());
+		}
+	}//end update
+	
+	public void remove(Integer id)
+	{
+		try
+		{
+			this.manufacturerRepository.delete(this.manufacturerRepository.findById(id).get());
+		}
+		catch(NoSuchElementException e)
+		{
+			System.out.println("No match found for id " + id);
+		}
+	}
+}//end ManufacturerService

@@ -1,5 +1,7 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +25,12 @@ public class Manufacturer implements JSONable
 	{
 		this.setName(name);
 	}
+	
+	public Manufacturer(HashMap<String, Object> json)
+	{
+		this.id = (int) Double.parseDouble(json.get("id").toString());
+		this.setName(json.get("name").toString()); 
+	}//end Manufacturer(json)
 	
 	public Integer getId()
 	{

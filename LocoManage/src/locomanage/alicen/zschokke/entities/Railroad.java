@@ -1,5 +1,7 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,12 @@ public class Railroad implements JSONable
 	public Railroad(String name)
 	{
 		this.setName(name);
+	}
+	
+	public Railroad(HashMap<String, Object> json)
+	{
+		this.id = (int) Double.parseDouble(json.get("id").toString());
+		this.setName(json.get("name").toString()); 
 	}
 	
 	public Integer getId()

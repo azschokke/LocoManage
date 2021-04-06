@@ -4,7 +4,9 @@ import { GET } from "../../util/apiCommunication";
 import AddManufacturer from "../forms/AddManufacturer";
 import AddClassification from "../forms/AddClassification";
 import AddRailroad from "../forms/AddRailroad";
-import EditClassificaiton from "../forms/EditClassificaiton";
+import EditClassification from "../forms/EditClassification";
+import EditManufacturer from "../forms/EditManufacturer";
+import EditRailroad from "../forms/EditRailroad";
 
 const AddChain = () => 
 {
@@ -27,16 +29,14 @@ const AddChain = () =>
             <Accordion>
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="8">
-                        <Row>
-                            <Col>Classification
-                                </Col>
-                        </Row></Accordion.Toggle>
+                        Classification
+                                </Accordion.Toggle>
                     <Accordion.Collapse eventKey="8">
                         <Card.Body>
                             <ListGroup>
                                 {classifications.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
                                 {
-                                    return <EditClassificaiton data={i} setter={setClassifications}></EditClassificaiton>
+                                    return <EditClassification key={`classificationDisplay${i.id}`} data={i} setter={setClassifications}></EditClassification>
                                 })}
                             </ListGroup>
                             <br />
@@ -55,7 +55,7 @@ const AddChain = () =>
                             <ListGroup>
                                 {manufacturers.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
                                 {
-                                    return <ListGroup.Item key={`manufacturer${i.id}`} value={i.id}>{i.name}</ListGroup.Item>
+                                    return <EditManufacturer key={`manufacturerDisplay${i.id}`} data={i} setter={setManufacturers}></EditManufacturer>
                                 })}
                             </ListGroup>
                             <br />
@@ -63,6 +63,7 @@ const AddChain = () =>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
+
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="9">
                         <Row>
@@ -74,10 +75,12 @@ const AddChain = () =>
                     <Accordion.Collapse eventKey="9">
                         <Card.Body>
                             <ListGroup>
-                                {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
-                                {
-                                    return <ListGroup.Item key={`railroad${i.id}`} value={i.id}>{i.name} edit delete</ListGroup.Item>
-                                })}
+                                <ListGroup>
+                                    {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i) =>
+                                    {
+                                        return <EditRailroad key={`railroadDisplay${i.id}`} data={i} setter={setRailroads}></EditRailroad>
+                                    })}
+                                </ListGroup>
                             </ListGroup>
                             <br />
                             <AddRailroad setter={setRailroads}></AddRailroad>

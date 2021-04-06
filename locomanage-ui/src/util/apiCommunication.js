@@ -12,6 +12,7 @@ export function POST(path, data)
 
 export async function UPDATE(entity, goal, data, setter)
 {
+    // eslint-disable-next-line
     const response = await POST(entity + "/" + goal, data);
     if (entity === "location")
     {

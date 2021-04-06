@@ -19,7 +19,7 @@ const AddRailroad = () =>
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow} block>
                 Add Railroad
             </Button>
 

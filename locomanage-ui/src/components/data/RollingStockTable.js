@@ -80,8 +80,10 @@ const RollingStockTable = (props) =>
 
     return (
         <Table id="rollingStockTable" striped hover size="md">
+            {console.log("Stock List: " + props.stockList)}
             <thead>
                 <tr key="trainTableHeaders">
+                    <th key="userActionHeader"></th>
                     <th key="railroadHeader" onClick={() => sort("r")}>Railroad</th>
                     <th key="carNumberHeader" onClick={() => sort("n")}>Car Number</th>
                     <th key="lengthHeader" onClick={() => sort("l")}>Length</th>
@@ -93,9 +95,10 @@ const RollingStockTable = (props) =>
                 </tr>
             </thead>
             <tbody id="tableContent">
-                {stock.map((i) =>
+                {props.stockList.map((i) =>
                 {
-                    return <tr key={`rs${i.id}`}>
+                    return <tr key={`rs${i.id}` + ((props.chain) ? "a" : "e")}>
+                        <td key={`action${i.id}`} id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</td>
                         <td key={`rs${i.id}r`}>{i.owner.name}</td>
                         <td key={`rs${i.id}c`}>{i.carNumber}</td>
                         <td key={`rs${i.id}l`}>{i.length}</td>
@@ -108,7 +111,7 @@ const RollingStockTable = (props) =>
                 })}
             </tbody>
 
-        </Table>
+        </Table >
     );
 };
 

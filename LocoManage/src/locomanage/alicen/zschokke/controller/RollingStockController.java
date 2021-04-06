@@ -68,17 +68,20 @@ public class RollingStockController
 	public void addRollingStock(@RequestBody String body)
 	{
 		HashMap requestBody = JSONUtilities.fromJSON(body);
-//		Railroad railroad = railroadService.get(Integer.parseInt(input[0].trim()));
-//		System.out.println("rr: " + railroad.toJSON());
-//		int carNumber = Integer.parseInt(input[1].trim());
-//		System.out.println("car num: " + carNumber);
-//		int length = Integer.parseInt(input[2].trim());
-//		System.out.println("length: " + length);
-//		Model model = new Model(input[3].trim(), classificationService.get(Integer.parseInt(input[5].trim())));
-//		System.out.println("model: " + model.toJSON());
-//		Product productInfo = new Product( manufacturerService.get(Integer.parseInt(input[7].trim())), scaleService.get(Integer.parseInt(input[4])), input[6].trim() );
-//		System.out.println("productinfo: " + productInfo.toJSON());
-//		rollingStockService.add(new RollingStock(railroad, carNumber, length, model, productInfo, input[8]));
+		System.out.println(body);
+		this.rollingStockService.add(new RollingStock(
+				railroadService.get((int) Double.parseDouble(requestBody.get("railroad").toString())),
+				((Double) requestBody.get("carNumber")).intValue(),
+				((Double) requestBody.get("length")).intValue(),
+				new Model(
+						requestBody.get("model").toString(), 
+						classificationService.get((int) Double.parseDouble(requestBody.get("classification").toString()))),
+				new Product(
+						manufacturerService.get((int) Double.parseDouble(requestBody.get("manufacturer").toString())), 
+						scaleService.get((int) Double.parseDouble(requestBody.get("classification").toString())), 
+						requestBody.get("sku").toString()),
+				requestBody.get("notes").toString()
+				));
 	}//end addRollingStock
 	
 	/**

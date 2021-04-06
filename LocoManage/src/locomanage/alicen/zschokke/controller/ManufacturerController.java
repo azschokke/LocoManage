@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class ManufacturerController
 	 * Constructor
 	 * @param manufacturerService
 	 */
+	@Autowired
 	public ManufacturerController(ManufacturerService manufacturerService)
 	{
 		this.manufacturerService = manufacturerService; 
@@ -70,4 +72,21 @@ public class ManufacturerController
 		return JSONUtilities.listToJSON(manufacturerService.getAll());
 	}
 	
+	/**
+	 * Updates a manufacturer's name in the database
+	 */
+	@PostMapping("/update")
+	public void updateManufacturer(@RequestBody String body)
+	{
+		this.manufacturerService.update(new Manufacturer(JSONUtilities.fromJSON(body)));
+	}
+	
+	/**
+	 * Removes a manufacturer from the database. 
+	 */
+	@PostMapping("/delete")
+	public void removeManufacturer(@RequestBody String body)
+	{
+		this.manufacturerService.remove(Integer.parseInt(body));
+	}
 }//end manufacturerService

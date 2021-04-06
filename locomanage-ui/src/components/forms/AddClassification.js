@@ -11,7 +11,7 @@ const AddClassification = (props) =>
     const handleShow = () => setShow(true);
     const handleSave = () =>
     {
-        UPDATE("classification", "add", newClassification, props.setter);
+        UPDATE("classification", "add", newClassification, props.classificationSetter);
         handleClose();
     }
     //onChange={(event) => setObject((previous) => ({ "name": event.target.value, ...previous }))}

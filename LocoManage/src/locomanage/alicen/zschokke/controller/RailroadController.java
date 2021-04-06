@@ -70,7 +70,7 @@ public class RailroadController
 	@PostMapping("/update")
 	public void update(@RequestBody String body)
 	{
-		HashMap<String, Object> requestBody = JSONUtilities.fromJSON(body);
+		this.railroadService.update(new Railroad(JSONUtilities.fromJSON(body)));
 		
 	}
 	
@@ -80,7 +80,7 @@ public class RailroadController
 	@PostMapping("/delete")
 	public void delete(@RequestBody String body)
 	{
-		
+		this.railroadService.remove(Integer.parseInt(body));
 	}
 	
 	/**

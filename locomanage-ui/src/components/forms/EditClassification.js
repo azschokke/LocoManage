@@ -12,7 +12,7 @@ const EditClassification = (props) =>
     const handleDelete = () => 
     {
         console.log("delete");
-        UPDATE("classification", "delete", classification.id, props.setter)
+        UPDATE("classification", "delete", classification.id, props.setter);
         handleClose();
     }
     const handleSave = () =>
@@ -26,7 +26,7 @@ const EditClassification = (props) =>
 
     return (
         <>
-            <ListGroup.Item key={`classification${props.data.id}`} action onClick={handleShow}>
+            <ListGroup.Item key={`classification${props.data.id}e`} action onClick={handleShow}>
                 {props.data.name}
             </ListGroup.Item>
             <Modal show={show} onHide={handleClose}>

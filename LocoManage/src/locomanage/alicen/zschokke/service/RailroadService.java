@@ -70,4 +70,24 @@ public class RailroadService
 		return railroadRepository.findAll();
 	}
 	
+	/**
+	 * Updates the name of the railroad with the matching id in the database.
+	 * @param railroad the Railroad with the updated name
+	 */
+	public void update(Railroad railroad)
+	{
+		Railroad found = this.railroadRepository.findById(railroad.getId()).get(); 
+		found.setName(railroad.getName());
+		this.railroadRepository.save(found);
+	}//end update
+	
+	/**
+	 * Removes a railroad from the database
+	 * @param id the unique integer id of the railroad to be removed
+	 */
+	public void remove(Integer id)
+	{
+		this.railroadRepository.delete(this.railroadRepository.findById(id).get());
+	}//end remove
+	
 }//end RailroadService

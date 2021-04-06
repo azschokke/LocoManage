@@ -75,9 +75,9 @@ const AddRollingStock = () =>
                                         })}
                                     </Form.Control>
                                 </Col>
-                                <Col md={3}><Form.Control id="carNumber" placeholder="car number"
-                                    onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, carNumber: event.target.value })) }} /></Col>
-                                <Col md={3}><Form.Control id="length" placeholder="length" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, length: event.target.value })) }} /></Col>
+                                <Col md={3}><Form.Control type="number" id="carNumber" placeholder="car number"
+                                    onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, carNumber: event.target.valueAsNumber })) }} /></Col>
+                                <Col md={3}><Form.Control type="number" id="length" placeholder="length" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, length: event.target.valueAsNumber })) }} /></Col>
                             </Row>
                         </Form.Group>
                         <Form.Group>

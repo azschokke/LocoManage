@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import { Button, Modal, Form, ListGroup } from "react-bootstrap"
 import { UPDATE } from "../../util/apiCommunication";
 
-const EditManufacturer = (props) => 
+const EditRailroad = (props) => 
 {
     const [show, setShow] = useState(false);
-    const [manufacturer, setManufacturer] = useState(props.data);
+    const [railroad, setRailroad] = useState(props.data);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleDelete = () => 
     {
         console.log("delete");
-        UPDATE("manufacturer", "delete", manufacturer.id, props.setter);
+        console.log(railroad.id);
+        UPDATE("railroad", "delete", railroad.id, props.setter);
         handleClose();
     }
     const handleSave = () =>
     {
-        UPDATE("manufacturer", "update", manufacturer, props.setter);
+        console.log("update");
+        UPDATE("railroad", "update", JSON.stringify(railroad), props.setter);
         handleClose();
     }
 
@@ -25,18 +27,18 @@ const EditManufacturer = (props) =>
 
     return (
         <>
-            <ListGroup.Item key={`manufacturer${props.data.id}e`} action onClick={handleShow}>
+            <ListGroup.Item key={`railroad${props.data.id}e`} action onClick={handleShow}>
                 {props.data.name}
             </ListGroup.Item>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Manufacturer</Modal.Title>
+                    <Modal.Title>Edit Railroad</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <Form>
-                        <Form.Label>Manufacturer</Form.Label>
-                        <Form.Control defaultValue={props.data.name} onChange={(event) => { setManufacturer((previous) => ({ ...previous, name: event.target.value })) }} />
+                        <Form.Label>Railroad</Form.Label>
+                        <Form.Control defaultValue={props.data.name} onChange={(event) => { setRailroad((previous) => ({ ...previous, name: event.target.value })) }} />
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -48,4 +50,4 @@ const EditManufacturer = (props) =>
     );
 };
 
-export default EditManufacturer;
+export default EditRailroad;

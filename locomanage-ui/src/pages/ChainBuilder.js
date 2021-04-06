@@ -10,7 +10,11 @@ const TrainBuilder = () =>
     const [railroads, setRailroads] = useState([]);
     const [stock, setStock] = useState([]);
     console.log("chain builder");
-
+    const addToChain = (event) =>
+    {
+        console.log("add to chain")
+        console.log(event.target.id);
+    }
     useEffect(() =>
     {
         GET("railroad/all", setRailroads);
@@ -56,7 +60,7 @@ const TrainBuilder = () =>
                                         </Form.Control>
                                     </Form.Group>
                                 </Form>
-                                <RollingStockTable stockList={stock}></RollingStockTable>
+                                <RollingStockTable stockList={stock} userAction={addToChain} chain={true}></RollingStockTable>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
