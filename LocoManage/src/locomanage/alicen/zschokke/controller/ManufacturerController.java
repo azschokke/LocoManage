@@ -1,11 +1,10 @@
 package locomanage.alicen.zschokke.controller;
 
-import java.util.StringJoiner;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,11 +37,11 @@ public class ManufacturerController
 	 * Adds a manufacturer with the given name to the database. 
 	 * @param name the name of the manufacturer to be added to the database
 	 */
-	@PostMapping("/add/{name}")
-	public void addManufacturer(@PathVariable String name)
+	@PostMapping("/add")
+	public void addManufacturer(@RequestBody String body)
 	{
-		System.out.println(name);
-		manufacturerService.add(new Manufacturer(name));
+		System.out.println(body);
+		manufacturerService.add(new Manufacturer(body));
 	}//end addManufacturer
 	
 	/**

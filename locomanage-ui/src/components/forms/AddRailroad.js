@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap"
+import { Button, Modal, Form } from "react-bootstrap"
 import { POST } from "../../util/apiCommunication";
 
 const AddRailroad = () => 
@@ -23,33 +23,15 @@ const AddRailroad = () =>
                 Add Railroad
             </Button>
 
-            <Modal size="lg" show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Railroad</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <Form>
-                        <Form.Group>
-                            <Row>
-                                <Col md={4}><Form.Label>Railroad</Form.Label></Col>
-                                <Col md={8}>
-                                    <Form.Control id="railroadName" placeholder="Railroad">
-                                    </Form.Control>
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                        <Form.Group>
-                            <Row>
-                                <Col><Form.Label>Notes</Form.Label></Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Form.Control as="textarea" rows={3} placeholder="notes" />
-                                </Col>
-                            </Row>
-                        </Form.Group>
-
+                        <Form.Label>Railroad</Form.Label>
+                        <Form.Control id="railroadName" placeholder="Railroad"></Form.Control>
                     </Form>
                 </Modal.Body>
 

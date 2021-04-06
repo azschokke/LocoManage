@@ -1,5 +1,7 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,12 @@ public class Classification implements JSONable
 	public Classification(String name)
 	{
 		this.setName(name);
+	}
+	
+	public Classification(HashMap<String, Object> classification)
+	{
+		this.id = ((Double) classification.get("id")).intValue();
+		this.setName(classification.get("name").toString());
 	}
 	
 	//TODO javadoc

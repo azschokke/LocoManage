@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ public class Chain implements JSONable
 	 */
 	public Chain()
 	{
-		//TODO fill in this stuff
+		chain = new HashSet<RollingStock>(); 
 	}//end Chain()
 
 	/**

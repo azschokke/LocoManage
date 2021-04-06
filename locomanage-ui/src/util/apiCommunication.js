@@ -7,13 +7,12 @@ export function GET(path, setter)
 
 export function POST(path, data)
 {
-    return fetch(base + path, { method: 'POST', body: data });
+    return fetch(base + path, { method: 'POST', mode: 'no-cors', body: data });
 }
 
 export async function UPDATE(entity, goal, data, setter)
 {
     const response = await POST(entity + "/" + goal, data);
-    response.json();
     if (entity === "location")
     {
         GET(entity + "/getRoots", setter);

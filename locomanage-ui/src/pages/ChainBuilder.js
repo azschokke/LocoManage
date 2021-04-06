@@ -3,15 +3,18 @@ import { Accordion, Card, Form } from "react-bootstrap";
 import Page from "../components/universal/Page";
 import { GET } from "../util/apiCommunication";
 import AddTrain from "../components/forms/AddTrain";
+import RollingStockTable from "../components/data/RollingStockTable";
 
 const TrainBuilder = () =>
 {
     const [railroads, setRailroads] = useState([]);
+    const [stock, setStock] = useState([]);
     console.log("chain builder");
 
     useEffect(() =>
     {
         GET("railroad/all", setRailroads);
+        GET("rollingStock/all", setStock);
     }, []);
     return (
         <>
@@ -53,6 +56,7 @@ const TrainBuilder = () =>
                                         </Form.Control>
                                     </Form.Group>
                                 </Form>
+                                <RollingStockTable stockList={stock}></RollingStockTable>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

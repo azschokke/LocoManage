@@ -1,10 +1,13 @@
 package locomanage.alicen.zschokke.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -58,6 +61,26 @@ public class RailroadController
 	public void add(@PathVariable String name)
 	{
 		railroadService.add(new Railroad(name));
+	}
+	
+	/**
+	 * Updates a Railroad with a new name.
+	 * @param body the JSON payload from the front end
+	 */
+	@PostMapping("/update")
+	public void update(@RequestBody String body)
+	{
+		HashMap<String, Object> requestBody = JSONUtilities.fromJSON(body);
+		
+	}
+	
+	/**
+	 * Deletes a Railroad.
+	 */
+	@PostMapping("/delete")
+	public void delete(@RequestBody String body)
+	{
+		
 	}
 	
 	/**

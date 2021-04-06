@@ -97,13 +97,16 @@ public class ClassificationService
 	 */
 	public void update(Classification classification)
 	{
+		System.out.println("update");
 		try
 		{
-			classificationRepository.findById(classification.getId()).get().setName(classification.getName());
+			Classification found = classificationRepository.findById(classification.getId()).get();
+			found.setName(classification.getName());
+			classificationRepository.save(found);
 		}
 		catch(NoSuchElementException e)
 		{
-			
+			System.out.println("caught");
 		}
 	}//end update()
 	

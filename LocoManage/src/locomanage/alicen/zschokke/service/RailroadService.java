@@ -29,6 +29,11 @@ public class RailroadService
 		this.railroadRepository = railroadRepository; 
 	}
 	
+	/**
+	 * Finds a railroad by its id
+	 * @param id unique Integer id of the railroad
+	 * @return the railroad with the matching id, or null if none exists
+	 */
 	public Railroad get(Integer id)
 	{
 		try
@@ -39,6 +44,10 @@ public class RailroadService
 		return null; 
 	}//end get
 	
+	/**
+	 * Adds a railroad to the database
+	 * @param railroad the railroad to be added to the database
+	 */
 	public void add(Railroad railroad)
 	{
 		System.out.println("add");
@@ -52,7 +61,10 @@ public class RailroadService
 		}//end if
 	}//end add(railroad)
 	
-	
+	/**
+	 * Retrieves all the Railroads from the database
+	 * @return an Iterable of Railroad objects from the database
+	 */
 	public Iterable<Railroad> getAll()
 	{
 		return railroadRepository.findAll();

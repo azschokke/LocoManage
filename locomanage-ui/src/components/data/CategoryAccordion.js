@@ -4,6 +4,7 @@ import { GET } from "../../util/apiCommunication";
 import AddManufacturer from "../forms/AddManufacturer";
 import AddClassification from "../forms/AddClassification";
 import AddRailroad from "../forms/AddRailroad";
+import EditClassificaiton from "../forms/EditClassificaiton";
 
 const AddChain = () => 
 {
@@ -35,7 +36,7 @@ const AddChain = () =>
                             <ListGroup>
                                 {classifications.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
                                 {
-                                    return <ListGroup.Item key={`classification${i.id}`} value={i.id}>{i.name} edit delete</ListGroup.Item>
+                                    return <EditClassificaiton data={i} setter={setClassifications}></EditClassificaiton>
                                 })}
                             </ListGroup>
                             <br />
@@ -58,7 +59,7 @@ const AddChain = () =>
                                 })}
                             </ListGroup>
                             <br />
-                            <AddManufacturer></AddManufacturer>
+                            <AddManufacturer setter={setManufacturers}></AddManufacturer>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

@@ -78,10 +78,22 @@ public class ClassificationController
 	 * Removes the classification with the given id from the database. 
 	 * @param id the id number of the classification to be removed
 	 */
-	@GetMapping("/delete")
-	public void removeClassification(@RequestBody Integer id)
+	@PostMapping("/delete")
+	public void removeClassification(@RequestBody String id)
 	{
-		classificationService.remove(classificationService.get(id));
+		System.out.println("delete " + id);
+		classificationService.remove(classificationService.get(new Integer(id)));
+	}
+	
+	/**
+	 * Updates a classification. 
+	 * @param body the String representation of the JSON payload from the front end
+	 */
+	@PostMapping("/update")
+	public void updateClassification(@RequestBody String body)
+	{
+		System.out.println(body);
+		this.classificationService.update(new Classification(JSONUtilities.fromJSON(body)));
 	}
 	
 }//end ClassificationController

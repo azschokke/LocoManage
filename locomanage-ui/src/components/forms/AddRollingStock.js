@@ -9,6 +9,17 @@ const AddRollingStock = () =>
     const [scales, setScales] = useState([]);
     const [manufacturers, setManufacturers] = useState([]);
     const [railroads, setRailroads] = useState([]);
+    const [newRollingStock, setNewRollingStock] = useState({
+        railroad: 0,
+        carNumber: "",
+        length: "",
+        model: "",
+        classification: 0,
+        scale: 0,
+        notes: "",
+        manufacturer: 0,
+        sku: ""
+    });
 
     useEffect(() =>
     {
@@ -23,28 +34,8 @@ const AddRollingStock = () =>
     const handleShow = () => setShow(true);
     const handleSave = () => 
     {
-        let body = "";
-        console.log("save!");
-        console.log("railroad: " + document.querySelector("form #railroad").value);
-        console.log("car number: " + document.querySelector("form #carNumber").value);
-        console.log("length: " + document.querySelector("form #length").value);
-        console.log("model: " + document.querySelector("form #model").value);
-        console.log("scale: " + document.querySelector("form #scale").value);
-        console.log("class: " + document.querySelector("form #classification").value);
-        console.log("sku: " + document.querySelector("form #sku").value);
-        console.log("manufacturer: " + document.querySelector("form #manufacturer").value);
-        console.log("notes: " + document.querySelector("form #notes").value);
-        body = document.querySelector("form #railroad").value + "," +
-            document.querySelector("form #carNumber").value + "," +
-            document.querySelector("form #length").value + "," +
-            document.querySelector("form #model").value + "," +
-            document.querySelector("form #scale").value + "," +
-            document.querySelector("form #classification").value + "," +
-            document.querySelector("form #sku").value + "," +
-            document.querySelector("form #manufacturer").value + "," +
-            document.querySelector("form #notes").value;
-        POST("rollingStock/add", body);
-        console.log(body);
+        console.log(newRollingStock);
+        POST("rollingStock/add", JSON.stringify(newRollingStock));
         handleClose();
     }
 
@@ -76,15 +67,17 @@ const AddRollingStock = () =>
                             </Row>
                             <Row>
                                 <Col md={6}>
-                                    <Form.Control as="select" id="railroad" placeholder="railroad" >
-                                        {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
+                                    <Form.Control as="select" id="railroad" placeholder="railroad" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, railroad: event.target.value })) }}>
+                                        <option value={0}>Select a Railroad</option>
+                                        {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i) =>
                                         {
                                             return <option key={i.id} value={i.id}>{i.name}</option>
                                         })}
                                     </Form.Control>
                                 </Col>
-                                <Col md={3}><Form.Control id="carNumber" placeholder="car number" /></Col>
-                                <Col md={3}><Form.Control id="length" placeholder="length" /></Col>
+                                <Col md={3}><Form.Control id="carNumber" placeholder="car number"
+                                    onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, carNumber: event.target.value })) }} /></Col>
+                                <Col md={3}><Form.Control id="length" placeholder="length" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, length: event.target.value })) }} /></Col>
                             </Row>
                         </Form.Group>
                         <Form.Group>
@@ -95,11 +88,13 @@ const AddRollingStock = () =>
                             </Row>
                             <Row>
                                 <Col md={3}>
-                                    <Form.Control id="model" placeholder="model" />
+                                    <Form.Control id="model" placeholder="model" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, model: event.target.value })) }} />
                                 </Col>
 
                                 <Col md={6}>
-                                    <Form.Control as="select" id="classification" placeholder="model classification">
+                                    <Form.Control as="select" id="classification" placeholder="model classification"
+                                        onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, classification: event.target.value })) }}>
+                                        <option value={0}>Select a Classification</option>
                                         {classifications.sort((a, b) => a.name.localeCompare(b.name)).map((i) =>
                                         {
                                             return <option key={`classification${i.id}`} value={i.id}> {i.name}</option>
@@ -107,7 +102,8 @@ const AddRollingStock = () =>
                                     </Form.Control>
                                 </Col>
                                 <Col md={3}>
-                                    <Form.Control id="scale" as="select" placeholder="scale">
+                                    <Form.Control id="scale" as="select" placeholder="scale" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, scale: event.target.value })) }}>
+                                        <option value={0}>Select a Scale</option>
                                         {scales.map((i) =>
                                         {
                                             return <option key={`scale${i.id}`} value={i.id}>{i.name}</option>
@@ -122,7 +118,7 @@ const AddRollingStock = () =>
                             </Row>
                             <Row>
                                 <Col>
-                                    <Form.Control id="notes" as="textarea" rows={3} placeholder="notes" />
+                                    <Form.Control id="notes" as="textarea" rows={3} placeholder="notes" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, notes: event.target.value })) }} />
                                 </Col>
                             </Row>
                         </Form.Group>
@@ -133,14 +129,15 @@ const AddRollingStock = () =>
                             </Row>
                             <Row>
                                 <Col>
-                                    <Form.Control as="select" id="manufacturer" placeholder="manufacturer">
-                                        {manufacturers.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
+                                    <Form.Control as="select" id="manufacturer" placeholder="manufacturer" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, manufacturer: event.target.value })) }}>
+                                        <option value={0}>Select a Manufacturer</option>
+                                        {manufacturers.sort((a, b) => a.name.localeCompare(b.name)).map((i) =>
                                         {
                                             return <option key={i.id} value={i.id}>{i.name}</option>
                                         })}
                                     </Form.Control>
                                 </Col>
-                                <Col><Form.Control id="sku" placeholder="sku" /></Col>
+                                <Col><Form.Control id="sku" placeholder="sku" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, sku: event.target.value })) }} /></Col>
                             </Row>
                         </Form.Group>
                     </Form>
