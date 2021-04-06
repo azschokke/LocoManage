@@ -32,7 +32,7 @@ const MyInventory = () =>
                                     locations.map((i) => <LocationRender key={`loc${i.id}`} location={i}></LocationRender>)
                                 }
                                 <br />
-                                <AddLocation></AddLocation>
+                                <AddLocation setter={setLocations}></AddLocation>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -42,7 +42,7 @@ const MyInventory = () =>
                             <Card.Body>
 
                                 <RollingStockTable stockList={stock} add={false}></RollingStockTable>
-                                <AddRollingStock></AddRollingStock>
+                                <AddRollingStock setter={setStock}></AddRollingStock>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

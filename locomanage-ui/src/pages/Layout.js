@@ -5,6 +5,7 @@ const Layout = () =>
 {
     return (<>
         <Page>
+            <h1>Layout</h1>
         </Page>
     </>);
 }

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap"
-import { GET, POST } from "../../util/apiCommunication";
+import { Button, Modal, Form } from "react-bootstrap"
+import { UPDATE } from "../../util/apiCommunication";
 
 const AddClassification = (props) => 
 {
     const [show, setShow] = useState(false);
+    const [newClassification, setNewClassification] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleSave = () =>
     {
-        POST(`classification/add/${document.getElementById("classificationName").value}`).then(GET("classificationsJSON", props.setter));
+        UPDATE("classification", "add", newClassification, props.setter);
         handleClose();
     }
 
@@ -22,7 +23,7 @@ const AddClassification = (props) =>
                 Add Classification
             </Button>
 
-            <Modal size="lg" show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Classification</Modal.Title>
                 </Modal.Header>
@@ -30,23 +31,8 @@ const AddClassification = (props) =>
                 <Modal.Body>
                     <Form>
                         <Form.Group>
-                            <Row>
-                                <Col md={4}><Form.Label>Classification</Form.Label></Col>
-                                <Col md={8}>
-                                    <Form.Control id="classificationName" placeholder="class">
-                                    </Form.Control>
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                        <Form.Group>
-                            <Row>
-                                <Col><Form.Label>Notes</Form.Label></Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Form.Control as="textarea" rows={3} placeholder="notes" />
-                                </Col>
-                            </Row>
+                            <Form.Label>Classification</Form.Label>
+                            <Form.Control id="classificationName" placeholder="class" onChange={(event) => setNewClassification(event.target.value)} />
                         </Form.Group>
 
                     </Form>
