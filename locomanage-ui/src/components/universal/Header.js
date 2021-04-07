@@ -1,42 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 const Header = () =>
 {
 	return (
-		<Navbar sticky="top">
-			<header>
-				<h1>
+		<header>
+			<Navbar sticky="top">
+				<Navbar.Brand>
 					<Link to="/">LocoManage</Link>
-				</h1>
-				<div className="nav_menu">
-					<i className="material-icons">menu</i>
-					<div className="nav_menu_content">
-						<ul>
-							<Link to="/">
-								<li>Home</li>
-							</Link>
-							<Link to="./about-us">
-								<li>About Us</li>
-							</Link>
-							<Link to="./sign-in" id="signIn">
-								<li>Sign In</li>
-							</Link>
-							<Link to="./my-inventory" id="myInventory">
-								<li>My Inventory</li>
-							</Link>
-							<Link to="./layout" id="layout">
-								<li>Layout</li>
-							</Link>
-							<Link to="./chain-builder" id="chainBuilder">
-								<li>Chain Builder</li>
-							</Link>
-						</ul>
-					</div>
-				</div>
-			</header>
-		</Navbar>
+				</Navbar.Brand>
+				<Nav fill variant="tabs" className="justify-content-end">
+					<Nav.Link>
+						<Link to="/">Home</Link>
+					</Nav.Link>
+
+					<Nav.Link>
+						<Link to="./about-us">
+							About Us
+						</Link>
+					</Nav.Link>
+
+					<Nav.Link>
+						<Link to="./sign-in">
+							Sign In
+						</Link>
+					</Nav.Link>
+
+					<Nav.Link>
+						<Link to="./my-inventory" id="myInventory">
+							My Inventory
+						</Link>
+					</Nav.Link>
+
+					<Nav.Link>
+						<Link to="./layout" id="layout">
+							Layout
+						</Link>
+					</Nav.Link>
+
+					<Nav.Link>
+						<Link to="./chain-builder" id="chainBuilder">
+							Chain Builder
+						</Link>
+					</Nav.Link>
+
+
+				</Nav>
+			</Navbar>
+		</header >
 	);
 };
 

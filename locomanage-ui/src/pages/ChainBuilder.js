@@ -5,7 +5,7 @@ import { GET } from "../util/apiCommunication";
 import AddTrain from "../components/forms/AddTrain";
 import RollingStockTable from "../components/data/RollingStockTable";
 
-const TrainBuilder = () =>
+const ChainBuilder = () =>
 {
     const [railroads, setRailroads] = useState([]);
     const [stock, setStock] = useState([]);
@@ -48,18 +48,20 @@ const TrainBuilder = () =>
                         <Accordion.Toggle as={Card.Header} eventKey="2">Create Chain Menu</Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
-                                <Form>
-                                    <Form.Label>Search by:</Form.Label>
-                                    <Form.Group>
-                                        <Form.Label>Railroad</Form.Label>
-                                        <Form.Control as="select" id="railroad" placeholder="railroad" >
-                                            {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
-                                            {
-                                                return <option key={i.id} value={i.id}>{i.name}</option>
-                                            })}
-                                        </Form.Control>
-                                    </Form.Group>
-                                </Form>
+                                {/*
+                                    <Form>
+                                        <Form.Label>Search by:</Form.Label>
+                                        <Form.Group>
+                                            <Form.Label>Railroad</Form.Label>
+                                            <Form.Control as="select" id="railroad" placeholder="railroad" >
+                                                {railroads.sort((a, b) => a.name.localeCompare(b.name)).map((i, index) =>
+                                                {
+                                                    return <option key={i.id} value={i.id}>{i.name}</option>
+                                                })}
+                                            </Form.Control>
+                                        </Form.Group>
+                                    </Form>
+                                            */}
                                 <RollingStockTable stockList={stock} userAction={addToChain} chain={true}></RollingStockTable>
                             </Card.Body>
                         </Accordion.Collapse>
@@ -70,4 +72,4 @@ const TrainBuilder = () =>
     )
 }
 
-export default TrainBuilder;
+export default ChainBuilder;

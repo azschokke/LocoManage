@@ -106,7 +106,7 @@ const RollingStockTable = (props) =>
                         <td key={`rs${i.id}cn`}>{i.model.classification.name}</td>
                         <td key={`rs${i.id}s`}>{i.productInfo.scale.name}</td>
                         <td key={`rs${i.id}pm`}>{i.productInfo.manufacturer.name}</td>
-                        <td key={`rs${i.id}s`}>{i.productInfo.sku}</td>
+                        <td key={`rs${i.id}ps`}>{i.productInfo.sku}</td>
                     </tr>
                 })}
             </tbody>

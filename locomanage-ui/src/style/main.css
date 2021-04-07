@@ -5,7 +5,8 @@ h1 {
 	font-family: "Russo One", sans-serif;
 	font-weight: normal;
 }
-header,
+
+nav,
 footer {
 	background-color: #1e5285;
 	color: white;
@@ -23,47 +24,11 @@ header {
 	left: 0px;
 }
 
-header h1 {
+.navbar-brand {
 	margin-left: 20px;
 	color: #1e5285;
 	clear: none;
 	font-family: "Wallpoet", sans-serif;
-}
-
-.nav_menu {
-	right: 40px;
-	position: fixed;
-	top: 20px;
-}
-
-.nav_menu:hover .nav_menu_content {
-	display: block;
-}
-
-.nav_menu_content {
-	display: none;
-	position: absolute;
-	width: 200px;
-	left: -150px;
-	margin: 0px;
-	padding: 0px;
-}
-
-.nav_menu_content ul li {
-	list-style-type: none;
-	text-align: center;
-	padding: 10px;
-	margin: 2px;
-	background-color: #1e5285;
-}
-
-.nav_menu_content ul {
-	padding: 0px;
-	border-collapse: collapse;
-	margin: 0px;
-	background-color: white;
-	width: 100%;
-	height: 100%;
 }
 
 footer p {
@@ -84,12 +49,14 @@ footer {
 }
 
 a {
-	text-decoration: none;
 	color: white;
+	text-decoration: none;
 }
 
-a:hover {
+header a:hover,
+footer a:hover {
 	color: white;
+	text-decoration: none;
 }
 
 #sign_in {
@@ -115,10 +82,11 @@ a:hover {
 	margin-bottom: 5px;
 }
 
-header i {
-	font-size: 48px;
+body {
+	padding: 75px;
 }
 
-body {
-	padding: 50px;
+.nav-pills .nav-link {
+	border: 1px solid white;
+	margin: 10px;
 }
