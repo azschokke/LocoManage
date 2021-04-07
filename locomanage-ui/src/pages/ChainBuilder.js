@@ -3,21 +3,40 @@ import { Accordion, Card, Form } from "react-bootstrap";
 import Page from "../components/universal/Page";
 import { GET } from "../util/apiCommunication";
 import AddTrain from "../components/forms/AddTrain";
+import AddChain from "../components/forms/AddChain";
 import RollingStockTable from "../components/data/RollingStockTable";
 
 const ChainBuilder = () =>
 {
-    const [railroads, setRailroads] = useState([]);
+    // const [railroads, setRailroads] = useState([]);
     const [stock, setStock] = useState([]);
-    console.log("chain builder");
-    const addToChain = (event) =>
+    const [chain, setChain] = useState([]);
+    // console.log("chain builder");
+    const changeChain = (event) =>
     {
-        console.log("add to chain")
+        console.log("add to chain");
         console.log(event.target.id);
+        setChain((previous) => 
+        {
+            if (!previous.includes(event.target.id))
+            {
+                previous.push(event.target.id);
+                event.target.innerText = "Remove";
+            }
+            else
+            {
+                previous.splice(previous.indexOf(event.target.id), 1);
+                event.target.innerText = "Add";
+            }
+
+            return previous;
+        });
+        console.log(chain);
     }
+
     useEffect(() =>
     {
-        GET("railroad/all", setRailroads);
+        // GET("railroad/all", setRailroads);
         GET("rollingStock/all", setStock);
     }, []);
     return (
@@ -62,7 +81,8 @@ const ChainBuilder = () =>
                                         </Form.Group>
                                     </Form>
                                             */}
-                                <RollingStockTable stockList={stock} userAction={addToChain} chain={true}></RollingStockTable>
+                                <RollingStockTable stockList={stock} userAction={changeChain} chain={true}></RollingStockTable>
+                                <AddChain stock={chain}></AddChain>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
