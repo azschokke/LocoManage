@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Card, Form } from "react-bootstrap";
+import { Accordion, Card } from "react-bootstrap";
 import Page from "../components/universal/Page";
 import { GET } from "../util/apiCommunication";
 import AddTrain from "../components/forms/AddTrain";
@@ -10,13 +10,14 @@ const ChainBuilder = () =>
 {
     // const [railroads, setRailroads] = useState([]);
     const [stock, setStock] = useState([]);
-    const [chain, setChain] = useState([]);
+    const [newChain, setNewChain] = useState([]);
+    const [chains, setChains] = useState([]);
     // console.log("chain builder");
     const changeChain = (event) =>
     {
         console.log("add to chain");
         console.log(event.target.id);
-        setChain((previous) => 
+        setNewChain((previous) => 
         {
             if (!previous.includes(event.target.id))
             {
@@ -31,13 +32,15 @@ const ChainBuilder = () =>
 
             return previous;
         });
-        console.log(chain);
+        console.log(newChain);
     }
 
     useEffect(() =>
     {
         // GET("railroad/all", setRailroads);
-        GET("rollingStock/all", setStock);
+        GET("chain/all", setChains);
+        console.log(chains);
+        GET("rollingStock/available", setStock);
     }, []);
     return (
         <>
@@ -58,7 +61,18 @@ const ChainBuilder = () =>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">Chain View</Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
-                            <Card.Body><p>Train shit here</p></Card.Body>
+                            <Card.Body>
+                                {chains.map((i) => <Accordion>
+                                    <Card>
+                                        <Accordion.Toggle as={Card.header} eventKey={`chain${i.id}`}>
+                                            {i.name}
+                                        </Accordion.Toggle>
+                                        <Accordion.Collapse eventKey={`chain${i.id}`}>
+                                            <RollingStockTable stockList={i.cars}></RollingStockTable>
+                                        </Accordion.Collapse>
+                                    </Card>
+                                </Accordion>)}
+                            </Card.Body>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
@@ -82,7 +96,7 @@ const ChainBuilder = () =>
                                     </Form>
                                             */}
                                 <RollingStockTable stockList={stock} userAction={changeChain} chain={true}></RollingStockTable>
-                                <AddChain stock={chain}></AddChain>
+                                <AddChain stock={newChain}></AddChain>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

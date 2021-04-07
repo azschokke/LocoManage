@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const RollingStockTable = (props) =>
 {
@@ -98,7 +98,7 @@ const RollingStockTable = (props) =>
                 {props.stockList.map((i) =>
                 {
                     return <tr key={`rs${i.id}` + ((props.chain) ? "a" : "e")}>
-                        <td key={`action${i.id}`} id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</td>
+                        <td key={`action${i.id}`} ><Button id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</Button></td>
                         <td key={`rs${i.id}r`}>{i.owner.name}</td>
                         <td key={`rs${i.id}c`}>{i.carNumber}</td>
                         <td key={`rs${i.id}l`}>{i.length}</td>

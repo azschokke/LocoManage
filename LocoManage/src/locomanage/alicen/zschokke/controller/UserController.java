@@ -96,8 +96,10 @@ public class UserController
 			System.out.println(e.getMessage());
 			valid = false; 
 		}
-		System.out.println("Result: " + valid);
-		return "{ \"value\": " + new Boolean(valid).toString() + "}"; 
+		String output = "{\"value\": " + new Boolean(valid).toString() + "}";
+		System.out.println(output);
+		System.out.println(new Boolean(valid).toString());
+		return new Boolean(valid).toString(); 
 	}//end userLogIn
 	
 }//end UserController

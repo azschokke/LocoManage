@@ -96,4 +96,10 @@ public class RollingStockController
 		return json; 
 	}
 	
+	@GetMapping("/available")
+	public String getAvailable()
+	{
+		return JSONUtilities.listToJSON(rollingStockService.getAvailable());
+	}
+	
 }//end RollingStockController

@@ -47,8 +47,10 @@ public class LocationController
 	{
 		System.out.println(body);
 		HashMap requestBody = JSONUtilities.fromJSON(body);
-		System.out.println(requestBody.get("name"));
-//		locationService.add(new Location(name, parentId, isTrack));a
+		String name = requestBody.get("name").toString();
+		Integer parent = (int) Double.parseDouble(requestBody.get("parent").toString());
+		boolean isTrack = new Boolean(requestBody.get("isTrack").toString());
+		locationService.add(new Location(name, parent, isTrack));
 	}//end addLocation
 	
 	/**

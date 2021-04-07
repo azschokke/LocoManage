@@ -49,7 +49,8 @@ public class UserService
 	//add user
 	public void add(User user) throws DuplicateUserException
 	{
-		if(this.userRepository.findByUsername(user.getUsername()).equals(Optional.empty()))
+		System.out.println(user);
+		if(this.userRepository.findByUsername(user.getUsername()) == null)
 		{
 			this.userRepository.save(user);
 		}

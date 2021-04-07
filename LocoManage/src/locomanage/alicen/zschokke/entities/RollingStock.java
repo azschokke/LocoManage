@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,8 +24,9 @@ import javax.persistence.Table;
 @NamedQuery(query="SELECT r FROM RollingStock r", name="getAllCars")
 public class RollingStock implements JSONable
 {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; //the id number of the car
 	@Column
 	private int length; //car length in appropriate scale feet
@@ -38,7 +40,8 @@ public class RollingStock implements JSONable
 	private String notes; //optional notes
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Product productInfo;
-
+	@Column
+	private boolean inChain; 
 	
 	//TODO javadocs
 	public RollingStock()
@@ -54,6 +57,7 @@ public class RollingStock implements JSONable
 		this.setModel(model);
 		this.setProductInfo(productInfo); 
 		this.setNotes(notes);
+		this.setInChain(false);
 	}
 	
 	/**
@@ -159,6 +163,21 @@ public class RollingStock implements JSONable
 	 */
 	public void setProductInfo(Product productInfo) {
 		this.productInfo = productInfo;
+	}
+	
+	/**
+	 * Sets the chain Id of this RollingStock
+	 * @param chainId the Integer chainId of the chain this rolling stock belongs to
+	 */
+	public boolean setInChain(boolean inChain)
+	{
+		this.inChain = inChain; 
+		return this.getInChain(); 
+	}
+	
+	public boolean getInChain()
+	{
+		return this.inChain; 
 	}
 
 	/**

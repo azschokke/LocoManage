@@ -47,6 +47,10 @@ const Header = () =>
 
 
 				</Nav>
+
+				{
+					document.cookie.split(';').map((i) => { return <p>{i}</p>; })
+				}
 			</Navbar>
 		</header >
 	);

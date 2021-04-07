@@ -84,4 +84,14 @@ public class ChainService
 		chainRepository.delete(c);
 	}
 	
+	/**
+	 * Adds a chain to the database
+	 * @param c the chain to be added
+	 */
+	public void add(Chain c)
+	{
+		this.chainRepository.save(c);
+	}
+	
+	
 }//end ChainService

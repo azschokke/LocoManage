@@ -24,15 +24,16 @@ export async function UPDATE(entity, goal, data, setter)
     }
 }//end UPDATE
 
-export async function LOGIN(data)
+export async function LOGIN(user)
 {
-    const response = await POST("user/login", data);
-
-    response.json().then((data) =>
+    let response = await fetch(base + "user/login", { method: 'POST', body: JSON.stringify(user) });
+    console.log(response);
+    await response.json().then((data) =>
     {
-        console.log(data.value);
-        if (data.value)
+        if (data)
         {
+            console.log(user.username);
+            document.cookie = `username=${user.username}; path="/";`;
             window.location = "/my-inventory";
         }//end if
         else
@@ -40,4 +41,5 @@ export async function LOGIN(data)
             alert("Invalid login.");
         }//end else
     });
+
 }//end LOGIN

@@ -2,9 +2,13 @@ package locomanage.alicen.zschokke.entities;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,21 +21,23 @@ import javax.persistence.Table;
  * @author Alicen Zschokke
  */
 @Entity
-@Table
-@NamedQuery(query="SELECT c FROM Chain c", name="getAllChains")
 public class Chain implements JSONable
 {
 	//TODO comment these 
 	@Id
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; 
 	
 	@SuppressWarnings("rawtypes")
-	@OneToMany(targetEntity = RollingStock.class)
+	@OneToMany(targetEntity = RollingStock.class, fetch = FetchType.EAGER)
+	@JoinColumn(name = "carId")
 	private Set chain; 
 	
-	@ManyToOne @JoinColumn(nullable = false, name="l_id")
+	@ManyToOne
 	private Location location; 
+	
+	@Column
+	private String name; 
 	
 	/**
 	 * Creates an empty chain. 
@@ -40,6 +46,12 @@ public class Chain implements JSONable
 	{
 		chain = new HashSet<RollingStock>(); 
 	}//end Chain()
+	
+	public Chain(String name)
+	{
+		this.name = name; 
+		chain = new HashSet<RollingStock>(); 
+	}
 
 	/**
 	 * Returns a list of the <b>Train Cars</b> in this Chain. 
@@ -61,6 +73,16 @@ public class Chain implements JSONable
 		{
 			this.chain.add(c);
 		}
+	}
+	
+	/**
+	 * Adds a RollingStock item to this chain. 
+	 * @param the RollingStock item to add
+	 */
+	@SuppressWarnings("unchecked")
+	public boolean addRollingStock(RollingStock car)
+	{
+		return ((this.chain.add(car)) ? car.setInChain(true) : false);
 	}
 	
 	/**
@@ -91,8 +113,27 @@ public class Chain implements JSONable
 	}
 
 	@Override
-	public String toJSON() {
-		// TODO Auto-generated method stub
-		return null;
+	public String toJSON()
+	{
+		StringJoiner json = new StringJoiner(", ", "{", "}")
+		.add("\"name\": \"" + this.name + "\"")
+		.add("\"id\": " + this.getId());
+		String locationJSON = ""; 
+		if(this.getLocation() == null)
+		{
+			locationJSON = null;
+		}
+		else
+		{
+			locationJSON = this.getLocation().toJSON(); 
+		}
+		json.add("\"location\": " + locationJSON);
+		StringJoiner carsJSON = new StringJoiner(", ", "[", "]");
+		for(Object r : chain)
+		{
+			carsJSON.add(((RollingStock) r).toJSON());
+		}
+		json.add("\"cars\": " + carsJSON.toString());
+		return json.toString(); 
 	}
 }//end Chain

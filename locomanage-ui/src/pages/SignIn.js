@@ -5,7 +5,7 @@ import { POST, LOGIN } from "../util/apiCommunication"
 
 const SignIn = (props) => 
 {
-    const [newUser, setNewUser] = useState({ user_name: null, email: null, username: null, password: null, confirmPassword: null });
+    const [newUser, setNewUser] = useState({ name: null, email: null, username: null, password: null, confirmPassword: null });
     const [existingUser, setExistingUser] = useState({ username: null, password: null });
     function signUp()
     {
@@ -18,7 +18,7 @@ const SignIn = (props) =>
     {
         console.log("sign in");
         console.log(existingUser);
-        LOGIN(JSON.stringify(existingUser));
+        LOGIN(existingUser);
     }
 
     return (
@@ -47,7 +47,7 @@ const SignIn = (props) =>
                         <Form.Group>
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" name="name" id="enter_name" placeholder="Name"
-                                onChange={(event) => { setNewUser((previous) => ({ ...previous, user_name: event.target.value })) }} />
+                                onChange={(event) => { setNewUser((previous) => ({ ...previous, name: event.target.value })) }} />
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Email</Form.Label>
