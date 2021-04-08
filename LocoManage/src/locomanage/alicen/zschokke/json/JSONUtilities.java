@@ -11,7 +11,6 @@ import locomanage.alicen.zschokke.entities.JSONable;
 /**
  * This class uses a combination of self-built and Google Gson methods to convert java objects to and from JSON. 
  * @author Alicen Zschokke
- *
  */
 public class JSONUtilities 
 {
@@ -20,7 +19,7 @@ public class JSONUtilities
 	 * @param json the JSON object String to convert
 	 * @return a HashMap containing the values from the JSON object String
 	 */
-	public static HashMap<String, Object> fromJSON(String json)
+	public static HashMap<String, Object> fromJson(String json)
 	{
 		return new Gson().fromJson(json, new TypeToken<HashMap<String, Object>>(){}.getType());
 	}//end fromJSON()
@@ -29,10 +28,9 @@ public class JSONUtilities
 	 * Converts an Iterable of JSONable Objects to a JSON array
 	 */
 	@SuppressWarnings("rawtypes")
-	public static String listToJSON(Iterable list)
+	public static String listToJson(Iterable list)
 	{
 		StringJoiner result = new StringJoiner(", ", "[", "]");
-		
 		for(Object c : list)
 		{
 			result = result.add(((JSONable) c).toJSON());

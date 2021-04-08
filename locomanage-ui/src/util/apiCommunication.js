@@ -38,7 +38,7 @@ export async function LOGIN(user)
         {
             window.localStorage.setItem("username", user.username);
             window.localStorage.setItem("userId", data);
-            window.location = "/my-inventory";
+            window.location = "/inventory";
         }//end else
     });
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import Page from "../components/universal/Page";
 import { GET } from "../util/apiCommunication";
 
 const AboutUs = () => 
@@ -120,39 +119,37 @@ const AboutUs = () =>
     }//end createTrain
 
     return (
-        <Page>
-            <div className="main">
-                <h1>About Us</h1>
-                <p>We provide a system for tracking all of your model trains online!</p>
-                <h3>Sample Table</h3>
-                {console.log(classification)}
-                <Table id="trainTable" striped hover size="md">
-                    <thead>
-                        <tr key="trainTableHeaders">
-                            <th key="trainTableHeaderRr" onClick={() => sort("r")}>Railroad</th>
-                            <th key="trainTableHeaderMN" onClick={() => sort("m")}>Model Name</th>
-                            <th key="trainTableHeaderT" onClick={() => sort("t")}>Type</th>
-                            <th key="trainTableHeaderY" onClick={() => sort("y")}>Year</th>
-                            <th key="trainTableHeaderS" onClick={() => sort("s")}>Scale</th>
-                            <th key="trainTableHeaderCN" onClick={() => sort("c")}>Car Number</th>
+        <div className="main">
+            <h1>About Us</h1>
+            <p>We provide a system for tracking all of your model trains online!</p>
+            <h3>Sample Table</h3>
+            {console.log(classification)}
+            <Table id="trainTable" striped hover size="md">
+                <thead>
+                    <tr key="trainTableHeaders">
+                        <th key="trainTableHeaderRr" onClick={() => sort("r")}>Railroad</th>
+                        <th key="trainTableHeaderMN" onClick={() => sort("m")}>Model Name</th>
+                        <th key="trainTableHeaderT" onClick={() => sort("t")}>Type</th>
+                        <th key="trainTableHeaderY" onClick={() => sort("y")}>Year</th>
+                        <th key="trainTableHeaderS" onClick={() => sort("s")}>Scale</th>
+                        <th key="trainTableHeaderCN" onClick={() => sort("c")}>Car Number</th>
+                    </tr>
+                </thead>
+                <tbody id="tableContent">
+                    {train.map((i, index) =>
+                    {
+                        return <tr key={`trainTableRow${index}`}>
+                            <td key={`trainTableRow${index}Rr`}>{i.railroad}</td>
+                            <td key={`trainTableRow${index}MN`}>{i.modelName}</td>
+                            <td key={`trainTableRow${index}T`}>{i.type}</td>
+                            <td key={`trainTableRow${index}Y`}>{i.year}</td>
+                            <td key={`trainTableRow${index}S`}>{i.scale}</td>
+                            <td key={`trainTableRow${index}N`}>{i.number}</td>
                         </tr>
-                    </thead>
-                    <tbody id="tableContent">
-                        {train.map((i, index) =>
-                        {
-                            return <tr key={`trainTableRow${index}`}>
-                                <td key={`trainTableRow${index}Rr`}>{i.railroad}</td>
-                                <td key={`trainTableRow${index}MN`}>{i.modelName}</td>
-                                <td key={`trainTableRow${index}T`}>{i.type}</td>
-                                <td key={`trainTableRow${index}Y`}>{i.year}</td>
-                                <td key={`trainTableRow${index}S`}>{i.scale}</td>
-                                <td key={`trainTableRow${index}N`}>{i.number}</td>
-                            </tr>
-                        })}
-                    </tbody>
-                </Table>
-            </div>
-        </Page>);
+                    })}
+                </tbody>
+            </Table>
+        </div>);
 };
 
 export default AboutUs;

@@ -69,7 +69,7 @@ public class ManufacturerController
 	@GetMapping("/all")
 	public String getManufacturers()
 	{
-		return JSONUtilities.listToJSON(manufacturerService.getAll());
+		return JSONUtilities.listToJson(manufacturerService.getAll());
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class ManufacturerController
 	@PostMapping("/update")
 	public void updateManufacturer(@RequestBody String body)
 	{
-		this.manufacturerService.update(new Manufacturer(JSONUtilities.fromJSON(body)));
+		this.manufacturerService.update(new Manufacturer(JSONUtilities.fromJson(body)));
 	}
 	
 	/**

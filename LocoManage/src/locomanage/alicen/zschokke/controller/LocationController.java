@@ -47,7 +47,7 @@ public class LocationController
 	public void addLocation(@RequestBody String body)
 	{
 		System.out.println(body);
-		HashMap requestBody = JSONUtilities.fromJSON(body);
+		HashMap requestBody = JSONUtilities.fromJson(body);
 		String name = requestBody.get("name").toString();
 		Integer parent = (int) Double.parseDouble(requestBody.get("parent").toString());
 		boolean isTrack = new Boolean(requestBody.get("isTrack").toString());
@@ -71,7 +71,7 @@ public class LocationController
 	@GetMapping("/getRoots/{id}")
 	public String getRoots(@PathVariable Integer id)
 	{
-		return JSONUtilities.listToJSON(locationService.getRoots(id)); 
+		return JSONUtilities.listToJson(locationService.getRoots(id)); 
 	}
 	
 	/*

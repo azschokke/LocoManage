@@ -54,7 +54,7 @@ public class ScaleController
 	@GetMapping("/all")
 	public String getScales()
 	{
-		return JSONUtilities.listToJSON(scaleService.getAll());
+		return JSONUtilities.listToJson(scaleService.getAll());
 	}
 	
 	/**

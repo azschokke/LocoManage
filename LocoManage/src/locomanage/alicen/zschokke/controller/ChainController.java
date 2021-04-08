@@ -43,7 +43,7 @@ public class ChainController
 	public void add(@RequestBody String body, @PathVariable Integer id)
 	{
 		System.out.println(body);
-		HashMap<String, Object> requestBody = JSONUtilities.fromJSON(body);
+		HashMap<String, Object> requestBody = JSONUtilities.fromJson(body);
 		System.out.println(requestBody);
 		Chain chain = new Chain(requestBody.get("name").toString());
 		ArrayList<String> numbers = (ArrayList<String>) requestBody.get("cars");
@@ -60,6 +60,6 @@ public class ChainController
 	@GetMapping("/all/{id}")
 	public String getAll(@PathVariable Integer id)
 	{
-		return JSONUtilities.listToJSON(this.chainService.getAll(id));
+		return JSONUtilities.listToJson(this.chainService.getAll(id));
 	}
 }//end ChainController

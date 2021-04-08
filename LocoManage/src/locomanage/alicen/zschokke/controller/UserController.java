@@ -47,7 +47,7 @@ public class UserController
 	@PostMapping("/add")
 	public void addUser(@RequestBody String body) throws Exception
 	{
-		HashMap<String, Object> userInfo = JSONUtilities.fromJSON(body); 
+		HashMap<String, Object> userInfo = JSONUtilities.fromJson(body); 
 
 		User newUser = new User(userInfo.get("name").toString(), userInfo.get("email").toString(), userInfo.get("username").toString(), userInfo.get("password").toString(), userInfo.get("confirmPassword").toString());
 		userService.add(newUser);
@@ -82,7 +82,7 @@ public class UserController
 	{
 		try
 		{
-			HashMap<String, Object> userInfo = JSONUtilities.fromJSON(body); 
+			HashMap<String, Object> userInfo = JSONUtilities.fromJson(body); 
 			if(userService.validateUser(userInfo.get("username").toString(), userInfo.get("password").toString()))
 			{
 				return userService.get(userInfo.get("username").toString()).getId().toString();

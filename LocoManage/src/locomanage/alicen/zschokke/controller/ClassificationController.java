@@ -61,7 +61,7 @@ public class ClassificationController
 	@GetMapping("/all")
 	public String getClassifications()
 	{
-		return JSONUtilities.listToJSON(classificationService.getAll());
+		return JSONUtilities.listToJson(classificationService.getAll());
 	}//end getClassifications()
 	
 	/**
@@ -93,7 +93,7 @@ public class ClassificationController
 	public void updateClassification(@RequestBody String body)
 	{
 		System.out.println(body);
-		this.classificationService.update(new Classification(JSONUtilities.fromJSON(body)));
+		this.classificationService.update(new Classification(JSONUtilities.fromJson(body)));
 	}
 	
 }//end ClassificationController

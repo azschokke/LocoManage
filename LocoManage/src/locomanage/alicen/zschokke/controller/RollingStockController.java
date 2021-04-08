@@ -69,7 +69,7 @@ public class RollingStockController
 	@PostMapping("/add/{id}")
 	public void addRollingStock(@RequestBody String body, @PathVariable String id)
 	{
-		HashMap requestBody = JSONUtilities.fromJSON(body);
+		HashMap requestBody = JSONUtilities.fromJson(body);
 		System.out.println(body);
 		this.rollingStockService.add(new RollingStock(
 				railroadService.get((int) Double.parseDouble(requestBody.get("railroad").toString())),
@@ -94,7 +94,7 @@ public class RollingStockController
 	@GetMapping("/all/{id}")
 	public String getAll(@PathVariable String id)
 	{
-		String json = JSONUtilities.listToJSON(rollingStockService.getAll(Integer.parseInt(id)));
+		String json = JSONUtilities.listToJson(rollingStockService.getAll(Integer.parseInt(id)));
 		System.out.println(json);
 		return json; 
 	}
@@ -102,7 +102,7 @@ public class RollingStockController
 	@GetMapping("/available/{id}")
 	public String getAvailable(@PathVariable Integer id)
 	{
-		return JSONUtilities.listToJSON(rollingStockService.getAvailable(id));
+		return JSONUtilities.listToJson(rollingStockService.getAvailable(id));
 	}
 	
 }//end RollingStockController

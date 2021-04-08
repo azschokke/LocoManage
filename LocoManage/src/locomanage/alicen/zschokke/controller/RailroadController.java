@@ -70,7 +70,7 @@ public class RailroadController
 	@PostMapping("/update")
 	public void update(@RequestBody String body)
 	{
-		this.railroadService.update(new Railroad(JSONUtilities.fromJSON(body)));
+		this.railroadService.update(new Railroad(JSONUtilities.fromJson(body)));
 		
 	}
 	
@@ -90,7 +90,7 @@ public class RailroadController
 	@GetMapping("/all")
 	public String getAll()
 	{
-		return JSONUtilities.listToJSON(railroadService.getAll()); 
+		return JSONUtilities.listToJson(railroadService.getAll()); 
 	}
 	
 }//end Railroad Controller
