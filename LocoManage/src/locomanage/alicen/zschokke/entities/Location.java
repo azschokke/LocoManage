@@ -33,6 +33,8 @@ public class Location implements JSONable
 	private Integer parentId; 
 	@Column
 	private boolean isTrack; 
+	@Column
+	private Integer userId; 
 	
 	/**
 	 * TODO comment this

@@ -16,11 +16,11 @@ export async function UPDATE(entity, goal, data, setter)
     const response = await POST(entity + "/" + goal, data);
     if (entity === "location")
     {
-        GET(entity + "/getRoots", setter);
+        GET(entity + `/getRoots/${window.localStorage.getItem("userId")}`, setter);
     }
     else
     {
-        GET(entity + "/all", setter);
+        GET(entity + `/all`, setter);
     }
 }//end UPDATE
 
@@ -30,15 +30,15 @@ export async function LOGIN(user)
     console.log(response);
     await response.json().then((data) =>
     {
-        if (data)
+        if (data === false)
         {
-            console.log(user.username);
-            document.cookie = `username=${user.username}; path="/";`;
-            window.location = "/my-inventory";
+            alert("Invalid login.");
         }//end if
         else
         {
-            alert("Invalid login.");
+            window.localStorage.setItem("username", user.username);
+            window.localStorage.setItem("userId", data);
+            window.location = "/my-inventory";
         }//end else
     });
 

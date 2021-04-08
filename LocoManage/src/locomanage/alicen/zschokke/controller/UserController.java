@@ -69,7 +69,6 @@ public class UserController
 		{
 			return null; 
 		}
-		
 	}//end getUser
 	
 	/**
@@ -81,25 +80,19 @@ public class UserController
 	@PostMapping("/login")
 	public String userLogIn(@RequestBody String body, HttpSession session)
 	{
-		boolean valid = false;
 		try
 		{
 			HashMap<String, Object> userInfo = JSONUtilities.fromJSON(body); 
-			valid = userService.validateUser(userInfo.get("username").toString(), userInfo.get("password").toString());
-			if(valid)
+			if(userService.validateUser(userInfo.get("username").toString(), userInfo.get("password").toString()))
 			{
-				session.setAttribute("userId", userService.get(userInfo.get("username").toString()).getId());
+				return userService.get(userInfo.get("username").toString()).getId().toString();
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
-			valid = false; 
 		}
-		String output = "{\"value\": " + new Boolean(valid).toString() + "}";
-		System.out.println(output);
-		System.out.println(new Boolean(valid).toString());
-		return new Boolean(valid).toString(); 
+		return new Boolean(false).toString(); 
 	}//end userLogIn
 	
 }//end UserController

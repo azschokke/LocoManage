@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.service;
 
+/* IMPORTS */
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -12,7 +13,6 @@ import locomanage.alicen.zschokke.repositories.ChainRepository;
 /**
  * Service methods for the Chain entities in the database
  * @author Alicen Zschokke
- *
  */
 @Service
 public class ChainService 
@@ -34,9 +34,9 @@ public class ChainService
 	 * Returns a list of all the chains in the database. 
 	 * @return a List of Chain objects from the database
 	 */
-	public List<Chain> getAll()
+	public List<Chain> getAll(Integer id)
 	{
-		return chainRepository.findAll();
+		return chainRepository.findAll(id);
 	}//end getAll(); 
 	
 	/**

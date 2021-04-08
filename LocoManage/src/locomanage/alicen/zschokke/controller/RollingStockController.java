@@ -6,9 +6,11 @@ import java.util.StringJoiner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import locomanage.alicen.zschokke.entities.Location;
@@ -64,8 +66,8 @@ public class RollingStockController
 	 * Adds a RollingStock entity to the database.
 	 * @param body the result of JSON.stringify() of the railroad object from a form on the front end
 	 */
-	@PostMapping("/add")
-	public void addRollingStock(@RequestBody String body)
+	@PostMapping("/add/{id}")
+	public void addRollingStock(@RequestBody String body, @PathVariable String id)
 	{
 		HashMap requestBody = JSONUtilities.fromJSON(body);
 		System.out.println(body);
@@ -80,7 +82,8 @@ public class RollingStockController
 						manufacturerService.get((int) Double.parseDouble(requestBody.get("manufacturer").toString())), 
 						scaleService.get((int) Double.parseDouble(requestBody.get("classification").toString())), 
 						requestBody.get("sku").toString()),
-				requestBody.get("notes").toString()
+				requestBody.get("notes").toString(),
+				Integer.parseInt(id)
 				));
 	}//end addRollingStock
 	
@@ -88,18 +91,18 @@ public class RollingStockController
 	 * Returns all the RollingStock items in the database
 	 * @return a String representation of a JSON array of objects representing the RollingStock items
 	 */
-	@GetMapping("/all")
-	public String getAll()
+	@GetMapping("/all/{id}")
+	public String getAll(@PathVariable String id)
 	{
-		String json = JSONUtilities.listToJSON(rollingStockService.getAll());
+		String json = JSONUtilities.listToJSON(rollingStockService.getAll(Integer.parseInt(id)));
 		System.out.println(json);
 		return json; 
 	}
 	
-	@GetMapping("/available")
-	public String getAvailable()
+	@GetMapping("/available/{id}")
+	public String getAvailable(@PathVariable Integer id)
 	{
-		return JSONUtilities.listToJSON(rollingStockService.getAvailable());
+		return JSONUtilities.listToJSON(rollingStockService.getAvailable(id));
 	}
 	
 }//end RollingStockController

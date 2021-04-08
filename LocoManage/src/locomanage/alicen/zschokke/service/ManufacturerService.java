@@ -8,9 +8,14 @@ import org.springframework.stereotype.Service;
 import locomanage.alicen.zschokke.entities.Manufacturer;
 import locomanage.alicen.zschokke.repositories.ManufacturerRepository;
 
+/**
+ * Contains service methods for CRUD operations with Manufacturer entities. 
+ * @author Alicen Zschokke
+ */
 @Service
 public class ManufacturerService 
 {
+	//ManufacturerRepository for db access
 	private ManufacturerRepository manufacturerRepository; 
 	
 	@Autowired

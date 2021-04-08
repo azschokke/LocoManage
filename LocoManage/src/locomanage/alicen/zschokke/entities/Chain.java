@@ -39,6 +39,9 @@ public class Chain implements JSONable
 	@Column
 	private String name; 
 	
+	@Column
+	private Integer userId; 
+	
 	/**
 	 * Creates an empty chain. 
 	 */

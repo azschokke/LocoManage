@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Row, Col } from "react-bootstrap"
 import { GET, POST } from "../../util/apiCommunication";
 
-const AddRollingStock = () => 
+const AddRollingStock = (props) => 
 {
     const [show, setShow] = useState(false);
     const [classifications, setClassifications] = useState([]);
@@ -35,7 +35,7 @@ const AddRollingStock = () =>
     const handleSave = () => 
     {
         console.log(newRollingStock);
-        POST("rollingStock/add", JSON.stringify(newRollingStock));
+        POST(`rollingStock/add/${window.localStorage.getItem("userId")}`, JSON.stringify(newRollingStock));
         handleClose();
     }
 

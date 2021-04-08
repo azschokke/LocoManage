@@ -6,6 +6,7 @@ import java.util.StringJoiner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,7 +43,7 @@ public class LocationController
 	 * Adds a Location with the parameter information to the database. 
 	 * @param body the post request body - a JSON object
 	 */
-	@PostMapping("/add")
+	@PostMapping("/add/{id}")
 	public void addLocation(@RequestBody String body)
 	{
 		System.out.println(body);
@@ -57,20 +58,20 @@ public class LocationController
 	 * Returns all the locations in the database.
 	 * @return a JSON array of all the locations in the database as JSON objects
 	 */
-	@GetMapping("/listNames")
-	public String listNames()
+	@GetMapping("/listNames/{id}")
+	public String listNames(@PathVariable Integer id)
 	{
-		return listToJSONNames(locationService.getAll());
+		return listToJSONNames(locationService.getAll(id));
 	}
 	
 	/**
 	 * Returns all the root locations (locations without a parent) in the database. 
 	 * @return A JSON array of all the root locations in the database as JSON objects
 	 */
-	@GetMapping("/getRoots")
-	public String getRoots()
+	@GetMapping("/getRoots/{id}")
+	public String getRoots(@PathVariable Integer id)
 	{
-		return JSONUtilities.listToJSON(locationService.getRoots()); 
+		return JSONUtilities.listToJSON(locationService.getRoots(id)); 
 	}
 	
 	/*

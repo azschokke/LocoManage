@@ -16,8 +16,8 @@ const MyInventory = () =>
 
     useEffect(() =>
     {
-        GET("location/getRoots", setLocations);
-        GET("rollingStock/all", setStock);
+        GET(`location/getRoots/${window.localStorage.getItem("userId")}`, setLocations);
+        GET(`rollingStock/all/${window.localStorage.getItem("userId")}`, setStock);
     }, []);
     return (
         <Page>

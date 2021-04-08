@@ -10,7 +10,7 @@ const AddLocation = (props) =>
 
     useEffect(() =>
     {
-        GET("location/listNames", setLocations);
+        GET(`location/listNames/${window.localStorage.getItem("userId")}`, setLocations);
     }, []);
 
     const handleClose = () => setShow(false);

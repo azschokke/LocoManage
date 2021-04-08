@@ -42,6 +42,8 @@ public class RollingStock implements JSONable
 	private Product productInfo;
 	@Column
 	private boolean inChain; 
+	@Column
+	private Integer userId; 
 	
 	//TODO javadocs
 	public RollingStock()
@@ -49,7 +51,7 @@ public class RollingStock implements JSONable
 		super(); 
 	}//end RollingStock()
 
-	public RollingStock(Railroad owner, int carNumber, int length, Model model, Product productInfo, String notes)
+	public RollingStock(Railroad owner, int carNumber, int length, Model model, Product productInfo, String notes, Integer userId)
 	{
 		this.setOwner(owner); 
 		this.setCarNumber(carNumber);
@@ -58,8 +60,25 @@ public class RollingStock implements JSONable
 		this.setProductInfo(productInfo); 
 		this.setNotes(notes);
 		this.setInChain(false);
+		this.setUserId(userId);
 	}
 	
+	
+	
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	/**
 	 * Returns the length of this train car. 
 	 * @return the integer length of this train car

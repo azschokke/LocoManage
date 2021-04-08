@@ -21,6 +21,11 @@ public class LocationService
 		this.locationRepository = locationRepository; 
 	}
 	
+	/**
+	 * Retrieves a Location by its unique Integer id
+	 * @param id the integer id of the Location to retrieve
+	 * @return the Location with the given id, or null if no match is found
+	 */
 	public Location get(Integer id)
 	{
 		System.out.println("get by id: " + id);
@@ -35,6 +40,10 @@ public class LocationService
 		return null; 
 	}//end get(id)
 	
+	/**
+	 * Add a location to the database
+	 * @param location the Location to be added
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void add(Location location)
 	{
@@ -57,13 +66,13 @@ public class LocationService
 		 }//end if
 	}//end add
 	
-	public Iterable<Location> getAll()
+	public Iterable<Location> getAll(Integer id)
 	{
-		return locationRepository.findAll();
+		return locationRepository.findAll(id);
 	}
 	
-	public Iterable<Location> getRoots()
+	public Iterable<Location> getRoots(Integer id)
 	{
-		return locationRepository.findRoots(); 
+		return locationRepository.findRoots(id); 
 	}
 }//end LocationService
