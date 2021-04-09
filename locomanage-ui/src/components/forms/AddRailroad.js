@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Row, Col } from "react-bootstrap"
-import { POST } from "../../util/apiCommunication";
+import { Button, Modal, Form } from "react-bootstrap"
+import { GET, POST } from "../../util/apiCommunication";
 
-const AddRailroad = () => 
+const AddRailroad = (props) => 
 {
     const [show, setShow] = useState(false);
+    const [newRailroad, setNewRailroad] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleSave = () =>
     {
-        POST(`railroad/add/${document.getElementById("railroadName").value}`);
-        window.location.reload();
+        POST(`railroad/add/${newRailroad}`).then(() => GET('railroad/all'), props.setter);
         handleClose();
     }
 
@@ -19,37 +19,20 @@ const AddRailroad = () =>
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow} block>
                 Add Railroad
             </Button>
 
-            <Modal size="lg" show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Railroad</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <Form>
-                        <Form.Group>
-                            <Row>
-                                <Col md={4}><Form.Label>Railroad</Form.Label></Col>
-                                <Col md={8}>
-                                    <Form.Control id="railroadName" placeholder="Railroad">
-                                    </Form.Control>
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                        <Form.Group>
-                            <Row>
-                                <Col><Form.Label>Notes</Form.Label></Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Form.Control as="textarea" rows={3} placeholder="notes" />
-                                </Col>
-                            </Row>
-                        </Form.Group>
-
+                        <Form.Label>Railroad</Form.Label>
+                        <Form.Control id="railroadName" placeholder="Railroad"
+                            onChange={(event) => setNewRailroad(event.target.value)} />
                     </Form>
                 </Modal.Body>
 

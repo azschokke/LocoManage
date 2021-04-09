@@ -1,5 +1,6 @@
 import React from "react";
 import Page from "../components/universal/Page"
+import AboutUs from "../components/AboutUs";
 
 const HomePage = () => 
 {
@@ -15,6 +16,7 @@ const HomePage = () =>
             <p>Etiam ultricies tempus ex nec fermentum. Maecenas id ante vitae nisi egestas blandit. Nulla tempor diam nibh, eu pellentesque diam mattis nec. Nullam luctus eros risus, id suscipit nunc maximus id. Pellentesque efficitur ligula risus, et tristique lorem viverra sed. Mauris dapibus id eros et malesuada. Pellentesque interdum congue porttitor. Phasellus efficitur urna et auctor vulputate. Nullam nisi justo, convallis nec pretium eu, lacinia at quam. Nunc tempor eleifend ligula nec varius. Curabitur porttitor tellus in pellentesque eleifend. Etiam eu tincidunt massa.</p>
             <img className="gif" src="https://media.giphy.com/media/hqm2bYw6pY3F1ylAWg/giphy.gif" alt="" />
         </div>
+        <AboutUs></AboutUs>
     </Page>);
 };
 export default HomePage;

@@ -1,31 +1,31 @@
 import "./style/main.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AboutUs from "./pages/AboutUs"
 import SignIn from "./pages/SignIn"
 import HomePage from "./pages/HomePage"
-import MyInventory from "./pages/MyInventory"
+import Inventory from "./pages/Inventory"
 import Layout from "./pages/Layout"
 import ChainBuilder from "./pages/ChainBuilder"
+import Locations from "./pages/Locations";
 
 function App()
 {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/about-us">
-					<AboutUs></AboutUs>
-				</Route>
 				<Route path="/sign-in">
 					<SignIn></SignIn>
 				</Route>
-				<Route path="/my-inventory">
-					<MyInventory></MyInventory>
+				<Route path="/inventory">
+					<Inventory></Inventory>
 				</Route>
 				<Route path="/layout">
 					<Layout></Layout>
 				</Route>
 				<Route path="/chain-builder">
 					<ChainBuilder></ChainBuilder>
+				</Route>
+				<Route path="/locations">
+					<Locations></Locations>
 				</Route>
 				<Route path="/">
 					<HomePage></HomePage>

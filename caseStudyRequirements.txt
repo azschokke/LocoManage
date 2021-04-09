@@ -1,0 +1,9 @@
+JUnit
+-Runner - eclipse does this implicitly
+-Don't worry about Hamcrest
+-Feature life cycle
+--@BeforeClass, @AfterClass, etc - don't worry about it
+
+Core Java & JPA
+-Custom Exceptions - use at least one
+-Utility classes ?????

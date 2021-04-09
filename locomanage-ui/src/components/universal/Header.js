@@ -1,42 +1,88 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 const Header = () =>
 {
-	return (
-		<Navbar sticky="top">
-			<header>
-				<h1>
-					<Link to="/">LocoManage</Link>
-				</h1>
-				<div className="nav_menu">
-					<i className="material-icons">menu</i>
-					<div className="nav_menu_content">
-						<ul>
-							<Link to="/">
-								<li>Home</li>
-							</Link>
-							<Link to="./about-us">
-								<li>About Us</li>
-							</Link>
-							<Link to="./sign-in" id="signIn">
-								<li>Sign In</li>
-							</Link>
-							<Link to="./my-inventory" id="myInventory">
-								<li>My Inventory</li>
-							</Link>
-							<Link to="./layout" id="layout">
-								<li>Layout</li>
-							</Link>
-							<Link to="./chain-builder" id="chainBuilder">
-								<li>Chain Builder</li>
-							</Link>
-						</ul>
-					</div>
+	const getLinks = () =>
+	{
+		console.log(window.localStorage.getItem("username"));
+		console.log(window.localStorage.getItem("userId"));
+		if (window.localStorage.getItem("username") === null)
+		{
+			return (
+				<div fill>
+					<Nav>
+						<Nav.Link>
+							<Link to="/">Home</Link>
+						</Nav.Link>
+						<Nav.Link>
+							<Link to="./sign-in">
+								Sign In
+					</Link>
+						</Nav.Link>
+					</Nav>
 				</div>
-			</header>
-		</Navbar>
+			);
+		}//end if
+		else
+		{
+			return (
+				<>
+					<div fill>
+						<Nav fill>
+							<Nav.Link>
+								<Link to="/">Home</Link>
+							</Nav.Link>
+
+							<Nav.Link>
+								<Link to="./inventory" id="inventory">
+									Inventory
+								</Link>
+							</Nav.Link>
+
+							<Nav.Link>
+								<Link to="./locations" id="locations">
+									Locations
+								</Link>
+							</Nav.Link>
+
+							<Nav.Link>
+								<Link to="./chain-builder" id="chainBuilder">
+									Chain Builder
+								</Link>
+							</Nav.Link>
+
+							<Nav.Link>
+								<Link to="./layout" id="layout">
+									Layout
+								</Link>
+							</Nav.Link>
+
+							<Nav.Link>
+								<Link to="./" onClick={() => { window.localStorage.removeItem("username"); window.localStorage.removeItem("userId"); }}>
+									Sign Out
+								</Link>
+							</Nav.Link>
+						</Nav>
+					</div>
+
+					<Navbar.Collapse className="justify-content-end">
+						<Navbar.Text style={{ color: "white" }}>Welcome, {window.localStorage.getItem("username")}!</Navbar.Text>
+					</Navbar.Collapse>
+				</>);
+		}
+	}
+
+	return (
+		<header>
+			<Navbar sticky="top">
+				<Navbar.Brand>
+					<Link to="/">LocoManage</Link>
+				</Navbar.Brand>
+				{getLinks()}
+			</Navbar>
+		</header >
 	);
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 const RollingStockTable = (props) =>
 {
@@ -80,8 +80,10 @@ const RollingStockTable = (props) =>
 
     return (
         <Table id="rollingStockTable" striped hover size="md">
+            {console.log("Stock List: " + props.stockList)}
             <thead>
                 <tr key="trainTableHeaders">
+                    <th key="userActionHeader"></th>
                     <th key="railroadHeader" onClick={() => sort("r")}>Railroad</th>
                     <th key="carNumberHeader" onClick={() => sort("n")}>Car Number</th>
                     <th key="lengthHeader" onClick={() => sort("l")}>Length</th>
@@ -93,9 +95,10 @@ const RollingStockTable = (props) =>
                 </tr>
             </thead>
             <tbody id="tableContent">
-                {stock.map((i) =>
+                {(props.stockList === undefined) ? "" : props.stockList.map((i) =>
                 {
-                    return <tr key={`rs${i.id}`}>
+                    return <tr key={`rs${i.id}` + ((props.chain) ? "a" : "e")}>
+                        <td key={`action${i.id}`} ><Button id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</Button></td>
                         <td key={`rs${i.id}r`}>{i.owner.name}</td>
                         <td key={`rs${i.id}c`}>{i.carNumber}</td>
                         <td key={`rs${i.id}l`}>{i.length}</td>
@@ -103,12 +106,12 @@ const RollingStockTable = (props) =>
                         <td key={`rs${i.id}cn`}>{i.model.classification.name}</td>
                         <td key={`rs${i.id}s`}>{i.productInfo.scale.name}</td>
                         <td key={`rs${i.id}pm`}>{i.productInfo.manufacturer.name}</td>
-                        <td key={`rs${i.id}s`}>{i.productInfo.sku}</td>
+                        <td key={`rs${i.id}ps`}>{i.productInfo.sku}</td>
                     </tr>
                 })}
             </tbody>
 
-        </Table>
+        </Table >
     );
 };
 
