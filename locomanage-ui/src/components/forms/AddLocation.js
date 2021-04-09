@@ -19,7 +19,7 @@ const AddLocation = (props) =>
     {
         console.log("save!");
         console.log(newLocation);
-        UPDATE("location", "add", JSON.stringify(newLocation), props.setter);
+        UPDATE("location", `add/${window.localStorage.getItem("userId")}`, JSON.stringify(newLocation), props.setter);
         // POST("location/add",
         //     `${document.getElementById("locationName").value},${document.getElementById("parentLoc").value},${document.getElementById("isTrack").checked}`);
         handleClose();

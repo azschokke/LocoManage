@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import locomanage.alicen.zschokke.entities.Chain;
 import locomanage.alicen.zschokke.repositories.ChainRepository;
+import locomanage.alicen.zschokke.repositories.LocationRepository;
 
 /**
  * Service methods for the Chain entities in the database
@@ -19,15 +20,17 @@ public class ChainService
 {
 	//chainRepository object for accessing db
 	private ChainRepository chainRepository; 
+	private LocationRepository locationRepository; 
 	
 	/**
 	 * Autowired constructor.
 	 * @param chainRepository
 	 */
 	@Autowired
-	public ChainService(ChainRepository chainRepository)
+	public ChainService(ChainRepository chainRepository, LocationRepository locationRepository)
 	{
 		this.chainRepository = chainRepository;
+		this.locationRepository = locationRepository; 
 	}
 	
 	/**
@@ -38,6 +41,11 @@ public class ChainService
 	{
 		return chainRepository.findAll(id);
 	}//end getAll(); 
+	
+	public List<Chain> getByTrack(Integer id)
+	{
+		return chainRepository.findChainByLocation(locationRepository.findById(id).get());
+	}
 	
 	/**
 	 * Finds a specific Chain in the database by the id
@@ -91,9 +99,9 @@ public class ChainService
 	 * Adds a chain to the database
 	 * @param c the chain to be added
 	 */
-	public void add(Chain c)
+	public Chain add(Chain c)
 	{
-		this.chainRepository.save(c);
+		return this.chainRepository.save(c);
 	}
 	
 	

@@ -24,7 +24,7 @@ const Inventory = () =>
 
                 <Card.Body>
 
-                    <RollingStockTable stockList={stock} add={false}></RollingStockTable>
+                    <RollingStockTable stockList={stock} setter={setStock} add={false}></RollingStockTable>
                     <AddRollingStock setter={setStock}></AddRollingStock>
                 </Card.Body>
 

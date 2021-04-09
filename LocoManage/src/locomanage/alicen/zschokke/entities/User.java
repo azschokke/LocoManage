@@ -134,11 +134,18 @@ public class User implements JSONable
 		return id;
 	}
 	
+	/**
+	 * Creates a Json representation of this user
+	 * @return a Json representation of this user as a String
+	 */
 	public String toJSON()
 	{
 		return "{\"username\": " + this.getUsername() + "}";
 	}
 
+	/**
+	 * Generates the hash code for this User
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -149,7 +156,11 @@ public class User implements JSONable
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-
+	
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 * @return true if they are equal, otherwise false
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -180,8 +191,6 @@ public class User implements JSONable
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
-	}
-	
-	
+	}//end equals()
 	
 }//end User

@@ -20,18 +20,21 @@ import org.mockito.Mockito;
 
 import locomanage.alicen.zschokke.entities.Chain;
 import locomanage.alicen.zschokke.repositories.ChainRepository;
+import locomanage.alicen.zschokke.repositories.LocationRepository;
 import locomanage.alicen.zschokke.service.ChainService;
 
 public class ChainServiceTest 
 {
 	private static ChainService chainService; 
 	private static ChainRepository chainRepository; 
+	private static LocationRepository locationRepository; 
 	
 	@BeforeClass
 	public static void setUp() throws Exception 
 	{
 		chainRepository = Mockito.mock(ChainRepository.class);
-		chainService = new ChainService(chainRepository);
+		locationRepository = Mockito.mock(LocationRepository.class);
+		chainService = new ChainService(chainRepository, locationRepository);
 	}//end setUp()
 	
 	@AfterClass

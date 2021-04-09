@@ -1,5 +1,6 @@
 package locomanage.alicen.zschokke.controller;
 
+/*IMPORTS */
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,7 +22,6 @@ import locomanage.alicen.zschokke.service.RollingStockService;
 /**
  * Controller for handling requests concerning Chain entities. 
  * @author Alicen Zschokke
- *
  */
 @CrossOrigin
 @RestController
@@ -30,8 +30,14 @@ public class ChainController
 {
 	//chain service
 	private ChainService chainService;
+	//rollingStock service
 	private RollingStockService rollingStockService; 
 	
+	/**
+	 * Autowired constructor
+	 * @param chainService
+	 * @param rollingStockService
+	 */
 	@Autowired
 	public ChainController(ChainService chainService, RollingStockService rollingStockService)
 	{
@@ -39,27 +45,57 @@ public class ChainController
 		this.rollingStockService = rollingStockService; 
 	}//end ChainController(chainService, rollingStockService)
 	
+	/**
+	 * Handles adding a Chain to the database
+	 * @param body the body of the request
+	 * @param id the id of the user adding the chain
+	 */
 	@PostMapping("/add/{id}")
 	public void add(@RequestBody String body, @PathVariable Integer id)
 	{
+		System.out.println("addChain");
 		System.out.println(body);
 		HashMap<String, Object> requestBody = JSONUtilities.fromJson(body);
 		System.out.println(requestBody);
 		Chain chain = new Chain(requestBody.get("name").toString());
+		chain.setUserId(id);
 		ArrayList<String> numbers = (ArrayList<String>) requestBody.get("cars");
 		for(String n : numbers)
 		{
 			RollingStock rs = this.rollingStockService.get(Integer.parseInt(n));
+//			System.out.println(rs);
 			chain.addRollingStock(rs);
-			rs.setInChain(true);
-			this.rollingStockService.update(rs);
 		}//end for
-		this.chainService.add(chain);
+		chain = this.chainService.add(chain);
+		for(String n : numbers)
+		{
+			RollingStock rs = this.rollingStockService.get(Integer.parseInt(n));
+			rs.setInChain(chain.getId());
+			System.out.println(rs.getInChain());
+			this.rollingStockService.update(rs);
+		}//end for 
+		
 	}//end add()
 	
+	/**
+	 * Handles retrieving all chains for a user from the database
+	 * @param id the user to retrieve chains for
+	 * @return a Json array as a String containing all the chains for the user
+	 */
 	@GetMapping("/all/{id}")
 	public String getAll(@PathVariable Integer id)
 	{
 		return JSONUtilities.listToJson(this.chainService.getAll(id));
+	}
+	
+	/**
+	 * Retrieves the chains located on a specific track
+	 * @param tId the track id 
+	 * @return A Json array as a String 
+	 */
+	@GetMapping("/byTrack/{tId}")
+	public String getByTrack( @PathVariable Integer tId)
+	{
+		return JSONUtilities.listToJson(this.chainService.getByTrack(tId));
 	}
 }//end ChainController

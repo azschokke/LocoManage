@@ -99,6 +99,11 @@ public class RollingStockController
 		return json; 
 	}
 	
+	/**
+	 * Returns the RollingStock items not already in a chain
+	 * @param id the user id
+	 * @return a Json array of available RollingStock cars
+	 */
 	@GetMapping("/available/{id}")
 	public String getAvailable(@PathVariable Integer id)
 	{

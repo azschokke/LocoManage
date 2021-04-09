@@ -30,8 +30,7 @@ public class Chain implements JSONable
 	
 	@SuppressWarnings("rawtypes")
 	@OneToMany(targetEntity = RollingStock.class, fetch = FetchType.EAGER)
-	@JoinColumn(name = "carId")
-	private Set chain; 
+	private Set cars; 
 	
 	@ManyToOne
 	private Location location; 
@@ -47,13 +46,17 @@ public class Chain implements JSONable
 	 */
 	public Chain()
 	{
-		chain = new HashSet<RollingStock>(); 
+		cars = new HashSet<RollingStock>(); 
 	}//end Chain()
 	
+	/**
+	 * Creates a new empty chain with the given name
+	 * @param name the String name of the chain
+	 */
 	public Chain(String name)
 	{
 		this.name = name; 
-		chain = new HashSet<RollingStock>(); 
+		cars = new HashSet<RollingStock>(); 
 	}
 
 	/**
@@ -63,19 +66,19 @@ public class Chain implements JSONable
 	@SuppressWarnings("unchecked")
 	public Set<RollingStock> getChain() 
 	{
-		return chain;
+		return cars;
 	}//end getChain
 
 	/**
-	 * TODO do i really want this? 
-	 * @param chain
+	 * Sets the chain to the parameter set of RollingStock 
+	 * @param chain a Set of RollingStock objects
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void setChain(Set chain) 
 	{
 		for(Object c : chain)
 		{
-			this.chain.add(c);
+			this.cars.add(c);
 		}
 	}
 	
@@ -86,7 +89,12 @@ public class Chain implements JSONable
 	@SuppressWarnings("unchecked")
 	public boolean addRollingStock(RollingStock car)
 	{
-		return ((this.chain.add(car)) ? car.setInChain(true) : false);
+		if(this.cars.add(car))
+		{
+			car.setInChain(this.getId()); 
+			return true; 
+		}
+		return false; 
 	}
 	
 	/**
@@ -115,20 +123,68 @@ public class Chain implements JSONable
 	{
 		return this.id; 
 	}
-	
-	
 
+	/**
+	 * @return the cars
+	 */
+	public Set getCars() {
+		return cars;
+	}
+
+	/**
+	 * @param cars the cars to set
+	 */
+	public void setCars(Set cars) {
+		this.cars = cars;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the userId
+	 */
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	
+	/**
+	 * Returns the hashcode for this chain. 
+	 */
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((chain == null) ? 0 : chain.hashCode());
+		result = prime * result + ((cars == null) ? 0 : cars.hashCode());
 		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
-
+	
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 * @return true if they are equal, otherwise false
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -138,10 +194,10 @@ public class Chain implements JSONable
 		if (getClass() != obj.getClass())
 			return false;
 		Chain other = (Chain) obj;
-		if (chain == null) {
-			if (other.chain != null)
+		if (cars == null) {
+			if (other.cars != null)
 				return false;
-		} else if (!chain.equals(other.chain))
+		} else if (!cars.equals(other.cars))
 			return false;
 		if (location == null) {
 			if (other.location != null)
@@ -161,6 +217,9 @@ public class Chain implements JSONable
 		return true;
 	}
 
+	/**
+	 * Creates a JSON representation of this chain
+	 */
 	@Override
 	public String toJSON()
 	{
@@ -178,7 +237,7 @@ public class Chain implements JSONable
 		}
 		json.add("\"location\": " + locationJSON);
 		StringJoiner carsJSON = new StringJoiner(", ", "[", "]");
-		for(Object r : chain)
+		for(Object r : cars)
 		{
 			carsJSON.add(((RollingStock) r).toJSON());
 		}

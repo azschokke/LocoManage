@@ -44,14 +44,14 @@ public class LocationController
 	 * @param body the post request body - a JSON object
 	 */
 	@PostMapping("/add/{id}")
-	public void addLocation(@RequestBody String body)
+	public void addLocation(@RequestBody String body, @PathVariable Integer id)
 	{
 		System.out.println(body);
 		HashMap requestBody = JSONUtilities.fromJson(body);
 		String name = requestBody.get("name").toString();
 		Integer parent = (int) Double.parseDouble(requestBody.get("parent").toString());
 		boolean isTrack = new Boolean(requestBody.get("isTrack").toString());
-		locationService.add(new Location(name, parent, isTrack));
+		locationService.add(new Location(name, parent, isTrack, id));
 	}//end addLocation
 	
 	/**

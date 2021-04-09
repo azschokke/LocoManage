@@ -3,79 +3,59 @@ import { Table, Button } from "react-bootstrap";
 
 const RollingStockTable = (props) =>
 {
-    const [stock, setStock] = useState([]);
+    console.log("rolling stock table");
+    console.log(props.stockList);
+    let previousSort = "";
+    // const [stock, setStock] = useState([]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => { setStock(props.stockList); console.log(props.add); console.log(stock) }, []);
+    // useEffect(() => { setStock(props.stockList); console.log(props.add); console.log(stock) }, []);
 
     function sort(sortType)
     {
+        console.log(sortType);
+        console.log(previousSort);
+        const swap = ((previousSort === sortType) ? -1 : 1);
+        console.log(swap);
         switch (sortType)
         {
+            //sort by owner (railroad name)
             case "r":
                 //set train to sorted copy of previous train
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => a.railroad.localeCompare(b.railroad)));
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => a.owner.name.localeCompare(b.railroad) * swap));
                 break;
-            case "m":
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => a.modelName.localeCompare(b.modelName)));
-                break;
-            case "t":
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => a.type.localeCompare(b.type)));
-                break;
-            case "y":
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => a.year - b.year));
-                break;
-            case "s":
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => 
-                {
-                    let aScale;
-                    let bScale;
-
-                    switch (a.scale)
-                    {
-                        case "Z":
-                            aScale = 0;
-                            break;
-                        case "N":
-                            aScale = 1;
-                            break;
-                        case "HO":
-                            aScale = 2;
-                            break;
-                        case "O":
-                            aScale = 3;
-                            break;
-                        default:
-                            aScale = 4;
-                    }
-
-                    switch (b.scale)
-                    {
-                        case "Z":
-                            bScale = 0;
-                            break;
-                        case "N":
-                            bScale = 1;
-                            break;
-                        case "HO":
-                            bScale = 2;
-                            break;
-                        case "O":
-                            bScale = 3;
-                            break;
-                        default:
-                            bScale = 4;
-                    }
-                    return aScale - bScale;
-                }));
-                console.log(stock);
-                break;
+            //sort by car number
             case "n":
-                setStock((previousTrain) => previousTrain.slice().sort((a, b) => a.number - b.number));
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => (a.carNumber - b.carNumber) * swap));
+                break;
+            //sort by length
+            case "l":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => (a.length - b.length) * swap));
+                break;
+            //sort by model
+            case "m":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => a.model.name.localeCompare(b.model.name)));
+                break;
+            //sort by classificaiton
+            case "c":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => a.model.classification.name.localeCompare(b.model.classification.name) * swap));
+                break;
+            //sort by scale
+            case "s":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => (a.productInfo.scale.id - b.productInfo.scale.id) * swap));
+                break;
+            //sort by manufacturer
+            case "pm":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => a.productInfo.manufacturer.name.localeCompare(b.productInfo.manufacturer.name) * swap));
+                break;
+            //sort by sku
+            case "ps":
+                props.setter((previousTrain) => previousTrain.slice().sort((a, b) => (a.productInfo.sku.localeCompare(b.productInfo.sku)) * swap));
                 break;
             default:
                 return;
         }//end switch
+        previousSort = sortType;
     }//end sort
 
     return (

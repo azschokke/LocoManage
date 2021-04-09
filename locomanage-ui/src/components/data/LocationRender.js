@@ -22,11 +22,7 @@ const LocationRender = (props) =>
                                         return (<LocationRender key={`loc${child.id}`} location={child}></LocationRender>);
                                     }))
                                     : /*else*/
-                                    (props.chains === undefined)
-                                        ? /* if */
-                                        "I'm a track!"
-                                        : /*else*/
-                                        "do chain stuff"
+                                    "I'm a track!"
                             }
                         </Card.Body>
                     </Accordion.Collapse>

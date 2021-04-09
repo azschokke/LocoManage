@@ -23,7 +23,7 @@ const Locations = () =>
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
                             {
-                                locations.map((i) => <LocationRender key={`loc${i.id}`} location={i}></LocationRender>)
+                                locations.map((i) => <LocationRender key={`loc${i.id}`} location={i} layout={false}></LocationRender>)
                             }
                             <br />
                             <AddLocation setter={setLocations}></AddLocation>

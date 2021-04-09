@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 /**
  * This class models a location in the model railroading system. Anything from a layout down to a track is a location. 
  * @author Alicen Zschokke
- *
  */
 @Entity
 public class Location implements JSONable
@@ -37,14 +36,21 @@ public class Location implements JSONable
 	private Integer userId; 
 	
 	/**
-	 * TODO comment this
+	 * Creates an empty Location
 	 */
 	public Location()
 	{
 		super(); 
 	}//end Location
 	
-	public Location(String name, Integer parentId, boolean isTrack)
+	/**
+	 * Creates a Location with the given information
+	 * @param name the name of this location
+	 * @param parentId the Id of the parent location oc this location
+	 * @param isTrack true if this location is a track
+	 * @param userId the Id of the user creating this location
+	 */
+	public Location(String name, Integer parentId, boolean isTrack, Integer userId)
 	{
 		this.setName(name);
 		if(parentId == null)
@@ -64,7 +70,7 @@ public class Location implements JSONable
 		{
 			children = new TreeSet<Location>(); 
 		}
-		
+		this.userId = userId; 
 		
 	}//end Location()
 	
@@ -77,8 +83,6 @@ public class Location implements JSONable
 	{
 		children.add(childLocation);
 	}//end addChild()
-	
-	//TODO I need a remove child
 
 	/**
 	 * Accessor for the name of this location. 
@@ -163,6 +167,9 @@ public class Location implements JSONable
 		return this.id; 
 	}
 	
+	/**
+	 * Creates a JSON representation of this Location object.
+	 */
 	public String toJSON()
 	{
 		StringJoiner json = new StringJoiner(",", "{", "}");
@@ -182,6 +189,9 @@ public class Location implements JSONable
 		return json.toString(); 
 	}//end toJSON
 
+	/**
+	 * Generates a hashcode for this Location
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -194,6 +204,9 @@ public class Location implements JSONable
 		return result;
 	}
 
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

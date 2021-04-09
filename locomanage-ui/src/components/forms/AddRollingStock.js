@@ -35,7 +35,7 @@ const AddRollingStock = (props) =>
     const handleSave = () => 
     {
         console.log(newRollingStock);
-        POST(`rollingStock/add/${window.localStorage.getItem("userId")}`, JSON.stringify(newRollingStock));
+        POST(`rollingStock/add/${window.localStorage.getItem("userId")}`, JSON.stringify(newRollingStock)).then(() => GET(`rollingStock/all/${window.localStorage.getItem("userId")}`, props.setter));
         handleClose();
     }
 
@@ -109,16 +109,6 @@ const AddRollingStock = (props) =>
                                             return <option key={`scale${i.id}`} value={i.id}>{i.name}</option>
                                         })}
                                     </Form.Control>
-                                </Col>
-                            </Row>
-                        </Form.Group>
-                        <Form.Group>
-                            <Row>
-                                <Col><Form.Label>Notes</Form.Label></Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Form.Control id="notes" as="textarea" rows={3} placeholder="notes" onChange={(event) => { setNewRollingStock((previous) => ({ ...previous, notes: event.target.value })) }} />
                                 </Col>
                             </Row>
                         </Form.Group>

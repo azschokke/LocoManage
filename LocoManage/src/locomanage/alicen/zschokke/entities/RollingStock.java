@@ -40,17 +40,28 @@ public class RollingStock implements JSONable
 	private String notes; //optional notes
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Product productInfo;
-	@Column
-	private boolean inChain; 
+	private Integer inChain; 
 	@Column
 	private Integer userId; 
 	
-	//TODO javadocs
+	/**
+	 * Creates a blank RollingStock item
+	 */
 	public RollingStock()
 	{
 		super(); 
 	}//end RollingStock()
 
+	/**
+	 * Creates a new RollingStock item
+	 * @param owner the Railroad that owns this RollingStock item
+	 * @param carNumber the number of this RollingStock item
+	 * @param length the length of this RollingStock item
+	 * @param model the model of RollingStock item
+	 * @param productInfo the product information for this RollingStock item
+	 * @param notes user notes on this RollingStock item
+	 * @param userId the id of the user creating this RollingStock item
+	 */
 	public RollingStock(Railroad owner, int carNumber, int length, Model model, Product productInfo, String notes, Integer userId)
 	{
 		this.setOwner(owner); 
@@ -59,7 +70,7 @@ public class RollingStock implements JSONable
 		this.setModel(model);
 		this.setProductInfo(productInfo); 
 		this.setNotes(notes);
-		this.setInChain(false);
+		this.setInChain(null);
 		this.setUserId(userId);
 	}
 	
@@ -188,13 +199,17 @@ public class RollingStock implements JSONable
 	 * Sets the chain Id of this RollingStock
 	 * @param chainId the Integer chainId of the chain this rolling stock belongs to
 	 */
-	public boolean setInChain(boolean inChain)
+	public Integer setInChain(Integer inChain)
 	{
 		this.inChain = inChain; 
 		return this.getInChain(); 
 	}
 	
-	public boolean getInChain()
+	/**
+	 * Accessor for the chainId of the chain this RollingStock item is in
+	 * @return the Integer id of the chain this RollingStock item is in, or null if it is not part of a chain
+	 */
+	public Integer getInChain()
 	{
 		return this.inChain; 
 	}
@@ -216,21 +231,9 @@ public class RollingStock implements JSONable
 			.toString();
 	}//end toJSON
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + carNumber;
-		result = prime * result + (inChain ? 1231 : 1237);
-		result = prime * result + length;
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + ((notes == null) ? 0 : notes.hashCode());
-		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
-		result = prime * result + ((productInfo == null) ? 0 : productInfo.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
-	}
-
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -242,7 +245,7 @@ public class RollingStock implements JSONable
 		RollingStock other = (RollingStock) obj;
 		if (carNumber != other.carNumber)
 			return false;
-		if (inChain != other.inChain)
+		if (!inChain.equals(other.inChain))
 			return false;
 		if (length != other.length)
 			return false;
