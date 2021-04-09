@@ -40,8 +40,7 @@ public class RollingStock implements JSONable
 	private String notes; //optional notes
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Product productInfo;
-	@Column
-	private boolean inChain; 
+	private Integer inChain; 
 	@Column
 	private Integer userId; 
 	
@@ -59,7 +58,7 @@ public class RollingStock implements JSONable
 		this.setModel(model);
 		this.setProductInfo(productInfo); 
 		this.setNotes(notes);
-		this.setInChain(false);
+		this.setInChain(null);
 		this.setUserId(userId);
 	}
 	
@@ -188,13 +187,13 @@ public class RollingStock implements JSONable
 	 * Sets the chain Id of this RollingStock
 	 * @param chainId the Integer chainId of the chain this rolling stock belongs to
 	 */
-	public boolean setInChain(boolean inChain)
+	public Integer setInChain(Integer inChain)
 	{
 		this.inChain = inChain; 
 		return this.getInChain(); 
 	}
 	
-	public boolean getInChain()
+	public Integer getInChain()
 	{
 		return this.inChain; 
 	}
@@ -217,21 +216,6 @@ public class RollingStock implements JSONable
 	}//end toJSON
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + carNumber;
-		result = prime * result + (inChain ? 1231 : 1237);
-		result = prime * result + length;
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + ((notes == null) ? 0 : notes.hashCode());
-		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
-		result = prime * result + ((productInfo == null) ? 0 : productInfo.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -242,7 +226,7 @@ public class RollingStock implements JSONable
 		RollingStock other = (RollingStock) obj;
 		if (carNumber != other.carNumber)
 			return false;
-		if (inChain != other.inChain)
+		if (!inChain.equals(other.inChain))
 			return false;
 		if (length != other.length)
 			return false;

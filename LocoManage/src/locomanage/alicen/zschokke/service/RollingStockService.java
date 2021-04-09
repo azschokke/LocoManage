@@ -90,6 +90,9 @@ public class RollingStockService
 			found.setNotes(rollingStock.getNotes());
 			found.setOwner(rollingStock.getOwner());
 			found.setProductInfo(rollingStock.getProductInfo());
+			found.setUserId(rollingStock.getUserId());
+			found.setInChain(rollingStock.getInChain());
+			this.rsr.save(found);
 		}//end try
 		catch(NullPointerException | NoSuchElementException e){}	
 		

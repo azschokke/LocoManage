@@ -42,19 +42,28 @@ public class ChainController
 	@PostMapping("/add/{id}")
 	public void add(@RequestBody String body, @PathVariable Integer id)
 	{
+		System.out.println("addChain");
 		System.out.println(body);
 		HashMap<String, Object> requestBody = JSONUtilities.fromJson(body);
 		System.out.println(requestBody);
 		Chain chain = new Chain(requestBody.get("name").toString());
+		chain.setUserId(id);
 		ArrayList<String> numbers = (ArrayList<String>) requestBody.get("cars");
 		for(String n : numbers)
 		{
 			RollingStock rs = this.rollingStockService.get(Integer.parseInt(n));
+//			System.out.println(rs);
 			chain.addRollingStock(rs);
-			rs.setInChain(true);
-			this.rollingStockService.update(rs);
 		}//end for
-		this.chainService.add(chain);
+		chain = this.chainService.add(chain);
+		for(String n : numbers)
+		{
+			RollingStock rs = this.rollingStockService.get(Integer.parseInt(n));
+			rs.setInChain(chain.getId());
+			System.out.println(rs.getInChain());
+			this.rollingStockService.update(rs);
+		}//end for 
+		
 	}//end add()
 	
 	@GetMapping("/all/{id}")

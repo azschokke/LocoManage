@@ -25,6 +25,6 @@ public interface RollingStockRepository extends CrudRepository<RollingStock, Int
 	 * Returns a List of all the RollingStock not in a chain in the database. 
 	 * @return a List of RollingStock
 	 */
-	@Query("SELECT r FROM RollingStock r WHERE r.inChain = 0 AND r.userId = ?1")
+	@Query("SELECT r FROM RollingStock r WHERE r.inChain IS NULL AND r.userId = ?1")
 	public List<RollingStock> findAvailable(Integer id); 
 }

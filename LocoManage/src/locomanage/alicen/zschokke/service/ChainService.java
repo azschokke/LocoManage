@@ -91,9 +91,9 @@ public class ChainService
 	 * Adds a chain to the database
 	 * @param c the chain to be added
 	 */
-	public void add(Chain c)
+	public Chain add(Chain c)
 	{
-		this.chainRepository.save(c);
+		return this.chainRepository.save(c);
 	}
 	
 	
