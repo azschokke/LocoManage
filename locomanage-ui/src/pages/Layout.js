@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/universal/Page";
-import LocationRender from "../components/data/LocationRender"
+import LayoutRender from "../components/data/LayoutRender"
 import { GET } from "../util/apiCommunication";
 
 const Layout = () =>
@@ -20,7 +20,7 @@ const Layout = () =>
                     locations.map((i, index) => 
                     {
                         console.log(i);
-                        return <LocationRender location={i} key={`layoutRoot${index}`} layout={true}></LocationRender>;
+                        return <LayoutRender location={i} key={`layoutRoot${index}`} layout={true}></LayoutRender>;
                     })
                 }
             </Page>

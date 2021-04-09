@@ -5,6 +5,7 @@ import { GET } from "../util/apiCommunication";
 import AddTrain from "../components/forms/AddTrain";
 import AddChain from "../components/forms/AddChain";
 import RollingStockTable from "../components/data/RollingStockTable";
+import ChainDisplay from "../components/data/ChainDisplay"
 
 const ChainBuilder = () =>
 {
@@ -63,17 +64,11 @@ const ChainBuilder = () =>
                         <Accordion.Toggle as={Card.Header} eventKey="1">Chain View</Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                {chains.map((i) =>
-                                    <Accordion>
-                                        <Card>
-                                            <Accordion.Toggle as={Card.header} eventKey={`chain${i.id}`}>
-                                                {i.name}
-                                            </Accordion.Toggle>
-                                            <Accordion.Collapse eventKey={`chain${i.id}`}>
-                                                <RollingStockTable stockList={i.cars}></RollingStockTable>
-                                            </Accordion.Collapse>
-                                        </Card>
-                                    </Accordion>)}
+                                <Accordion>
+                                    {chains.map((i) =>
+                                        <ChainDisplay chain={i}></ChainDisplay>
+                                    )}
+                                </Accordion>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
+:root {
+	--nav-bg-color: #1e5285;
+	--ilikethis: #343747ef;
+	--body-bg-color: #647080;
+}
+
 h1 {
 	font-family: "Russo One", sans-serif;
 	font-weight: normal;
@@ -8,8 +14,17 @@ h1 {
 
 nav,
 footer {
-	background-color: #1e5285;
+	background-color: var(--nav-bg-color);
 	color: white;
+}
+
+.btn {
+	background-color: var(--nav-bg-color);
+	border-color: var(--nav-bg-color);
+}
+
+.btn:hover {
+	background-color: #1c4d7d;
 }
 
 body {
@@ -26,7 +41,7 @@ header {
 
 .navbar-brand {
 	margin-left: 20px;
-	color: #1e5285;
+	color: var(--nav-bg-color);
 	clear: none;
 	font-family: "Wallpoet", sans-serif;
 }
@@ -73,6 +88,7 @@ footer a:hover {
 	width: 75%;
 	padding: auto;
 }
+
 #sign_in form input,
 #sign_in form button {
 	display: block;
@@ -84,6 +100,21 @@ footer a:hover {
 
 body {
 	padding: 75px;
+	background-color: var(--body-bg-color);
+	color: linen;
+}
+
+.card,
+.accordion {
+	color: #192d48;
+}
+
+.card {
+	margin: 5px;
+}
+
+.card-header {
+	background-color: lightgray;
 }
 
 .nav-pills .nav-link {

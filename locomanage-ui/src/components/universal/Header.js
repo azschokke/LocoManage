@@ -14,9 +14,6 @@ const Header = () =>
 				<div fill>
 					<Nav>
 						<Nav.Link>
-							<Link to="/">Home</Link>
-						</Nav.Link>
-						<Nav.Link>
 							<Link to="./sign-in">
 								Sign In
 					</Link>
@@ -31,10 +28,6 @@ const Header = () =>
 				<>
 					<div fill>
 						<Nav fill>
-							<Nav.Link>
-								<Link to="/">Home</Link>
-							</Nav.Link>
-
 							<Nav.Link>
 								<Link to="./inventory" id="inventory">
 									Inventory
