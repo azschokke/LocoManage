@@ -82,5 +82,44 @@ public class Product implements JSONable
 	{
 		return "{\"id\": " + this.getId() + ", \"scale\":" + this.getScale().toJSON() + ", \"manufacturer\": " + this.getManufacturer().toJSON() + ", \"sku\": \"" + this.getSku() + "\"}" ;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((manufacturer == null) ? 0 : manufacturer.hashCode());
+		result = prime * result + ((scale == null) ? 0 : scale.hashCode());
+		result = prime * result + ((sku == null) ? 0 : sku.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (manufacturer == null) {
+			if (other.manufacturer != null)
+				return false;
+		} else if (!manufacturer.equals(other.manufacturer))
+			return false;
+		if (scale == null) {
+			if (other.scale != null)
+				return false;
+		} else if (!scale.equals(other.scale))
+			return false;
+		if (sku == null) {
+			if (other.sku != null)
+				return false;
+		} else if (!sku.equals(other.sku))
+			return false;
+		return true;
+	}
+	
+	
 	
 }//end class Product

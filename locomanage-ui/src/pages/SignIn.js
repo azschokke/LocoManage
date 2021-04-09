@@ -36,8 +36,6 @@ const SignIn = (props) =>
                             <Form.Control type="password" name="password" id="password" placeholder="Password" onChange={(event) => { setExistingUser((previous) => ({ ...previous, password: event.target.value })) }} />
                         </Form.Group>
                         <Button id="submit" onClick={signIn}>Sign In</Button>
-                        <p onClick={() => alert("tough")}>Forgot username?</p>
-                        <p onClick={() => alert("tough")}>Forgot password?</p>
                     </Form>
                 </div>
 

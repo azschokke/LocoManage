@@ -95,7 +95,7 @@ const RollingStockTable = (props) =>
                 </tr>
             </thead>
             <tbody id="tableContent">
-                {props.stockList.map((i) =>
+                {(props.stockList === undefined) ? "" : props.stockList.map((i) =>
                 {
                     return <tr key={`rs${i.id}` + ((props.chain) ? "a" : "e")}>
                         <td key={`action${i.id}`} ><Button id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</Button></td>

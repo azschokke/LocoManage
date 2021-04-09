@@ -17,6 +17,6 @@ public interface ChainRepository extends CrudRepository<Chain, Integer>
 	/**
 	 * Returns a List of all the Chains in the database. 
 	 */
-	@Query("SELECT l from Location l WHERE l.userId = ?1")
+	@Query("SELECT c from Chain c WHERE c.userId = ?1")
 	public List<Chain> findAll(Integer id); 
 }

@@ -38,9 +38,10 @@ const ChainBuilder = () =>
     useEffect(() =>
     {
         // GET("railroad/all", setRailroads);
-        GET("chain/all", setChains);
+        GET(`chain/all/${window.localStorage.getItem("userId")}`, setChains);
         console.log(chains);
-        GET("rollingStock/available", setStock);
+        GET(`rollingStock/available/${window.localStorage.getItem("userId")}`, setStock);
+        //eslint-disable-next-line
     }, []);
     return (
         <>
@@ -62,16 +63,17 @@ const ChainBuilder = () =>
                         <Accordion.Toggle as={Card.Header} eventKey="1">Chain View</Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                {chains.map((i) => <Accordion>
-                                    <Card>
-                                        <Accordion.Toggle as={Card.header} eventKey={`chain${i.id}`}>
-                                            {i.name}
-                                        </Accordion.Toggle>
-                                        <Accordion.Collapse eventKey={`chain${i.id}`}>
-                                            <RollingStockTable stockList={i.cars}></RollingStockTable>
-                                        </Accordion.Collapse>
-                                    </Card>
-                                </Accordion>)}
+                                {chains.map((i) =>
+                                    <Accordion>
+                                        <Card>
+                                            <Accordion.Toggle as={Card.header} eventKey={`chain${i.id}`}>
+                                                {i.name}
+                                            </Accordion.Toggle>
+                                            <Accordion.Collapse eventKey={`chain${i.id}`}>
+                                                <RollingStockTable stockList={i.cars}></RollingStockTable>
+                                            </Accordion.Collapse>
+                                        </Card>
+                                    </Accordion>)}
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

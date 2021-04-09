@@ -44,7 +44,7 @@ public class ChainService
 	 * @param id the integer id of the chain
 	 * @return the Chain with the matching id, or null if no such chain exists
 	 */
-	public Chain get(int id)
+	public Chain get(Integer id)
 	{
 		try
 		{
@@ -63,15 +63,18 @@ public class ChainService
 	 */
 	public boolean update(Chain c)
 	{
+		Chain found;
 		try
 		{
-			Chain found = chainRepository.findById(c.getId()).get();
+			found = chainRepository.findById(c.getId()).get();
 			found.setLocation(c.getLocation());
+			
 		}
 		catch(NoSuchElementException e)
 		{
 			return false; 
 		}
+		chainRepository.save(found);
 		return true; 
 	}//end update(Chain c)
 	

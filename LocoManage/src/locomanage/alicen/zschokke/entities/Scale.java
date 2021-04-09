@@ -41,4 +41,31 @@ public class Scale implements JSONable
 	{
 		return "{\"id\": " + this.getId() + ", \"name\":\"" + this.getScale() + "\"}";
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((scale == null) ? 0 : scale.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Scale other = (Scale) obj;
+		if (scale == null) {
+			if (other.scale != null)
+				return false;
+		} else if (!scale.equals(other.scale))
+			return false;
+		return true;
+	}
+	
+	
 }//end Scale

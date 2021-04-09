@@ -215,5 +215,65 @@ public class RollingStock implements JSONable
 			.add("\"notes\": " + "\"" + this.getNotes() + "\"")
 			.toString();
 	}//end toJSON
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + carNumber;
+		result = prime * result + (inChain ? 1231 : 1237);
+		result = prime * result + length;
+		result = prime * result + ((model == null) ? 0 : model.hashCode());
+		result = prime * result + ((notes == null) ? 0 : notes.hashCode());
+		result = prime * result + ((owner == null) ? 0 : owner.hashCode());
+		result = prime * result + ((productInfo == null) ? 0 : productInfo.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RollingStock other = (RollingStock) obj;
+		if (carNumber != other.carNumber)
+			return false;
+		if (inChain != other.inChain)
+			return false;
+		if (length != other.length)
+			return false;
+		if (model == null) {
+			if (other.model != null)
+				return false;
+		} else if (!model.equals(other.model))
+			return false;
+		if (notes == null) {
+			if (other.notes != null)
+				return false;
+		} else if (!notes.equals(other.notes))
+			return false;
+		if (owner == null) {
+			if (other.owner != null)
+				return false;
+		} else if (!owner.equals(other.owner))
+			return false;
+		if (productInfo == null) {
+			if (other.productInfo != null)
+				return false;
+		} else if (!productInfo.equals(other.productInfo))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
+	}
+	
+	
 	
 }//end class TrainCar

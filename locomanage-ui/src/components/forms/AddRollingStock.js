@@ -41,7 +41,7 @@ const AddRollingStock = (props) =>
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" onClick={handleShow} block>
                 Add Rolling Stock
             </Button>
 

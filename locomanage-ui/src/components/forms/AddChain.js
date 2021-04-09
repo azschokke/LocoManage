@@ -13,7 +13,7 @@ const AddChain = (props) =>
     const handleSave = () =>
     {
         console.log("save!");
-        POST("chain/add/{id}", JSON.stringify(chain));
+        POST(`chain/add/${window.localStorage.getItem("userId")}`, JSON.stringify(chain));
         console.log(JSON.stringify(chain));
         handleClose();
     }

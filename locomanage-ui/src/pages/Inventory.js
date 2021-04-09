@@ -18,17 +18,18 @@ const Inventory = () =>
     return (
         <Page>
             <h1>Your Inventory</h1>
-            <Accordion>
-                <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="3">Rolling Stock</Accordion.Toggle>
-                    <Accordion.Collapse eventKey="3">
-                        <Card.Body>
 
-                            <RollingStockTable stockList={stock} add={false}></RollingStockTable>
-                            <AddRollingStock setter={setStock}></AddRollingStock>
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
+            <Card>
+                <Card.Header>Rolling Stock</Card.Header>
+
+                <Card.Body>
+
+                    <RollingStockTable stockList={stock} add={false}></RollingStockTable>
+                    <AddRollingStock setter={setStock}></AddRollingStock>
+                </Card.Body>
+
+            </Card>
+            <Accordion>
                 <Card>
                     <Accordion.Toggle as={Card.Header} eventKey="4">Categories</Accordion.Toggle>
                     <Accordion.Collapse eventKey="4">

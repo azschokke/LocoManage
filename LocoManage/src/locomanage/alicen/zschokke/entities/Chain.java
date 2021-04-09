@@ -60,6 +60,7 @@ public class Chain implements JSONable
 	 * Returns a list of the <b>Train Cars</b> in this Chain. 
 	 * @return a list of the train cars in this chain. 
 	 */
+	@SuppressWarnings("unchecked")
 	public Set<RollingStock> getChain() 
 	{
 		return chain;
@@ -113,6 +114,51 @@ public class Chain implements JSONable
 	public Integer getId()
 	{
 		return this.id; 
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((chain == null) ? 0 : chain.hashCode());
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Chain other = (Chain) obj;
+		if (chain == null) {
+			if (other.chain != null)
+				return false;
+		} else if (!chain.equals(other.chain))
+			return false;
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (userId == null) {
+			if (other.userId != null)
+				return false;
+		} else if (!userId.equals(other.userId))
+			return false;
+		return true;
 	}
 
 	@Override
