@@ -7,6 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+/**
+ * This class models a Product
+ * @author Alicen Zschokke
+ *
+ */
 @Entity
 public class Product implements JSONable
 {
@@ -20,8 +25,17 @@ public class Product implements JSONable
 	@Column
 	private String sku; 
 	
+	/**
+	 * Creates an empty product
+	 */
 	public Product() {}
 	
+	/**
+	 * Creates a product with the given manufacturer, scale, and sku
+	 * @param manufacturer the manufacturer of this product
+	 * @param scale the scale of this product
+	 * @param sku the sku of this product
+	 */
 	public Product(Manufacturer manufacturer, Scale scale, String sku)
 	{
 		this.setManufacturer(manufacturer);
@@ -78,11 +92,17 @@ public class Product implements JSONable
 		return id;
 	}
 	
+	/**
+	 * Creates a Json representation of this product
+	 */
 	public String toJSON()
 	{
 		return "{\"id\": " + this.getId() + ", \"scale\":" + this.getScale().toJSON() + ", \"manufacturer\": " + this.getManufacturer().toJSON() + ", \"sku\": \"" + this.getSku() + "\"}" ;
 	}
 
+	/**
+	 * Generates a hashcode for this product. 
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,6 +113,10 @@ public class Product implements JSONable
 		return result;
 	}
 
+	/**
+	 * Determines if this object and the parameter object are equal.
+	 * @return true if they are equal, otherwise false
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

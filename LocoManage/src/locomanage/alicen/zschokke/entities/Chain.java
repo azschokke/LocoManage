@@ -49,6 +49,10 @@ public class Chain implements JSONable
 		cars = new HashSet<RollingStock>(); 
 	}//end Chain()
 	
+	/**
+	 * Creates a new empty chain with the given name
+	 * @param name the String name of the chain
+	 */
 	public Chain(String name)
 	{
 		this.name = name; 
@@ -66,8 +70,8 @@ public class Chain implements JSONable
 	}//end getChain
 
 	/**
-	 * TODO do i really want this? 
-	 * @param chain
+	 * Sets the chain to the parameter set of RollingStock 
+	 * @param chain a Set of RollingStock objects
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void setChain(Set chain) 
@@ -161,9 +165,13 @@ public class Chain implements JSONable
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-
+	
+	/**
+	 * Returns the hashcode for this chain. 
+	 */
 	@Override
-	public int hashCode() {
+	public int hashCode()
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cars == null) ? 0 : cars.hashCode());
@@ -172,7 +180,11 @@ public class Chain implements JSONable
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
 	}
-
+	
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 * @return true if they are equal, otherwise false
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -205,6 +217,9 @@ public class Chain implements JSONable
 		return true;
 	}
 
+	/**
+	 * Creates a JSON representation of this chain
+	 */
 	@Override
 	public String toJSON()
 	{

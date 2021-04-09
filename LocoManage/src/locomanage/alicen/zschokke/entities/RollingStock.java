@@ -44,12 +44,24 @@ public class RollingStock implements JSONable
 	@Column
 	private Integer userId; 
 	
-	//TODO javadocs
+	/**
+	 * Creates a blank RollingStock item
+	 */
 	public RollingStock()
 	{
 		super(); 
 	}//end RollingStock()
 
+	/**
+	 * Creates a new RollingStock item
+	 * @param owner the Railroad that owns this RollingStock item
+	 * @param carNumber the number of this RollingStock item
+	 * @param length the length of this RollingStock item
+	 * @param model the model of RollingStock item
+	 * @param productInfo the product information for this RollingStock item
+	 * @param notes user notes on this RollingStock item
+	 * @param userId the id of the user creating this RollingStock item
+	 */
 	public RollingStock(Railroad owner, int carNumber, int length, Model model, Product productInfo, String notes, Integer userId)
 	{
 		this.setOwner(owner); 
@@ -193,6 +205,10 @@ public class RollingStock implements JSONable
 		return this.getInChain(); 
 	}
 	
+	/**
+	 * Accessor for the chainId of the chain this RollingStock item is in
+	 * @return the Integer id of the chain this RollingStock item is in, or null if it is not part of a chain
+	 */
 	public Integer getInChain()
 	{
 		return this.inChain; 
@@ -215,6 +231,9 @@ public class RollingStock implements JSONable
 			.toString();
 	}//end toJSON
 
+	/**
+	 * Determines if the parameter object is equal to this object. 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
