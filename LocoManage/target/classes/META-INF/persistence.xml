@@ -13,7 +13,6 @@
 		<class>locomanage.alicen.zschokke.entities.Railroad</class>
 		<class>locomanage.alicen.zschokke.entities.RollingStock</class>
 		<class>locomanage.alicen.zschokke.entities.Scale</class>
-		<class>locomanage.alicen.zschokke.entities.Train</class>
 		<class>locomanage.alicen.zschokke.entities.User</class>
 		
 		<properties>

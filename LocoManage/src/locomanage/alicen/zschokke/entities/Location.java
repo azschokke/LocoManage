@@ -44,7 +44,7 @@ public class Location implements JSONable
 		super(); 
 	}//end Location
 	
-	public Location(String name, Integer parentId, boolean isTrack)
+	public Location(String name, Integer parentId, boolean isTrack, Integer userId)
 	{
 		this.setName(name);
 		if(parentId == null)
@@ -64,7 +64,7 @@ public class Location implements JSONable
 		{
 			children = new TreeSet<Location>(); 
 		}
-		
+		this.userId = userId; 
 		
 	}//end Location()
 	

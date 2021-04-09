@@ -71,4 +71,10 @@ public class ChainController
 	{
 		return JSONUtilities.listToJson(this.chainService.getAll(id));
 	}
+	
+	@GetMapping("/byTrack/{tId}")
+	public String getByTrack( @PathVariable Integer tId)
+	{
+		return JSONUtilities.listToJson(this.chainService.getByTrack(tId));
+	}
 }//end ChainController

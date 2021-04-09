@@ -2,6 +2,8 @@ const base = "http://localhost:8080/locomanage/";
 
 export function GET(path, setter)
 {
+    console.log(base + path);
+    console.log(setter);
     return fetch(base + path).then((response) => response.json().then((data) => setter(data)));
 }
 
