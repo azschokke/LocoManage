@@ -2,6 +2,7 @@ package locomanage.alicen.zschokke.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +46,21 @@ public class UserController
 	 * @throws Exception 
 	 */
 	@PostMapping("/add")
-	public void addUser(@RequestBody String body) throws Exception
+	public String addUser(@RequestBody String body) throws Exception
 	{
-		HashMap<String, Object> userInfo = JSONUtilities.fromJson(body); 
+		try
+		{
+			HashMap<String, Object> userInfo = JSONUtilities.fromJson(body); 
 
-		User newUser = new User(userInfo.get("name").toString(), userInfo.get("email").toString(), userInfo.get("username").toString(), userInfo.get("password").toString(), userInfo.get("confirmPassword").toString());
-		userService.add(newUser);
+			User newUser = new User(userInfo.get("name").toString(), userInfo.get("email").toString(), userInfo.get("username").toString(), userInfo.get("password").toString(), userInfo.get("confirmPassword").toString());
+			userService.add(newUser);
+			return "true";
+		}
+		catch(Exception e)
+		{
+			return "false"; 
+		}
+		
 	}//end addUser
 	
 	/**

@@ -28,10 +28,12 @@ export async function UPDATE(entity, goal, data, setter)
 
 export async function LOGIN(user)
 {
+    console.log("LOGIN");
     let response = await fetch(base + "user/login", { method: 'POST', body: JSON.stringify(user) });
     console.log(response);
     await response.json().then((data) =>
     {
+        console.log(data);
         if (data === false)
         {
             alert("Invalid login.");

@@ -84,6 +84,10 @@ footer a:hover {
 	text-align: center;
 }
 
+.modal-content {
+	color: black;
+}
+
 #sign_in form {
 	width: 75%;
 	padding: auto;

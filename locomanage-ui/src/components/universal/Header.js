@@ -53,7 +53,7 @@ const Header = () =>
 							</Nav.Link>
 
 							<Nav.Link>
-								<Link to="./" onClick={() => { window.localStorage.removeItem("username"); window.localStorage.removeItem("userId"); }}>
+								<Link to="./" onClick={() => { window.localStorage.removeItem("username"); window.localStorage.removeItem("userId"); window.location.href = "/"; }}>
 									Sign Out
 								</Link>
 							</Nav.Link>

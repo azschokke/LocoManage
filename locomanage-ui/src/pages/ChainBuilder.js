@@ -48,6 +48,7 @@ const ChainBuilder = () =>
         <>
             <Page>
                 <h1>Chain Builder</h1>
+                { /*
                 <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="0">Train View</Accordion.Toggle>
@@ -59,6 +60,7 @@ const ChainBuilder = () =>
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>
+                */}
                 <Accordion>
                     <Card>
                         <Accordion.Toggle as={Card.Header} eventKey="1">Chain View</Accordion.Toggle>
@@ -92,7 +94,7 @@ const ChainBuilder = () =>
                                         </Form.Group>
                                     </Form>
                                             */}
-                                <RollingStockTable stockList={stock} userAction={changeChain} chain={true}></RollingStockTable>
+                                <RollingStockTable stockList={stock} setter={setStock} userAction={changeChain} chain={true}></RollingStockTable>
                                 <AddChain stock={newChain}></AddChain>
                             </Card.Body>
                         </Accordion.Collapse>

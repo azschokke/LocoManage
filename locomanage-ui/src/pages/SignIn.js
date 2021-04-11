@@ -12,6 +12,7 @@ const SignIn = (props) =>
         console.log("sign up ");
         console.log(newUser);
         POST("user/add", JSON.stringify(newUser));
+        window.location.href = "/sign-in";
     }
 
     function signIn()
