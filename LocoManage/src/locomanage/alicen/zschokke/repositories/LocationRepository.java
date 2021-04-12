@@ -36,4 +36,10 @@ public interface LocationRepository extends CrudRepository<Location, Integer>
 	 */
 	@Query("SELECT l FROM Location l WHERE l.parentId = 0 AND l.userId=?1")
 	public Iterable<Location> findRoots(Integer id);
+	
+	/**
+	 * @return an Iterable of Location entities
+	 */
+	@Query("SELECT l FROM Location l WHERE l.isTrack = 1 AND l.userId=?1")
+	public Iterable<Location> findTracks(Integer id);
 }

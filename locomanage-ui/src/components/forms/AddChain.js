@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Row, Col } from "react-bootstrap"
-import { POST } from "../../util/apiCommunication";
-// import { POST } from "../../util/thatsSoFetch";
+import { POST, GET } from "../../util/apiCommunication";
 
 const AddChain = (props) => 
 {
     const [show, setShow] = useState(false);
-    const [chain, setChain] = useState({ name: "", cars: props.stock });
+    const [chain, setChain] = useState({ name: "", cars: props.stock, location: 0 });
+    const [tracks, setTracks] = useState([]);
+
+    useEffect(() =>
+    {
+        GET(`location/tracks/${window.localStorage.getItem("userId")}`, setTracks);
+    });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -17,6 +22,8 @@ const AddChain = (props) =>
         console.log(JSON.stringify(chain));
         handleClose();
     }
+
+
 
     return (
         <>
@@ -36,6 +43,22 @@ const AddChain = (props) =>
                                 <Col md={4}><Form.Label>Chain Name</Form.Label></Col>
                                 <Col md={8}>
                                     <Form.Control placeholder="train" onChange={(event) => { setChain((previous) => ({ ...previous, name: event.target.value })) }} />
+                                </Col>
+                            </Row>
+                        </Form.Group>
+                        <Form.Group>
+                            <Row>
+                                <Col md={4}><Form.Label>Location</Form.Label></Col>
+                                <Col md={8}>
+                                    <Form.Control as="select" placeholder="tracks" onChange={(event) => { setChain((previous) => ({ ...previous, location: event.target.value })) }}>
+                                        <option value={0}>None</option>
+                                        {
+                                            tracks.map((i) =>
+                                            {
+                                                return <option value={i.id} key={`chainLocationSelect${i.id}`}>{i.name}</option>
+                                            })
+                                        }
+                                    </Form.Control>
                                 </Col>
                             </Row>
                         </Form.Group>
