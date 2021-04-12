@@ -74,6 +74,12 @@ public class LocationController
 		return JSONUtilities.listToJson(locationService.getRoots(id)); 
 	}
 	
+	@GetMapping("/tracks/{id}")
+	public String getTracks(@PathVariable Integer id)
+	{
+		return JSONUtilities.listToJson(locationService.getTracks(id)); 
+	}
+	
 	/*
 	 * Converts an Iterable<Location> to a JSON array of location objects containing only names and ids
 	 */

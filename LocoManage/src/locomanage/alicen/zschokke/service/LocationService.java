@@ -75,4 +75,9 @@ public class LocationService
 	{
 		return locationRepository.findRoots(id); 
 	}
+	
+	public Iterable<Location> getTracks(Integer id)
+	{
+		return locationRepository.findTracks(id);
+	}
 }//end LocationService

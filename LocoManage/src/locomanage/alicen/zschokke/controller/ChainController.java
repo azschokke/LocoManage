@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import locomanage.alicen.zschokke.entities.Chain;
+import locomanage.alicen.zschokke.entities.Location;
 import locomanage.alicen.zschokke.entities.RollingStock;
 import locomanage.alicen.zschokke.json.JSONUtilities;
 import locomanage.alicen.zschokke.service.ChainService;
+import locomanage.alicen.zschokke.service.LocationService;
 import locomanage.alicen.zschokke.service.RollingStockService;
 
 /**
@@ -32,6 +34,7 @@ public class ChainController
 	private ChainService chainService;
 	//rollingStock service
 	private RollingStockService rollingStockService; 
+	private LocationService locationService; 
 	
 	/**
 	 * Autowired constructor
@@ -39,10 +42,11 @@ public class ChainController
 	 * @param rollingStockService
 	 */
 	@Autowired
-	public ChainController(ChainService chainService, RollingStockService rollingStockService)
+	public ChainController(ChainService chainService, RollingStockService rollingStockService, LocationService locationService)
 	{
 		this.chainService = chainService; 
 		this.rollingStockService = rollingStockService; 
+		this.locationService = locationService; 
 	}//end ChainController(chainService, rollingStockService)
 	
 	/**
@@ -59,6 +63,8 @@ public class ChainController
 		System.out.println(requestBody);
 		Chain chain = new Chain(requestBody.get("name").toString());
 		chain.setUserId(id);
+		Location location = locationService.get( (int) Double.parseDouble(requestBody.get("location").toString()));
+		chain.setLocation(location);
 		ArrayList<String> numbers = (ArrayList<String>) requestBody.get("cars");
 		for(String n : numbers)
 		{
