@@ -95,7 +95,7 @@ const ChainBuilder = () =>
                                     </Form>
                                             */}
                                 <RollingStockTable stockList={stock} setter={setStock} userAction={changeChain} chain={true}></RollingStockTable>
-                                <AddChain stock={newChain}></AddChain>
+                                <AddChain stock={newChain} availableCars={setStock} chains={setChains}></AddChain>
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>

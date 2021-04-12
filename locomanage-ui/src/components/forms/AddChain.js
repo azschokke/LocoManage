@@ -18,12 +18,14 @@ const AddChain = (props) =>
     const handleSave = () =>
     {
         console.log("save!");
-        POST(`chain/add/${window.localStorage.getItem("userId")}`, JSON.stringify(chain));
+        POST(`chain/add/${window.localStorage.getItem("userId")}`, JSON.stringify(chain)).then(() => 
+        {
+            GET(`chain/all/${window.localStorage.getItem("userId")}`, props.chains);
+            GET(`rollingStock/available/${window.localStorage.getItem("userId")}`, props.availableCars);
+        });
         console.log(JSON.stringify(chain));
         handleClose();
     }
-
-
 
     return (
         <>
