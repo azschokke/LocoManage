@@ -26,7 +26,7 @@ const Locations = () =>
                                 locations.map((i) => <LocationRender key={`loc${i.id}`} location={i} layout={false}></LocationRender>)
                             }
                             <br />
-                            <AddLocation setter={setLocations}></AddLocation>
+                            <AddLocation setter={setLocations} locations={locations}></AddLocation>
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

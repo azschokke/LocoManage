@@ -11,7 +11,7 @@ const AddLocation = (props) =>
     useEffect(() =>
     {
         GET(`location/listNames/${window.localStorage.getItem("userId")}`, setLocations);
-    }, []);
+    }, [props.locations]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

@@ -15,8 +15,6 @@ const RollingStockTable = (props) =>
     {
         if (props.setter !== undefined)
         {
-
-
             console.log("sort type: " + sortType);
             console.log(previousSort);
             const swap = ((previousSort === sortType) ? -1 : 1);
@@ -76,7 +74,7 @@ const RollingStockTable = (props) =>
             {console.log("Stock List: " + props.stockList)}
             <thead>
                 <tr key="trainTableHeaders">
-                    <th key="userActionHeader"></th>
+                    {(props.chain) ? <th key="userActionHeader"></th> : ""}
                     <th key="railroadHeader" onClick={() => sort("r")}>Railroad</th>
                     <th key="carNumberHeader" onClick={() => sort("n")}>Car Number</th>
                     <th key="lengthHeader" onClick={() => sort("l")}>Length</th>
@@ -91,7 +89,7 @@ const RollingStockTable = (props) =>
                 {(props.stockList === undefined) ? "" : props.stockList.map((i) =>
                 {
                     return <tr key={`rs${i.id}` + ((props.chain) ? "a" : "e")}>
-                        <td key={`action${i.id}`} ><Button id={i.id} onClick={props.userAction}>{(props.chain) ? "Add" : "Edit"}</Button></td>
+                        {(props.chain) ? <td key={`action${i.id}`} ><Button id={i.id} onClick={props.userAction}> "Add"</Button></td> : ""}
                         <td key={`rs${i.id}r`}>{i.owner.name}</td>
                         <td key={`rs${i.id}c`}>{i.carNumber}</td>
                         <td key={`rs${i.id}l`}>{i.length}</td>
